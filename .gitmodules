@@ -7,3 +7,6 @@
 [submodule "ThirdParty/cocoa-oauth"]
 	path = ThirdParty/cocoa-oauth
 	url = git@github.com:socialize/cocoa-oauth
+[submodule "Scripts"]
+	path = Scripts
+	url = git@github.com:socialize/socialize-project-helpers-ios.git
