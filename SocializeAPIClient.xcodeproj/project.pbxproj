@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA362C5616432D7600423F2A /* libGHUnitIOSSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4F564F16431A6900B66710 /* libGHUnitIOSSimulator.a */; };
-		AA362C981643334600423F2A /* libGCOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA362C961643328500423F2A /* libGCOAuth.a */; };
-		AA362C991643334B00423F2A /* libGCOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA362C961643328500423F2A /* libGCOAuth.a */; };
+		AA24E3EC16485294005FFFB4 /* libGCOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3EB16485285005FFFB4 /* libGCOAuth.a */; };
+		AA24E3ED1648529B005FFFB4 /* libGCOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3EB16485285005FFFB4 /* libGCOAuth.a */; };
+		AA24E3EE164852A2005FFFB4 /* libGHUnitIOSSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3DE164851CF005FFFB4 /* libGHUnitIOSSimulator.a */; };
+		AA24E41F16485409005FFFB4 /* GCDAProfiling.c in Sources */ = {isa = PBXBuildFile; fileRef = AA24E41E16485409005FFFB4 /* GCDAProfiling.c */; };
 		AA4F55791642F2AA00B66710 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC06A3C163B3F680077C025 /* Foundation.framework */; };
 		AA4F55841642F2D200B66710 /* NSData+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A80163B5A8E0077C025 /* NSData+JSONHelpers.m */; };
 		AA4F55851642F2D200B66710 /* NSObject+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD9142C163F3C6A00223157 /* NSObject+JSONHelpers.m */; };
@@ -45,14 +46,34 @@
 		AA4F56961643233C00B66710 /* SZError.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A83163B5A970077C025 /* SZError.m */; };
 		AA4F56971643233C00B66710 /* SZAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08F48F1641C8EA00CB803F /* SZAPIClient.m */; };
 		AA4F569B1643233C00B66710 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC06A3C163B3F680077C025 /* Foundation.framework */; };
-		AA4F56A21643240700B66710 /* GCDAProfiling.c in Sources */ = {isa = PBXBuildFile; fileRef = AA4F56A11643240700B66710 /* GCDAProfiling.c */; };
 		AA4F56A41643248700B66710 /* libSocializeAPIClient-profiling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4F56A01643233C00B66710 /* libSocializeAPIClient-profiling.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AA362C951643328500423F2A /* PBXContainerItemProxy */ = {
+		AA24E3DD164851CF005FFFB4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AA362C8E1643328400423F2A /* GCOAuth.xcodeproj */;
+			containerPortal = AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0041C5EA13BA7B8A0015FC22;
+			remoteInfo = "GHUnitIOS (Simulator)";
+		};
+		AA24E3DF164851CF005FFFB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0041C61313BA7C6C0015FC22;
+			remoteInfo = "GHUnitIOS (Device)";
+		};
+		AA24E3E1164851CF005FFFB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0097C4A813BA7FC800D3BEF0;
+			remoteInfo = Tests;
+		};
+		AA24E3EA16485285005FFFB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA24E3E316485284005FFFB4 /* GCOAuth.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = AA362C63164330CE00423F2A;
 			remoteInfo = GCOAuth;
@@ -77,27 +98,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 030EF0DC14632FF700B04273;
 			remoteInfo = OCMockLib;
-		};
-		AA4F564E16431A6900B66710 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA4F564316431A6900B66710 /* GHUnitIOS.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0041C5EA13BA7B8A0015FC22;
-			remoteInfo = "GHUnitIOS (Simulator)";
-		};
-		AA4F565016431A6900B66710 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA4F564316431A6900B66710 /* GHUnitIOS.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0041C61313BA7C6C0015FC22;
-			remoteInfo = "GHUnitIOS (Device)";
-		};
-		AA4F565216431A6900B66710 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA4F564316431A6900B66710 /* GHUnitIOS.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0097C4A813BA7FC800D3BEF0;
-			remoteInfo = Tests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -129,7 +129,9 @@
 		AA08F48E1641C8EA00CB803F /* SZAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAPIClient.h; sourceTree = "<group>"; };
 		AA08F48F1641C8EA00CB803F /* SZAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZAPIClient.m; sourceTree = "<group>"; };
 		AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperation_private.h; sourceTree = "<group>"; };
-		AA362C8E1643328400423F2A /* GCOAuth.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GCOAuth.xcodeproj; path = "ThirdParty/cocoa-oauth/GCOAuth.xcodeproj"; sourceTree = "<group>"; };
+		AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHUnitIOS.xcodeproj; path = "ThirdParty/gh-unit/Project-iOS/GHUnitIOS.xcodeproj"; sourceTree = "<group>"; };
+		AA24E3E316485284005FFFB4 /* GCOAuth.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GCOAuth.xcodeproj; path = "ThirdParty/cocoa-oauth/GCOAuth.xcodeproj"; sourceTree = "<group>"; };
+		AA24E41E16485409005FFFB4 /* GCDAProfiling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GCDAProfiling.c; sourceTree = "<group>"; };
 		AA459ED51641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+StringEncoding.h"; sourceTree = "<group>"; };
 		AA459ED61641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPURLResponse+StringEncoding.m"; sourceTree = "<group>"; };
 		AA4F55781642F2AA00B66710 /* libSocializeAPIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSocializeAPIClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,11 +150,9 @@
 		AA4F55F61643061400B66710 /* SZTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTestCase.m; sourceTree = "<group>"; };
 		AA4F55F81643071500B66710 /* SZAPIClientTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAPIClientTests.h; sourceTree = "<group>"; };
 		AA4F55F91643071500B66710 /* SZAPIClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZAPIClientTests.m; sourceTree = "<group>"; };
-		AA4F564316431A6900B66710 /* GHUnitIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHUnitIOS.xcodeproj; path = "ThirdParty/GHUnit/Project-iOS/GHUnitIOS.xcodeproj"; sourceTree = "<group>"; };
 		AA4F568216431F1000B66710 /* SocializeUnitTestApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocializeUnitTestApplication.h; sourceTree = "<group>"; };
 		AA4F568316431F1000B66710 /* SocializeUnitTestApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocializeUnitTestApplication.m; sourceTree = "<group>"; };
 		AA4F56A01643233C00B66710 /* libSocializeAPIClient-profiling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSocializeAPIClient-profiling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA4F56A11643240700B66710 /* GCDAProfiling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = GCDAProfiling.c; path = "../../../ios/socialize-sdk-ios/UnitTests/GCDAProfiling.c"; sourceTree = "<group>"; };
 		AAC06A3A163B3F680077C025 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AAC06A3C163B3F680077C025 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AAC06A3E163B3F680077C025 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -177,7 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA362C981643334600423F2A /* libGCOAuth.a in Frameworks */,
+				AA24E3EC16485294005FFFB4 /* libGCOAuth.a in Frameworks */,
 				AA4F55791642F2AA00B66710 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,7 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA362C5616432D7600423F2A /* libGHUnitIOSSimulator.a in Frameworks */,
+				AA24E3EE164852A2005FFFB4 /* libGHUnitIOSSimulator.a in Frameworks */,
 				AA4F56A41643248700B66710 /* libSocializeAPIClient-profiling.a in Frameworks */,
 				AA4F55F4164305CB00B66710 /* libOCMock.a in Frameworks */,
 				AA4F55E31643033E00B66710 /* QuartzCore.framework in Frameworks */,
@@ -200,7 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA362C991643334B00423F2A /* libGCOAuth.a in Frameworks */,
+				AA24E3ED1648529B005FFFB4 /* libGCOAuth.a in Frameworks */,
 				AA4F569B1643233C00B66710 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,10 +242,20 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		AA362C8F1643328400423F2A /* Products */ = {
+		AA24E3D3164851CE005FFFB4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA362C961643328500423F2A /* libGCOAuth.a */,
+				AA24E3DE164851CF005FFFB4 /* libGHUnitIOSSimulator.a */,
+				AA24E3E0164851CF005FFFB4 /* libGHUnitIOSDevice.a */,
+				AA24E3E2164851CF005FFFB4 /* Tests.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA24E3E416485284005FFFB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA24E3EB16485285005FFFB4 /* libGCOAuth.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,7 +272,7 @@
 		AA4F559B1642F35700B66710 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AA4F56A11643240700B66710 /* GCDAProfiling.c */,
+				AA24E41E16485409005FFFB4 /* GCDAProfiling.c */,
 				AA4F568216431F1000B66710 /* SocializeUnitTestApplication.h */,
 				AA4F568316431F1000B66710 /* SocializeUnitTestApplication.m */,
 				AA4F559C1642F35700B66710 /* SocializeAPIClient Tests-Info.plist */,
@@ -293,16 +303,6 @@
 				AA4F55EF164305BC00B66710 /* OCMock.framework */,
 				AA4F55F1164305BC00B66710 /* OCMockTests.octest */,
 				AA4F55F3164305BC00B66710 /* libOCMock.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		AA4F564416431A6900B66710 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AA4F564F16431A6900B66710 /* libGHUnitIOSSimulator.a */,
-				AA4F565116431A6900B66710 /* libGHUnitIOSDevice.a */,
-				AA4F565316431A6900B66710 /* Tests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -370,8 +370,8 @@
 		AAC06A6C163B53B10077C025 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				AA362C8E1643328400423F2A /* GCOAuth.xcodeproj */,
-				AA4F564316431A6900B66710 /* GHUnitIOS.xcodeproj */,
+				AA24E3E316485284005FFFB4 /* GCOAuth.xcodeproj */,
+				AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */,
 				AA4F55E5164305BC00B66710 /* OCMock.xcodeproj */,
 			);
 			name = ThirdParty;
@@ -384,6 +384,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA4F55811642F2AA00B66710 /* Build configuration list for PBXNativeTarget "SocializeAPIClient" */;
 			buildPhases = (
+				AA24E3D116485181005FFFB4 /* External Substitutions */,
 				AA4F55741642F2AA00B66710 /* Sources */,
 				AA4F55751642F2AA00B66710 /* Frameworks */,
 				AA4F55761642F2AA00B66710 /* CopyFiles */,
@@ -424,6 +425,7 @@
 				AA4F568D1643233C00B66710 /* Sources */,
 				AA4F569A1643233C00B66710 /* Frameworks */,
 				AA4F569C1643233C00B66710 /* CopyFiles */,
+				AA24E3EF164852F3005FFFB4 /* External Substitutions */,
 			);
 			buildRules = (
 			);
@@ -456,12 +458,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = AA362C8F1643328400423F2A /* Products */;
-					ProjectRef = AA362C8E1643328400423F2A /* GCOAuth.xcodeproj */;
+					ProductGroup = AA24E3E416485284005FFFB4 /* Products */;
+					ProjectRef = AA24E3E316485284005FFFB4 /* GCOAuth.xcodeproj */;
 				},
 				{
-					ProductGroup = AA4F564416431A6900B66710 /* Products */;
-					ProjectRef = AA4F564316431A6900B66710 /* GHUnitIOS.xcodeproj */;
+					ProductGroup = AA24E3D3164851CE005FFFB4 /* Products */;
+					ProjectRef = AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */;
 				},
 				{
 					ProductGroup = AA4F55E6164305BC00B66710 /* Products */;
@@ -478,11 +480,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		AA362C961643328500423F2A /* libGCOAuth.a */ = {
+		AA24E3DE164851CF005FFFB4 /* libGHUnitIOSSimulator.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGHUnitIOSSimulator.a;
+			remoteRef = AA24E3DD164851CF005FFFB4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA24E3E0164851CF005FFFB4 /* libGHUnitIOSDevice.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGHUnitIOSDevice.a;
+			remoteRef = AA24E3DF164851CF005FFFB4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA24E3E2164851CF005FFFB4 /* Tests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Tests.app;
+			remoteRef = AA24E3E1164851CF005FFFB4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA24E3EB16485285005FFFB4 /* libGCOAuth.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libGCOAuth.a;
-			remoteRef = AA362C951643328500423F2A /* PBXContainerItemProxy */;
+			remoteRef = AA24E3EA16485285005FFFB4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		AA4F55EF164305BC00B66710 /* OCMock.framework */ = {
@@ -504,27 +527,6 @@
 			fileType = archive.ar;
 			path = libOCMock.a;
 			remoteRef = AA4F55F2164305BC00B66710 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AA4F564F16431A6900B66710 /* libGHUnitIOSSimulator.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libGHUnitIOSSimulator.a;
-			remoteRef = AA4F564E16431A6900B66710 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AA4F565116431A6900B66710 /* libGHUnitIOSDevice.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libGHUnitIOSDevice.a;
-			remoteRef = AA4F565016431A6900B66710 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AA4F565316431A6900B66710 /* Tests.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Tests.app;
-			remoteRef = AA4F565216431A6900B66710 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -557,6 +559,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PROJECT_DIR}/Scripts/iOSFramework.sh\" \"${PROJECT_DIR}/build/SocializeAPIClient.framework\"";
+			showEnvVarsInLog = 0;
+		};
+		AA24E3D116485181005FFFB4 /* External Substitutions */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "External Substitutions";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make subst";
+			showEnvVarsInLog = 0;
+		};
+		AA24E3EF164852F3005FFFB4 /* External Substitutions */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "External Substitutions";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make subst";
 			showEnvVarsInLog = 0;
 		};
 		AA4F56421643180700B66710 /* Run Simulator (CLI) */ = {
@@ -617,7 +649,7 @@
 				AA4F55F71643061400B66710 /* SZTestCase.m in Sources */,
 				AA4F55FA1643071500B66710 /* SZAPIClientTests.m in Sources */,
 				AA4F568416431F1000B66710 /* SocializeUnitTestApplication.m in Sources */,
-				AA4F56A21643240700B66710 /* GCDAProfiling.c in Sources */,
+				AA24E41F16485409005FFFB4 /* GCDAProfiling.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,7 +714,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/ThirdParty/GHUnit/Project-iOS/build/Framework\"",
 					"\"$(SRCROOT)/ThirdParty\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -705,7 +736,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/ThirdParty/GHUnit/Project-iOS/build/Framework\"",
 					"\"$(SRCROOT)/ThirdParty\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
