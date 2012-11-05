@@ -1,9 +1,0 @@
-[submodule "ThirdParty/cocoa-oauth"]
-	path = ThirdParty/cocoa-oauth
-	url = git@github.com:socialize/cocoa-oauth.git
-[submodule "ThirdParty/GHUnit"]
-	path = ThirdParty/GHUnit
-	url = git@github.com:socialize/gh-unit.git
-[submodule "ThirdParty/ocmock"]
-	path = ThirdParty/ocmock
-	url = git@github.com:socialize/ocmock.git
