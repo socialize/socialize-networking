@@ -16,7 +16,7 @@ NSString *const SZDefaultUDID = @"105f33d";
 @interface SZAPIClient ()
 
 @property (nonatomic, strong) SZAPIOperation *authOperation;
-@property (nonatomic, strong) NSLock *authLock;
+@property (nonatomic, strong) NSRecursiveLock *authLock;
 
 @end
 
@@ -60,9 +60,9 @@ NSString *const SZDefaultUDID = @"105f33d";
     return _requestQueue;
 }
 
-- (NSLock *)authLock {
+- (NSRecursiveLock *)authLock {
     if (_authLock == nil) {
-        _authLock = [[NSLock alloc] init];
+        _authLock = [[NSRecursiveLock alloc] init];
     }
     
     return _authLock;
@@ -90,6 +90,11 @@ NSString *const SZDefaultUDID = @"105f33d";
 
 - (SZAPIOperation*)prepareOperation:(SZAPIOperation*)operation {
     [self.authLock lock];
+    
+    if (!_authenticating && (self.accessToken == nil || self.accessTokenSecret == nil)) {
+        [self authenticate];
+    }
+    
     if (_authenticating) {
         [operation addDependency:self.authOperation];
     }
