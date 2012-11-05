@@ -70,6 +70,7 @@ NSString *const SZDefaultAPIHost = @"api.getsocialize.com";
         _operationTypes = @{
             @(SZAPIOperationTypeAuthenticate): @[ @"POST", @"https", @"/v1/authenticate/" ],
             @(SZAPIOperationListComments): @[ @"GET", @"http", @"/v1/comment/" ],
+            @(SZAPIOperationCreateShare): @[ @"POST", @"http", @"/v1/share/" ],
         };
     }
     

@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSUInteger, SZAPIOperationType) {
     SZAPIOperationTypeAuthenticate,
     SZAPIOperationListComments,
+    SZAPIOperationCreateShare,
 };
 
 @interface SZAPIOperation : SZURLRequestOperation

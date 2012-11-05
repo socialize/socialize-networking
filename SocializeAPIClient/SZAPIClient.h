@@ -33,6 +33,9 @@
                                     path:(NSString*)path
                               parameters:(id)parameters;
 
+- (SZAPIOperation*)APIOperationForOperationType:(SZAPIOperationType)operationType
+                                     parameters:(id)parameters;
+
 - (SZAPIOperation*)addAPIOperationForMethod:(NSString*)method
                                      scheme:(NSString*)scheme
                                        path:(NSString*)path
