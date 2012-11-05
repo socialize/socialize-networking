@@ -84,6 +84,10 @@ NSString *const SZDefaultUDID = @"105f33d";
     return _udid;
 }
 
+- (void)addOperation:(NSOperation*)operation {
+    [[self requestQueue] addOperation:operation];
+}
+
 - (SZAPIOperation*)prepareOperation:(SZAPIOperation*)operation {
     [self.authLock lock];
     if (_authenticating) {

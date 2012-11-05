@@ -44,4 +44,6 @@
 - (SZAPIOperation*)addAPIOperationForOperationType:(SZAPIOperationType)operationType
                                         parameters:(id)parameters;
 
+- (void)addOperation:(NSOperation*)operation;
+
 @end
