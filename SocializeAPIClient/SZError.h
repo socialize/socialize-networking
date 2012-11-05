@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSUInteger, SZAPIError) {
     SZAPIErrorCodeRequestCancelled,
     SZAPIErrorCodeServerReturnedHTTPErrorStatus,
+    SZAPIErrorCodeServerReturnedErrors,
     SZAPIErrorCodeCouldNotParseServerResponse,
     SZAPIErrorOperationHasFailedDependencies,
 };
@@ -19,3 +20,4 @@ extern NSString *const SZAPIClientErrorDomain;
 extern NSString *const SZErrorHTTPURLResponseKey;
 extern NSString *const SZErrorHTTPURLResponseBodyKey;
 extern NSString *const SZErrorFailedDependenciesKey;
+extern NSString *const SZErrorServerErrorsListKey;

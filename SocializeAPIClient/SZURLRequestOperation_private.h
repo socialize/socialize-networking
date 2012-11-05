@@ -8,6 +8,11 @@
 
 @interface SZURLRequestOperation (Private)
 
+- (void)handleResponse;
+- (void)failWithError:(NSError*)error;
+- (void)succeedWithResult:(id)result;
+- (void)finishAndStopExecuting;
+
 @property (nonatomic, copy) void (^internalSuccessBlock)(id result);
 @property (nonatomic, copy) void (^internalFailureBlock)(NSError *error);
 

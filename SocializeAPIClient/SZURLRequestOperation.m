@@ -153,21 +153,11 @@
         return;
     }
     
-    NSDictionary *dictionary = [self.responseData objectFromJSONData];
-    if (![dictionary isKindOfClass:[NSDictionary class]]) {
-        
-        NSDictionary *userInfo = @{
-            SZErrorHTTPURLResponseKey: self.response,
-            SZErrorHTTPURLResponseBodyKey: self.responseString,
-        };
-        
-        NSError *error = [[NSError alloc] initWithDomain:SZAPIClientErrorDomain code:SZAPIErrorCodeCouldNotParseServerResponse userInfo:userInfo];
-        [self failWithError:error];
-        [self finishAndStopExecuting];
-        return;
-    }
-    
-    [self succeedWithResult:dictionary];
+    [self handleResponse];
+}
+
+- (void)handleResponse {
+    [self succeedWithResult:self.responseString];
     [self finishAndStopExecuting];
 }
 

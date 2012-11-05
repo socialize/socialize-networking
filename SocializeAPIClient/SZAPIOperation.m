@@ -7,7 +7,9 @@
 //
 
 #import "SZAPIOperation.h"
+#import "SZGlobal.h"
 #import "NSURLRequest+Socialize.h"
+#import "SZURLRequestOperation_private.h"
 
 NSString *const SZDefaultAPIHost = @"api.getsocialize.com";
 
@@ -75,6 +77,37 @@ NSString *const SZDefaultAPIHost = @"api.getsocialize.com";
     }
     
     return _operationTypes;
+}
+
+- (void)handleResponse {
+    NSDictionary *dictionary = [self.responseData objectFromJSONData];
+    if (![dictionary isKindOfClass:[NSDictionary class]]) {
+        
+        NSDictionary *userInfo = @{
+            SZErrorHTTPURLResponseKey: self.response,
+            SZErrorHTTPURLResponseBodyKey: self.responseString,
+        };
+        
+        NSError *error = [[NSError alloc] initWithDomain:SZAPIClientErrorDomain code:SZAPIErrorCodeCouldNotParseServerResponse userInfo:userInfo];
+        [self failWithError:error];
+        [self finishAndStopExecuting];
+        return;
+    }
+    
+    NSArray *errorsList = [dictionary objectForKey:@"errors"];
+    if (errorsList != nil) {
+        NSDictionary *userInfo = @{
+            SZErrorServerErrorsListKey: errorsList,
+        };
+
+        NSError *error = [[NSError alloc] initWithDomain:SZAPIClientErrorDomain code:SZAPIErrorCodeServerReturnedErrors userInfo:userInfo];
+        [self failWithError:error];
+        [self finishAndStopExecuting];
+        return;
+    }
+    
+    [self succeedWithResult:dictionary];
+    [self finishAndStopExecuting];
 }
 
 - (void)start {
