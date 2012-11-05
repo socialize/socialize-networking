@@ -7,10 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA082A0116485B8A00A992B5 /* SZURLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91418163F33E300223157 /* SZURLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA082A0216485B8A00A992B5 /* SZAPIOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F4701640803300CB803F /* SZAPIOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA082A0316485B8B00A992B5 /* SZURLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91418163F33E300223157 /* SZURLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA082A0416485B8B00A992B5 /* SZAPIOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F4701640803300CB803F /* SZAPIOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E3EC16485294005FFFB4 /* libGCOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3EB16485285005FFFB4 /* libGCOAuth.a */; };
 		AA24E3ED1648529B005FFFB4 /* libGCOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3EB16485285005FFFB4 /* libGCOAuth.a */; };
 		AA24E3EE164852A2005FFFB4 /* libGHUnitIOSSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3DE164851CF005FFFB4 /* libGHUnitIOSSimulator.a */; };
 		AA24E41F16485409005FFFB4 /* GCDAProfiling.c in Sources */ = {isa = PBXBuildFile; fileRef = AA24E41E16485409005FFFB4 /* GCDAProfiling.c */; };
+		AA24E45716485978005FFFB4 /* NSURLRequest+Socialize.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91428163F347A00223157 /* NSURLRequest+Socialize.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E45816485978005FFFB4 /* SZAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F48E1641C8EA00CB803F /* SZAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E45916485978005FFFB4 /* SZAPIClientVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD913E8163EFFF700223157 /* SZAPIClientVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E45A16485978005FFFB4 /* SZCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC06A7C163B5A760077C025 /* SZCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E45B16485978005FFFB4 /* SZError.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC06A82163B5A970077C025 /* SZError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E45C16485978005FFFB4 /* SZGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F48D1641A85700CB803F /* SZGlobal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E45E1648598C005FFFB4 /* NSURLRequest+Socialize.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91428163F347A00223157 /* NSURLRequest+Socialize.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E45F1648598C005FFFB4 /* SZAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F48E1641C8EA00CB803F /* SZAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E4601648598C005FFFB4 /* SZAPIClientVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD913E8163EFFF700223157 /* SZAPIClientVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E4611648598C005FFFB4 /* SZCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC06A7C163B5A760077C025 /* SZCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E4621648598C005FFFB4 /* SZError.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC06A82163B5A970077C025 /* SZError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E4631648598C005FFFB4 /* SZGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F48D1641A85700CB803F /* SZGlobal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E46516485A9A005FFFB4 /* SocializeAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E46616485A9B005FFFB4 /* SocializeAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA4F55791642F2AA00B66710 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC06A3C163B3F680077C025 /* Foundation.framework */; };
 		AA4F55841642F2D200B66710 /* NSData+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A80163B5A8E0077C025 /* NSData+JSONHelpers.m */; };
 		AA4F55851642F2D200B66710 /* NSObject+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD9142C163F3C6A00223157 /* NSObject+JSONHelpers.m */; };
@@ -132,6 +150,7 @@
 		AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHUnitIOS.xcodeproj; path = "ThirdParty/gh-unit/Project-iOS/GHUnitIOS.xcodeproj"; sourceTree = "<group>"; };
 		AA24E3E316485284005FFFB4 /* GCOAuth.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GCOAuth.xcodeproj; path = "ThirdParty/cocoa-oauth/GCOAuth.xcodeproj"; sourceTree = "<group>"; };
 		AA24E41E16485409005FFFB4 /* GCDAProfiling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GCDAProfiling.c; sourceTree = "<group>"; };
+		AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocializeAPIClient.h; sourceTree = "<group>"; };
 		AA459ED51641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+StringEncoding.h"; sourceTree = "<group>"; };
 		AA459ED61641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPURLResponse+StringEncoding.m"; sourceTree = "<group>"; };
 		AA4F55781642F2AA00B66710 /* libSocializeAPIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSocializeAPIClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -342,6 +361,7 @@
 		AAC06A40163B3F680077C025 /* SocializeAPIClient */ = {
 			isa = PBXGroup;
 			children = (
+				AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */,
 				AA08F47F1640C63D00CB803F /* Helpers */,
 				AA08F4741640807400CB803F /* OAuth Requests */,
 				AA08F4731640805700CB803F /* URL Operations */,
@@ -379,6 +399,41 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		AA24E44D16485947005FFFB4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA24E45716485978005FFFB4 /* NSURLRequest+Socialize.h in Headers */,
+				AA24E45816485978005FFFB4 /* SZAPIClient.h in Headers */,
+				AA24E45916485978005FFFB4 /* SZAPIClientVersion.h in Headers */,
+				AA24E45A16485978005FFFB4 /* SZCommon.h in Headers */,
+				AA24E45B16485978005FFFB4 /* SZError.h in Headers */,
+				AA24E45C16485978005FFFB4 /* SZGlobal.h in Headers */,
+				AA24E46516485A9A005FFFB4 /* SocializeAPIClient.h in Headers */,
+				AA082A0116485B8A00A992B5 /* SZURLRequestOperation.h in Headers */,
+				AA082A0216485B8A00A992B5 /* SZAPIOperation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA24E45D16485985005FFFB4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA24E45E1648598C005FFFB4 /* NSURLRequest+Socialize.h in Headers */,
+				AA24E45F1648598C005FFFB4 /* SZAPIClient.h in Headers */,
+				AA24E4601648598C005FFFB4 /* SZAPIClientVersion.h in Headers */,
+				AA24E4611648598C005FFFB4 /* SZCommon.h in Headers */,
+				AA24E4621648598C005FFFB4 /* SZError.h in Headers */,
+				AA24E4631648598C005FFFB4 /* SZGlobal.h in Headers */,
+				AA24E46616485A9B005FFFB4 /* SocializeAPIClient.h in Headers */,
+				AA082A0316485B8B00A992B5 /* SZURLRequestOperation.h in Headers */,
+				AA082A0416485B8B00A992B5 /* SZAPIOperation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		AA4F55771642F2AA00B66710 /* SocializeAPIClient */ = {
 			isa = PBXNativeTarget;
@@ -389,6 +444,7 @@
 				AA4F55751642F2AA00B66710 /* Frameworks */,
 				AA4F55761642F2AA00B66710 /* CopyFiles */,
 				AA24E2DA164775C9005FFFB4 /* Build Framework (CLI) */,
+				AA24E44D16485947005FFFB4 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -426,6 +482,7 @@
 				AA4F569A1643233C00B66710 /* Frameworks */,
 				AA4F569C1643233C00B66710 /* CopyFiles */,
 				AA24E3EF164852F3005FFFB4 /* External Substitutions */,
+				AA24E45D16485985005FFFB4 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -692,6 +749,7 @@
 				GCC_PREFIX_HEADER = "SocializeAPIClient/SocializeAPIClient-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = SocializeAPIClient;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -704,6 +762,7 @@
 				GCC_PREFIX_HEADER = "SocializeAPIClient/SocializeAPIClient-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = SocializeAPIClient;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -764,6 +823,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "SocializeAPIClient-profiling";
+				PUBLIC_HEADERS_FOLDER_PATH = SocializeAPIClient;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -780,6 +840,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "SocializeAPIClient-profiling";
+				PUBLIC_HEADERS_FOLDER_PATH = SocializeAPIClient;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
