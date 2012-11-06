@@ -14,6 +14,14 @@ typedef NS_ENUM(NSUInteger, SZAPIOperationType) {
     SZAPIOperationCreateShare,
 };
 
+typedef NS_ENUM(NSUInteger, SZShareMedium) {
+    SZShareMediumTwitter = 1,
+    SZShareMediumFacebook = 2,
+    SZShareMediumEmail = 3,
+    SZShareMediumSMS = 4,
+    SZShareMediumOther = 101,
+};
+
 @interface SZAPIOperation : SZURLRequestOperation
 
 + (NSString *)defaultHost;
