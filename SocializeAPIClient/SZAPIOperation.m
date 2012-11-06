@@ -99,7 +99,7 @@ NSString *const SZDefaultAPIHost = @"api.getsocialize.com";
     }
     
     NSArray *errorsList = [dictionary objectForKey:@"errors"];
-    if (errorsList != nil) {
+    if ([errorsList count] > 0) {
         NSDictionary *userInfo = @{
             SZErrorServerErrorsListKey: errorsList,
         };
@@ -110,7 +110,13 @@ NSString *const SZDefaultAPIHost = @"api.getsocialize.com";
         return;
     }
     
-    [self succeedWithResult:dictionary];
+    id result = dictionary;
+    NSArray *items = [dictionary objectForKey:@"items"];
+    if (items != nil) {
+        result = items;
+    }
+    
+    [self succeedWithResult:result];
     [self finishAndStopExecuting];
 }
 
