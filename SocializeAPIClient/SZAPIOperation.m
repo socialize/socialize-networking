@@ -67,6 +67,10 @@ NSString *const SZDefaultAPIHost = @"api.getsocialize.com";
                               method:method scheme:scheme host:host path:path parameters:parameters];
 }
 
+- (NSString*)description {
+    return [NSString stringWithFormat:@"%@: %@ / %@ / %@, Parameters: %@", [super description], self.method, self.scheme, self.path, self.parameters];
+}
+
 - (NSDictionary*)operationTypes {
     if (_operationTypes == nil) {
         _operationTypes = @{
