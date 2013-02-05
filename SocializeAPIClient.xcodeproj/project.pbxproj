@@ -500,7 +500,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SZ;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Socialize;
 			};
 			buildConfigurationList = AAC06A30163B3F680077C025 /* Build configuration list for PBXProject "SocializeAPIClient" */;
