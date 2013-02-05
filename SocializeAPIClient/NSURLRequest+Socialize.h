@@ -21,5 +21,3 @@
                                       parameters:(id)parameters;
 
 @end
-
-static NSString const * kSocializeRequestCreateShare = @"kSocializeRequestCreateShare";

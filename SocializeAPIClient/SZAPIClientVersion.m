@@ -2,7 +2,7 @@
 
 NSString *const SZAPIClientVersionIdentifierString = @"SZ_API_CLIENT_VERSION: " SZ_API_CLIENT_VERSION_STRING;
 
-@interface SZAPIClientVersion
+@interface SZAPIClientVersion : NSObject
 @end
 
 @implementation SZAPIClientVersion
