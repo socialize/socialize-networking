@@ -10,7 +10,7 @@ default: release
 
 -include subst.mk
 
-test:
+test: subst
 	GHUNIT_CLI=1 WRITE_JUNIT_XML=YES RUN_CLI=1 xcodebuild -scheme 'SocializeAPIClient Tests' -configuration Debug -sdk iphonesimulator
 
 clean: clean-subst
