@@ -14,8 +14,6 @@
 #import "NSMutableURLRequest+OAuth.h"
 #import "SZAPIOperation_private.h"
 
-NSString *const SZDefaultAPIHost = @"api.getsocialize.com";
-
 @interface SZAPIOperation ()
 @property (nonatomic, strong) NSDictionary *operationTypes;
 @property (nonatomic, strong) id result;

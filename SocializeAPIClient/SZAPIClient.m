@@ -14,8 +14,6 @@
 #import "NSMutableURLRequest+OAuth.h"
 #import "SZAPIOperation_private.h"
 
-NSString *const SZDefaultUDID = @"105f33d";
-
 @interface SZAPIClient () {
     BOOL _authenticating;
 }
