@@ -8,6 +8,6 @@
 
 #import "SZAPIClient.h"
 #import "SZAPIClientVersion.h"
-#import "NSURLRequest+Socialize.h"
+#import "NSMutableURLRequest+Socialize.h"
 #import "SZAPIOperation.h"
 #import "SZURLRequestOperation.h"

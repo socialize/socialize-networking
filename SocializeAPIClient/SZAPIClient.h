@@ -11,7 +11,7 @@
 
 @interface SZAPIClient : NSObject
 
-@property (nonatomic, strong) NSOperationQueue *requestQueue;
+@property (nonatomic, strong) NSOperationQueue *operationQueue;
 @property (nonatomic, copy) NSString *hostname;
 @property (nonatomic, copy) NSString *consumerKey;
 @property (nonatomic, copy) NSString *consumerSecret;
@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *accessTokenSecret;
 @property (nonatomic, copy) NSString *udid;
 @property (nonatomic, assign) BOOL authenticating;
+@property (nonatomic, assign, readonly, getter=isAuthenticated) BOOL authenticated;
 
 + (NSString*)defaultHost;
 + (NSString*)defaultUDID;
@@ -27,6 +28,10 @@
            consumerSecret:(NSString *)consumerSecret;
 
 - (SZAPIOperation*)authenticate;
+- (void)addOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait;
+- (void)addOperation:(NSOperation*)operation;
+- (void)addBlockingOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait;
+- (void)addBlockingOperation:(NSOperation*)operation;
 
 - (SZAPIOperation*)APIOperationForMethod:(NSString*)method
                                   scheme:(NSString*)scheme
@@ -44,6 +49,8 @@
 - (SZAPIOperation*)addAPIOperationForOperationType:(SZAPIOperationType)operationType
                                         parameters:(id)parameters;
 
-- (void)addOperation:(NSOperation*)operation;
+@end
 
+@interface SZAPIOperation (SZAPIClient)
+@property (nonatomic, weak) SZAPIClient *APIClient;
 @end

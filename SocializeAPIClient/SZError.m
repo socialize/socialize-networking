@@ -11,7 +11,7 @@
 
 NSString *const SZAPIClientErrorDomain = @"SZAPIClientErrorDomain";
 
-NSString *const SZErrorHTTPURLResponseKey = @"SZErrorHTTPURLResponseKey";
-NSString *const SZErrorHTTPURLResponseBodyKey = @"SZErrorHTTPURLResponseBodyKey";
+NSString *const SZErrorURLResponseKey = @"SZErrorURLResponseKey";
+NSString *const SZErrorURLResponseBodyKey = @"SZErrorURLResponseBodyKey";
 NSString *const SZErrorFailedDependenciesKey = @"SZErrorFailedDependenciesKey";
 NSString *const SZErrorServerErrorsListKey = @"SZErrorServerErrorsListKey";

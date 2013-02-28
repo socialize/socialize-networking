@@ -10,3 +10,6 @@
 [submodule "Scripts"]
 	path = Scripts
 	url = git@github.com:socialize/socialize-project-helpers-ios.git
+[submodule "ThirdParty/OAuthCore"]
+	path = ThirdParty/OAuthCore
+	url = git@github.com:socialize/OAuthCore.git

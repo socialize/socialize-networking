@@ -9,5 +9,4 @@
 #import "SZTestCase.h"
 
 @interface SZAPIClientTests : SZTestCase
-
 @end

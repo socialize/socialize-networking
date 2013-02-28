@@ -6,14 +6,18 @@
 //  Copyright (c) 2012 Socialize. All rights reserved.
 //
 
-@interface SZURLRequestOperation (Private)
+#import "SZURLRequestDownloader.h"
 
-- (void)handleResponse;
+@interface SZURLRequestOperation ()
+
+- (void)callCompletion;
+- (void)downloadCompletionWithResponse:(NSURLResponse*)response data:(NSData*)data error:(NSError*)error;
 - (void)failWithError:(NSError*)error;
-- (void)succeedWithResult:(id)result;
-- (void)finishAndStopExecuting;
 
-@property (nonatomic, copy) void (^internalSuccessBlock)(id result);
-@property (nonatomic, copy) void (^internalFailureBlock)(NSError *error);
+@property (nonatomic, strong) SZURLRequestDownloader *URLRequestDownloader;
+@property (nonatomic, strong) NSError *error;
+@property (nonatomic, strong) NSURLResponse *response;
+@property (nonatomic, strong) NSMutableData *responseData;
+@property (nonatomic, strong) NSMutableString *responseString;
 
 @end

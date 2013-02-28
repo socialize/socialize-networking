@@ -7,12 +7,7 @@
 //
 
 #import "SZURLRequestOperation.h"
-
-typedef NS_ENUM(NSUInteger, SZAPIOperationType) {
-    SZAPIOperationTypeAuthenticate,
-    SZAPIOperationListComments,
-    SZAPIOperationCreateShare,
-};
+#import "NSMutableURLRequest+Socialize.h"
 
 typedef NS_ENUM(NSUInteger, SZShareMedium) {
     SZShareMediumTwitter = 1,
@@ -22,9 +17,17 @@ typedef NS_ENUM(NSUInteger, SZShareMedium) {
     SZShareMediumOther = 101,
 };
 
+@class SZAPIClient;
+
 @interface SZAPIOperation : SZURLRequestOperation
 
-+ (NSString *)defaultHost;
+- (id)initWithConsumerKey:(NSString *)consumerKey
+           consumerSecret:(NSString *)consumerSecret
+              accessToken:(NSString *)accessToken
+        accessTokenSecret:(NSString *)accessTokenSecret
+                     host:(NSString*)host
+            operationType:(SZAPIOperationType)operationType
+               parameters:(id)parameters;
 
 - (id)initWithConsumerKey:(NSString *)consumerKey
            consumerSecret:(NSString *)consumerSecret
@@ -36,22 +39,11 @@ typedef NS_ENUM(NSUInteger, SZShareMedium) {
                      path:(NSString*)path
                parameters:(id)parameters;
 
-- (id)initWithConsumerKey:(NSString *)consumerKey
-           consumerSecret:(NSString *)consumerSecret
-              accessToken:(NSString *)accessToken
-        accessTokenSecret:(NSString *)accessTokenSecret
-                     host:(NSString*)host
-            operationType:(SZAPIOperationType)operationType
-               parameters:(id)parameters;
++ (NSString *)defaultHost;
 
-@property (nonatomic, copy) NSString *consumerKey;
-@property (nonatomic, copy) NSString *consumerSecret;
-@property (nonatomic, copy) NSString *accessToken;
-@property (nonatomic, copy) NSString *accessTokenSecret;
-@property (nonatomic, copy) NSString *method;
-@property (nonatomic, copy) NSString *scheme;
-@property (nonatomic, copy) NSString *host;
-@property (nonatomic, copy) NSString *path;
-@property (nonatomic, copy) id parameters;
+@property (nonatomic, copy) void (^APICompletionBlock)(id result, NSError *error);
+@property (nonatomic, strong, readonly) id result;
+@property (nonatomic, weak, readonly) SZAPIClient *APIClient;
+@property (nonatomic, assign, readonly) SZAPIOperationType operationType;
 
 @end

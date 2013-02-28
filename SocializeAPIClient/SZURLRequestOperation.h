@@ -7,18 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SZOperation.h"
+#import "SZURLRequestDownloader.h"
 
-@interface SZURLRequestOperation : NSOperation <NSURLConnectionDataDelegate>
+@interface SZURLRequestOperation : SZOperation <NSURLConnectionDataDelegate>
 
-- (id)initWithURLRequest:(NSURLRequest*)request;
+- (id)initWithURLRequest:(NSMutableURLRequest*)request;
 
-@property (nonatomic, strong) NSURLRequest *request;
-@property (nonatomic, strong, readonly) NSError *error;
-@property (nonatomic, strong, readonly) NSHTTPURLResponse *response;
+@property (nonatomic, strong) NSMutableURLRequest *request;
+@property (nonatomic, strong, readonly) NSURLResponse *response;
 @property (nonatomic, strong, readonly) NSMutableData *responseData;
 @property (nonatomic, strong, readonly) NSString *responseString;
+@property (nonatomic, strong, readonly) NSError *error;
 
-@property (nonatomic, copy) void (^successBlock)(id result);
-@property (nonatomic, copy) void (^failureBlock)(NSError *error);
+@property (nonatomic, copy) void (^URLCompletionBlock)(NSURLResponse *response, NSData *data, NSError *error);
 
 @end

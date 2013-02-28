@@ -8,13 +8,18 @@
 
 #import "SZAPIOperation.h"
 #import "SZGlobal.h"
-#import "NSURLRequest+Socialize.h"
+#import "NSMutableURLRequest+Socialize.h"
 #import "SZURLRequestOperation_private.h"
+#import "NSMutableURLRequest+Parameters.h"
+#import "NSMutableURLRequest+OAuth.h"
+#import "SZAPIOperation_private.h"
 
 NSString *const SZDefaultAPIHost = @"api.getsocialize.com";
 
 @interface SZAPIOperation ()
 @property (nonatomic, strong) NSDictionary *operationTypes;
+@property (nonatomic, strong) id result;
+@property (nonatomic, assign) SZAPIOperationType operationType;
 @end
 
 @implementation SZAPIOperation
@@ -31,23 +36,44 @@ NSString *const SZDefaultAPIHost = @"api.getsocialize.com";
                    scheme:(NSString*)scheme
                      host:(NSString*)host
                      path:(NSString*)path
-               parameters:(id)parameters {
+               parameters:(id)parameters
+            operationType:(SZAPIOperationType)operationType {
     
     if (host == nil) {
         host = [[self class] defaultHost];
     }
     
-    self.consumerKey = consumerKey;
-    self.consumerSecret = consumerSecret;
-    self.accessToken = accessToken;
-    self.accessTokenSecret = accessTokenSecret;
-    self.method = method;
-    self.scheme = scheme;
-    self.host = host;
-    self.path = path;
-    self.parameters = parameters;
+    NSMutableURLRequest *request;
+    if (operationType == SZAPIOperationTypeUndefined) {
+        request = [NSMutableURLRequest socializeRequestWithConsumerKey:consumerKey
+                                                                             consumerSecret:consumerSecret
+                                                                                accessToken:accessToken
+                                                                          accessTokenSecret:accessTokenSecret
+                                                                                       host:host
+                                                                              operationType:operationType
+                                                                                 parameters:parameters];
+    } else {
+        request = [NSMutableURLRequest socializeRequestWithConsumerKey:consumerKey consumerSecret:consumerSecret accessToken:accessToken accessTokenSecret:accessTokenSecret host:host operationType:operationType parameters:parameters];
+    }
 
-    return [self initWithURLRequest:nil];
+    if (self = [super initWithURLRequest:request]) {
+        self.operationType = operationType;
+    }
+    
+    return self;
+}
+
+- (id)initWithConsumerKey:(NSString *)consumerKey
+           consumerSecret:(NSString *)consumerSecret
+              accessToken:(NSString *)accessToken
+        accessTokenSecret:(NSString *)accessTokenSecret
+                   method:(NSString*)method
+                   scheme:(NSString*)scheme
+                     host:(NSString*)host
+                     path:(NSString*)path
+               parameters:(id)parameters {
+    
+    return [self initWithConsumerKey:consumerKey consumerSecret:consumerSecret accessToken:accessToken accessTokenSecret:accessTokenSecret host:host operationType:SZAPIOperationTypeUndefined parameters:parameters];
 }
 
 - (id)initWithConsumerKey:(NSString *)consumerKey
@@ -57,44 +83,28 @@ NSString *const SZDefaultAPIHost = @"api.getsocialize.com";
                      host:(NSString*)host
             operationType:(SZAPIOperationType)operationType
                parameters:(id)parameters {
-    
-    NSArray *info = [self.operationTypes objectForKey:@(operationType)];
-    NSString *method = [info objectAtIndex:0];
-    NSString *scheme = [info objectAtIndex:1];
-    NSString *path = [info objectAtIndex:2];
-    
-    return [self initWithConsumerKey:consumerKey consumerSecret:consumerSecret accessToken:accessToken accessTokenSecret:accessTokenSecret
-                              method:method scheme:scheme host:host path:path parameters:parameters];
+
+    return [self initWithConsumerKey:consumerKey consumerSecret:consumerSecret accessToken:accessToken accessTokenSecret:accessTokenSecret method:nil scheme:nil host:host path:nil parameters:parameters operationType:operationType];
 }
 
-- (NSString*)description {
-    return [NSString stringWithFormat:@"%@: %@ / %@ / %@, Parameters: %@", [super description], self.method, self.scheme, self.path, self.parameters];
+- (void)callCompletion {
+    BLOCK_CALL_2(self.APICompletionBlock, self.result, self.error);
 }
 
-- (NSDictionary*)operationTypes {
-    if (_operationTypes == nil) {
-        _operationTypes = @{
-            @(SZAPIOperationTypeAuthenticate): @[ @"POST", @"https", @"/v1/authenticate/" ],
-            @(SZAPIOperationListComments): @[ @"GET", @"http", @"/v1/comment/" ],
-            @(SZAPIOperationCreateShare): @[ @"POST", @"http", @"/v1/share/" ],
-        };
-    }
-    
-    return _operationTypes;
-}
+- (void)downloadCompletionWithResponse:(NSURLResponse *)response data:(NSMutableData *)data error:(NSError *)error {
+    self.response = response;
+    self.responseData = data;
+    self.error = error;
 
-- (void)handleResponse {
     NSDictionary *dictionary = [self.responseData objectFromJSONData];
     if (![dictionary isKindOfClass:[NSDictionary class]]) {
         
         NSDictionary *userInfo = @{
-            SZErrorHTTPURLResponseKey: self.response,
-            SZErrorHTTPURLResponseBodyKey: self.responseString,
+            SZErrorURLResponseKey: self.response ?: [NSNull null],
+            SZErrorURLResponseBodyKey: self.responseData ?: [NSNull null],
         };
         
-        NSError *error = [[NSError alloc] initWithDomain:SZAPIClientErrorDomain code:SZAPIErrorCodeCouldNotParseServerResponse userInfo:userInfo];
-        [self failWithError:error];
-        [self finishAndStopExecuting];
+        [self failWithError:[[NSError alloc] initWithDomain:SZAPIClientErrorDomain code:SZAPIErrorCodeCouldNotParseServerResponse userInfo:userInfo]];
         return;
     }
     
@@ -104,34 +114,13 @@ NSString *const SZDefaultAPIHost = @"api.getsocialize.com";
             SZErrorServerErrorsListKey: errorsList,
         };
 
-        NSError *error = [[NSError alloc] initWithDomain:SZAPIClientErrorDomain code:SZAPIErrorCodeServerReturnedErrors userInfo:userInfo];
-        [self failWithError:error];
-        [self finishAndStopExecuting];
+        [self failWithError:[[NSError alloc] initWithDomain:SZAPIClientErrorDomain code:SZAPIErrorCodeServerReturnedErrors userInfo:userInfo]];
         return;
     }
     
-    id result = dictionary;
-    NSArray *items = [dictionary objectForKey:@"items"];
-    if (items != nil) {
-        result = items;
-    }
-    
-    [self succeedWithResult:result];
-    [self finishAndStopExecuting];
-}
-
-- (void)start {
-    
-    self.request = [NSURLRequest socializeRequestWithConsumerKey:self.consumerKey
-                                                  consumerSecret:self.consumerSecret
-                                                     accessToken:self.accessToken
-                                               accessTokenSecret:self.accessTokenSecret
-                                                          scheme:self.scheme
-                                                          method:self.method
-                                                            host:self.host
-                                                            path:self.path
-                                                      parameters:self.parameters];
-    [super start];
+    self.result = [dictionary objectForKey:@"items"] ?: dictionary;
+    [self callCompletion];
+    [self KVFinishAndStopExecuting];
 }
 
 @end

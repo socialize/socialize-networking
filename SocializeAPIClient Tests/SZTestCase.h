@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <GHUnitIOS/GHUnit.h>
 #import <OCMock/OCMock.h>
+#import "SZGlobal.h"
+#import "NSURLConnection+Testing.h"
+#import "SZFakeOperationQueue.h"
 
 @interface SZTestCase : GHAsyncTestCase
 

@@ -11,17 +11,29 @@
 		AA082A0216485B8A00A992B5 /* SZAPIOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F4701640803300CB803F /* SZAPIOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA082A0316485B8B00A992B5 /* SZURLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91418163F33E300223157 /* SZURLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA082A0416485B8B00A992B5 /* SZAPIOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F4701640803300CB803F /* SZAPIOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AA24E3EC16485294005FFFB4 /* libGCOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3EB16485285005FFFB4 /* libGCOAuth.a */; };
-		AA24E3ED1648529B005FFFB4 /* libGCOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3EB16485285005FFFB4 /* libGCOAuth.a */; };
+		AA09925516D6E98E00835134 /* SZAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08F4711640803300CB803F /* SZAPIOperation.m */; };
+		AA09925616D6E98F00835134 /* SZAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08F4711640803300CB803F /* SZAPIOperation.m */; };
+		AA09925916D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = AA09925716D6EB0D00835134 /* NSMutableURLRequest+OAuth.h */; };
+		AA09925A16D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = AA09925716D6EB0D00835134 /* NSMutableURLRequest+OAuth.h */; };
+		AA09925B16D6EB0D00835134 /* NSMutableURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = AA09925816D6EB0D00835134 /* NSMutableURLRequest+OAuth.m */; };
+		AA09925C16D6EB0D00835134 /* NSMutableURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = AA09925816D6EB0D00835134 /* NSMutableURLRequest+OAuth.m */; };
+		AA09925F16D6EB9F00835134 /* libOAuthCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA64C96616C44D71004965F1 /* libOAuthCore.a */; };
+		AA127FB916DEC62E00791906 /* NSDictionary+Functional.h in Headers */ = {isa = PBXBuildFile; fileRef = AA127FB716DEC62E00791906 /* NSDictionary+Functional.h */; };
+		AA127FBA16DEC62E00791906 /* NSDictionary+Functional.h in Headers */ = {isa = PBXBuildFile; fileRef = AA127FB716DEC62E00791906 /* NSDictionary+Functional.h */; };
+		AA127FBB16DEC62E00791906 /* NSDictionary+Functional.m in Sources */ = {isa = PBXBuildFile; fileRef = AA127FB816DEC62E00791906 /* NSDictionary+Functional.m */; };
+		AA127FBC16DEC62E00791906 /* NSDictionary+Functional.m in Sources */ = {isa = PBXBuildFile; fileRef = AA127FB816DEC62E00791906 /* NSDictionary+Functional.m */; };
+		AA127FBE16DEC66200791906 /* Functional.h in Headers */ = {isa = PBXBuildFile; fileRef = AA127FBD16DEC66200791906 /* Functional.h */; };
+		AA127FBF16DEC66200791906 /* Functional.h in Headers */ = {isa = PBXBuildFile; fileRef = AA127FBD16DEC66200791906 /* Functional.h */; };
+		AA127FC216DEDC1200791906 /* SZFakeOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA127FC116DEDC1200791906 /* SZFakeOperationQueue.m */; };
 		AA24E3EE164852A2005FFFB4 /* libGHUnitIOSSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3DE164851CF005FFFB4 /* libGHUnitIOSSimulator.a */; };
 		AA24E41F16485409005FFFB4 /* GCDAProfiling.c in Sources */ = {isa = PBXBuildFile; fileRef = AA24E41E16485409005FFFB4 /* GCDAProfiling.c */; };
-		AA24E45716485978005FFFB4 /* NSURLRequest+Socialize.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91428163F347A00223157 /* NSURLRequest+Socialize.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E45716485978005FFFB4 /* NSMutableURLRequest+Socialize.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91428163F347A00223157 /* NSMutableURLRequest+Socialize.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E45816485978005FFFB4 /* SZAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F48E1641C8EA00CB803F /* SZAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E45916485978005FFFB4 /* SZAPIClientVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD913E8163EFFF700223157 /* SZAPIClientVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E45A16485978005FFFB4 /* SZCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC06A7C163B5A760077C025 /* SZCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E45B16485978005FFFB4 /* SZError.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC06A82163B5A970077C025 /* SZError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E45C16485978005FFFB4 /* SZGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F48D1641A85700CB803F /* SZGlobal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AA24E45E1648598C005FFFB4 /* NSURLRequest+Socialize.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91428163F347A00223157 /* NSURLRequest+Socialize.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E45E1648598C005FFFB4 /* NSMutableURLRequest+Socialize.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91428163F347A00223157 /* NSMutableURLRequest+Socialize.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E45F1648598C005FFFB4 /* SZAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F48E1641C8EA00CB803F /* SZAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E4601648598C005FFFB4 /* SZAPIClientVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD913E8163EFFF700223157 /* SZAPIClientVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E4611648598C005FFFB4 /* SZCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC06A7C163B5A760077C025 /* SZCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,9 +45,8 @@
 		AA4F55841642F2D200B66710 /* NSData+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A80163B5A8E0077C025 /* NSData+JSONHelpers.m */; };
 		AA4F55851642F2D200B66710 /* NSObject+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD9142C163F3C6A00223157 /* NSObject+JSONHelpers.m */; };
 		AA4F55861642F2D200B66710 /* NSHTTPURLResponse+StringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = AA459ED61641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.m */; };
-		AA4F55871642F2D200B66710 /* NSURLRequest+Socialize.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD91429163F347A00223157 /* NSURLRequest+Socialize.m */; };
+		AA4F55871642F2D200B66710 /* NSMutableURLRequest+Socialize.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD91429163F347A00223157 /* NSMutableURLRequest+Socialize.m */; };
 		AA4F55881642F2D200B66710 /* SZURLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD91419163F33E300223157 /* SZURLRequestOperation.m */; };
-		AA4F55891642F2D200B66710 /* SZAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08F4711640803300CB803F /* SZAPIOperation.m */; };
 		AA4F558A1642F2D200B66710 /* SZAPIClientVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD913E7163EFFF700223157 /* SZAPIClientVersion.m */; };
 		AA4F558C1642F2D200B66710 /* SZCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A7D163B5A760077C025 /* SZCommon.m */; };
 		AA4F558D1642F2D200B66710 /* SZError.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A83163B5A970077C025 /* SZError.m */; };
@@ -51,20 +62,47 @@
 		AA4F55E31643033E00B66710 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4F55E21643033E00B66710 /* QuartzCore.framework */; };
 		AA4F55F4164305CB00B66710 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4F55F3164305BC00B66710 /* libOCMock.a */; };
 		AA4F55F71643061400B66710 /* SZTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4F55F61643061400B66710 /* SZTestCase.m */; };
-		AA4F55FA1643071500B66710 /* SZAPIClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4F55F91643071500B66710 /* SZAPIClientTests.m */; };
 		AA4F568416431F1000B66710 /* SocializeUnitTestApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4F568316431F1000B66710 /* SocializeUnitTestApplication.m */; };
 		AA4F568E1643233C00B66710 /* NSData+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A80163B5A8E0077C025 /* NSData+JSONHelpers.m */; };
 		AA4F568F1643233C00B66710 /* NSObject+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD9142C163F3C6A00223157 /* NSObject+JSONHelpers.m */; };
 		AA4F56901643233C00B66710 /* NSHTTPURLResponse+StringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = AA459ED61641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.m */; };
-		AA4F56911643233C00B66710 /* NSURLRequest+Socialize.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD91429163F347A00223157 /* NSURLRequest+Socialize.m */; };
+		AA4F56911643233C00B66710 /* NSMutableURLRequest+Socialize.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD91429163F347A00223157 /* NSMutableURLRequest+Socialize.m */; };
 		AA4F56921643233C00B66710 /* SZURLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD91419163F33E300223157 /* SZURLRequestOperation.m */; };
-		AA4F56931643233C00B66710 /* SZAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08F4711640803300CB803F /* SZAPIOperation.m */; };
 		AA4F56941643233C00B66710 /* SZAPIClientVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD913E7163EFFF700223157 /* SZAPIClientVersion.m */; };
 		AA4F56951643233C00B66710 /* SZCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A7D163B5A760077C025 /* SZCommon.m */; };
 		AA4F56961643233C00B66710 /* SZError.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A83163B5A970077C025 /* SZError.m */; };
 		AA4F56971643233C00B66710 /* SZAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08F48F1641C8EA00CB803F /* SZAPIClient.m */; };
 		AA4F569B1643233C00B66710 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC06A3C163B3F680077C025 /* Foundation.framework */; };
 		AA4F56A41643248700B66710 /* libSocializeAPIClient-profiling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4F56A01643233C00B66710 /* libSocializeAPIClient-profiling.a */; };
+		AA508A8416D86F740005277A /* SZAPIOperation_private.h in Headers */ = {isa = PBXBuildFile; fileRef = AA508A8316D86F740005277A /* SZAPIOperation_private.h */; };
+		AA508A8516D86F740005277A /* SZAPIOperation_private.h in Headers */ = {isa = PBXBuildFile; fileRef = AA508A8316D86F740005277A /* SZAPIOperation_private.h */; };
+		AA620FF516C604410048740C /* SZURLRequestOperation_private.h in Headers */ = {isa = PBXBuildFile; fileRef = AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */; };
+		AA620FF616C604420048740C /* SZURLRequestOperation_private.h in Headers */ = {isa = PBXBuildFile; fileRef = AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */; };
+		AA64C97916C4647A004965F1 /* SZURLRequestDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = AA64C97716C46479004965F1 /* SZURLRequestDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA64C97A16C4647A004965F1 /* SZURLRequestDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C97816C46479004965F1 /* SZURLRequestDownloader.m */; };
+		AA64C98B16C5A54C004965F1 /* SZURLRequestDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C97816C46479004965F1 /* SZURLRequestDownloader.m */; };
+		AA64C9C016C5D1FD004965F1 /* NSURLConnection+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C9BF16C5D1FD004965F1 /* NSURLConnection+Testing.m */; };
+		AA64C9C216C5E410004965F1 /* SZFallibleOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA64C9C116C5E410004965F1 /* SZFallibleOperation.h */; };
+		AA64C9C716C5E492004965F1 /* SZOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA64C9C516C5E492004965F1 /* SZOperation.h */; };
+		AA64C9C816C5E492004965F1 /* SZOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C9C616C5E492004965F1 /* SZOperation.m */; };
+		AA64C9C916C5E806004965F1 /* SZOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C9C616C5E492004965F1 /* SZOperation.m */; };
+		AAC5E09916DC4368008CABA7 /* NSObject+JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC5E09716DC4368008CABA7 /* NSObject+JRSwizzle.h */; };
+		AAC5E09A16DC4368008CABA7 /* NSObject+JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC5E09716DC4368008CABA7 /* NSObject+JRSwizzle.h */; };
+		AAC5E09B16DC4368008CABA7 /* NSObject+JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5E09816DC4368008CABA7 /* NSObject+JRSwizzle.m */; };
+		AAC5E09C16DC4368008CABA7 /* NSObject+JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5E09816DC4368008CABA7 /* NSObject+JRSwizzle.m */; };
+		AAC5E0A216DD77EF008CABA7 /* NSOperation+AdditionalCompletion.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC5E0A016DD77EF008CABA7 /* NSOperation+AdditionalCompletion.h */; };
+		AAC5E0A316DD77EF008CABA7 /* NSOperation+AdditionalCompletion.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC5E0A016DD77EF008CABA7 /* NSOperation+AdditionalCompletion.h */; };
+		AAC5E0A416DD77EF008CABA7 /* NSOperation+AdditionalCompletion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5E0A116DD77EF008CABA7 /* NSOperation+AdditionalCompletion.m */; };
+		AAC5E0A516DD77EF008CABA7 /* NSOperation+AdditionalCompletion.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5E0A116DD77EF008CABA7 /* NSOperation+AdditionalCompletion.m */; };
+		AACFE1A716DEE5930016C008 /* SZAPIClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4F55F91643071500B66710 /* SZAPIClientTests.m */; };
+		AACFE1A816DEE5980016C008 /* SZURLRequestDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C98916C5A3D9004965F1 /* SZURLRequestDownloaderTests.m */; };
+		AACFE1A916DEE5980016C008 /* SZURLRequestOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA620FF316C5F2ED0048740C /* SZURLRequestOperationTests.m */; };
+		AACFE1AA16DEE5980016C008 /* SZAPIOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5E08916DC3020008CABA7 /* SZAPIOperationTests.m */; };
+		AAE1765116D6F31A00A59380 /* libOAuthCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA64C96616C44D71004965F1 /* libOAuthCore.a */; };
+		AAE1765B16D6F83100A59380 /* NSMutableURLRequest+Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE1765916D6F83100A59380 /* NSMutableURLRequest+Parameters.h */; };
+		AAE1765C16D6F83100A59380 /* NSMutableURLRequest+Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE1765916D6F83100A59380 /* NSMutableURLRequest+Parameters.h */; };
+		AAE1765D16D6F83100A59380 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE1765A16D6F83100A59380 /* NSMutableURLRequest+Parameters.m */; };
+		AAE1765E16D6F83100A59380 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE1765A16D6F83100A59380 /* NSMutableURLRequest+Parameters.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,13 +127,6 @@
 			remoteGlobalIDString = 0097C4A813BA7FC800D3BEF0;
 			remoteInfo = Tests;
 		};
-		AA24E3EA16485285005FFFB4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA24E3E316485284005FFFB4 /* GCOAuth.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AA362C63164330CE00423F2A;
-			remoteInfo = GCOAuth;
-		};
 		AA4F55EE164305BC00B66710 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA4F55E5164305BC00B66710 /* OCMock.xcodeproj */;
@@ -116,6 +147,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 030EF0DC14632FF700B04273;
 			remoteInfo = OCMockLib;
+		};
+		AA64C96516C44D71004965F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA64C96116C44D71004965F1 /* OAuthCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AA64C94A16C44CF2004965F1;
+			remoteInfo = OAuthCore;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -146,9 +184,15 @@
 		AA08F48D1641A85700CB803F /* SZGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZGlobal.h; sourceTree = "<group>"; };
 		AA08F48E1641C8EA00CB803F /* SZAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAPIClient.h; sourceTree = "<group>"; };
 		AA08F48F1641C8EA00CB803F /* SZAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZAPIClient.m; sourceTree = "<group>"; };
+		AA09925716D6EB0D00835134 /* NSMutableURLRequest+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+OAuth.h"; sourceTree = "<group>"; };
+		AA09925816D6EB0D00835134 /* NSMutableURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+OAuth.m"; sourceTree = "<group>"; };
+		AA127FB716DEC62E00791906 /* NSDictionary+Functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Functional.h"; sourceTree = "<group>"; };
+		AA127FB816DEC62E00791906 /* NSDictionary+Functional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Functional.m"; sourceTree = "<group>"; };
+		AA127FBD16DEC66200791906 /* Functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Functional.h; sourceTree = "<group>"; };
+		AA127FC016DEDC1200791906 /* SZFakeOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZFakeOperationQueue.h; sourceTree = "<group>"; };
+		AA127FC116DEDC1200791906 /* SZFakeOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZFakeOperationQueue.m; sourceTree = "<group>"; };
 		AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperation_private.h; sourceTree = "<group>"; };
 		AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHUnitIOS.xcodeproj; path = "ThirdParty/gh-unit/Project-iOS/GHUnitIOS.xcodeproj"; sourceTree = "<group>"; };
-		AA24E3E316485284005FFFB4 /* GCOAuth.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GCOAuth.xcodeproj; path = "ThirdParty/cocoa-oauth/GCOAuth.xcodeproj"; sourceTree = "<group>"; };
 		AA24E41E16485409005FFFB4 /* GCDAProfiling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GCDAProfiling.c; sourceTree = "<group>"; };
 		AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocializeAPIClient.h; sourceTree = "<group>"; };
 		AA459ED51641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+StringEncoding.h"; sourceTree = "<group>"; };
@@ -172,6 +216,19 @@
 		AA4F568216431F1000B66710 /* SocializeUnitTestApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocializeUnitTestApplication.h; sourceTree = "<group>"; };
 		AA4F568316431F1000B66710 /* SocializeUnitTestApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocializeUnitTestApplication.m; sourceTree = "<group>"; };
 		AA4F56A01643233C00B66710 /* libSocializeAPIClient-profiling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSocializeAPIClient-profiling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA508A8316D86F740005277A /* SZAPIOperation_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAPIOperation_private.h; sourceTree = "<group>"; };
+		AA620FF216C5F2ED0048740C /* SZURLRequestOperationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperationTests.h; sourceTree = "<group>"; };
+		AA620FF316C5F2ED0048740C /* SZURLRequestOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZURLRequestOperationTests.m; sourceTree = "<group>"; };
+		AA64C96116C44D71004965F1 /* OAuthCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthCore.xcodeproj; path = ThirdParty/OAuthCore/OAuthCore.xcodeproj; sourceTree = "<group>"; };
+		AA64C97716C46479004965F1 /* SZURLRequestDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZURLRequestDownloader.h; sourceTree = "<group>"; };
+		AA64C97816C46479004965F1 /* SZURLRequestDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZURLRequestDownloader.m; sourceTree = "<group>"; };
+		AA64C98816C5A3D9004965F1 /* SZURLRequestDownloaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZURLRequestDownloaderTests.h; sourceTree = "<group>"; };
+		AA64C98916C5A3D9004965F1 /* SZURLRequestDownloaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZURLRequestDownloaderTests.m; sourceTree = "<group>"; };
+		AA64C9BE16C5D1FD004965F1 /* NSURLConnection+Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+Testing.h"; sourceTree = "<group>"; };
+		AA64C9BF16C5D1FD004965F1 /* NSURLConnection+Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+Testing.m"; sourceTree = "<group>"; };
+		AA64C9C116C5E410004965F1 /* SZFallibleOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZFallibleOperation.h; sourceTree = "<group>"; };
+		AA64C9C516C5E492004965F1 /* SZOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZOperation.h; sourceTree = "<group>"; };
+		AA64C9C616C5E492004965F1 /* SZOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZOperation.m; sourceTree = "<group>"; };
 		AAC06A3A163B3F680077C025 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AAC06A3C163B3F680077C025 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AAC06A3E163B3F680077C025 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -181,14 +238,22 @@
 		AAC06A80163B5A8E0077C025 /* NSData+JSONHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+JSONHelpers.m"; sourceTree = "<group>"; };
 		AAC06A82163B5A970077C025 /* SZError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZError.h; sourceTree = "<group>"; };
 		AAC06A83163B5A970077C025 /* SZError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SZError.m; sourceTree = "<group>"; };
+		AAC5E08816DC301F008CABA7 /* SZAPIOperationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAPIOperationTests.h; sourceTree = "<group>"; };
+		AAC5E08916DC3020008CABA7 /* SZAPIOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZAPIOperationTests.m; sourceTree = "<group>"; };
+		AAC5E09716DC4368008CABA7 /* NSObject+JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JRSwizzle.h"; sourceTree = "<group>"; };
+		AAC5E09816DC4368008CABA7 /* NSObject+JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JRSwizzle.m"; sourceTree = "<group>"; };
+		AAC5E0A016DD77EF008CABA7 /* NSOperation+AdditionalCompletion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperation+AdditionalCompletion.h"; sourceTree = "<group>"; };
+		AAC5E0A116DD77EF008CABA7 /* NSOperation+AdditionalCompletion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+AdditionalCompletion.m"; sourceTree = "<group>"; };
 		AAD913E7163EFFF700223157 /* SZAPIClientVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZAPIClientVersion.m; sourceTree = "<group>"; };
 		AAD913E8163EFFF700223157 /* SZAPIClientVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAPIClientVersion.h; sourceTree = "<group>"; };
 		AAD91418163F33E300223157 /* SZURLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperation.h; sourceTree = "<group>"; };
 		AAD91419163F33E300223157 /* SZURLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZURLRequestOperation.m; sourceTree = "<group>"; };
-		AAD91428163F347A00223157 /* NSURLRequest+Socialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+Socialize.h"; sourceTree = "<group>"; };
-		AAD91429163F347A00223157 /* NSURLRequest+Socialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+Socialize.m"; sourceTree = "<group>"; };
+		AAD91428163F347A00223157 /* NSMutableURLRequest+Socialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Socialize.h"; sourceTree = "<group>"; };
+		AAD91429163F347A00223157 /* NSMutableURLRequest+Socialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Socialize.m"; sourceTree = "<group>"; };
 		AAD9142B163F3C6A00223157 /* NSObject+JSONHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSONHelpers.h"; sourceTree = "<group>"; };
 		AAD9142C163F3C6A00223157 /* NSObject+JSONHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSONHelpers.m"; sourceTree = "<group>"; };
+		AAE1765916D6F83100A59380 /* NSMutableURLRequest+Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Parameters.h"; sourceTree = "<group>"; };
+		AAE1765A16D6F83100A59380 /* NSMutableURLRequest+Parameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Parameters.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +261,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA24E3EC16485294005FFFB4 /* libGCOAuth.a in Frameworks */,
+				AA09925F16D6EB9F00835134 /* libOAuthCore.a in Frameworks */,
 				AA4F55791642F2AA00B66710 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA24E3ED1648529B005FFFB4 /* libGCOAuth.a in Frameworks */,
+				AAE1765116D6F31A00A59380 /* libOAuthCore.a in Frameworks */,
 				AA4F569B1643233C00B66710 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,23 +292,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA08F4731640805700CB803F /* URL Operations */ = {
+		AA08F4731640805700CB803F /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				AA64C9C116C5E410004965F1 /* SZFallibleOperation.h */,
+				AA64C9C516C5E492004965F1 /* SZOperation.h */,
+				AA64C9C616C5E492004965F1 /* SZOperation.m */,
 				AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */,
 				AAD91418163F33E300223157 /* SZURLRequestOperation.h */,
 				AAD91419163F33E300223157 /* SZURLRequestOperation.m */,
+				AA508A8316D86F740005277A /* SZAPIOperation_private.h */,
 				AA08F4701640803300CB803F /* SZAPIOperation.h */,
 				AA08F4711640803300CB803F /* SZAPIOperation.m */,
 			);
-			name = "URL Operations";
+			name = Operations;
 			sourceTree = "<group>";
 		};
 		AA08F4741640807400CB803F /* OAuth Requests */ = {
 			isa = PBXGroup;
 			children = (
-				AAD91428163F347A00223157 /* NSURLRequest+Socialize.h */,
-				AAD91429163F347A00223157 /* NSURLRequest+Socialize.m */,
+				AAD91428163F347A00223157 /* NSMutableURLRequest+Socialize.h */,
+				AAD91429163F347A00223157 /* NSMutableURLRequest+Socialize.m */,
+				AA09925716D6EB0D00835134 /* NSMutableURLRequest+OAuth.h */,
+				AA09925816D6EB0D00835134 /* NSMutableURLRequest+OAuth.m */,
+				AAE1765916D6F83100A59380 /* NSMutableURLRequest+Parameters.h */,
+				AAE1765A16D6F83100A59380 /* NSMutableURLRequest+Parameters.m */,
 			);
 			name = "OAuth Requests";
 			sourceTree = "<group>";
@@ -251,14 +324,29 @@
 		AA08F47F1640C63D00CB803F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AA127FB616DEC61A00791906 /* Functional */,
+				AAC5E09716DC4368008CABA7 /* NSObject+JRSwizzle.h */,
+				AAC5E09816DC4368008CABA7 /* NSObject+JRSwizzle.m */,
 				AAC06A7F163B5A8E0077C025 /* NSData+JSONHelpers.h */,
 				AAC06A80163B5A8E0077C025 /* NSData+JSONHelpers.m */,
 				AAD9142B163F3C6A00223157 /* NSObject+JSONHelpers.h */,
 				AAD9142C163F3C6A00223157 /* NSObject+JSONHelpers.m */,
 				AA459ED51641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.h */,
 				AA459ED61641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.m */,
+				AAC5E0A016DD77EF008CABA7 /* NSOperation+AdditionalCompletion.h */,
+				AAC5E0A116DD77EF008CABA7 /* NSOperation+AdditionalCompletion.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		AA127FB616DEC61A00791906 /* Functional */ = {
+			isa = PBXGroup;
+			children = (
+				AA127FB716DEC62E00791906 /* NSDictionary+Functional.h */,
+				AA127FB816DEC62E00791906 /* NSDictionary+Functional.m */,
+				AA127FBD16DEC66200791906 /* Functional.h */,
+			);
+			name = Functional;
 			sourceTree = "<group>";
 		};
 		AA24E3D3164851CE005FFFB4 /* Products */ = {
@@ -271,17 +359,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AA24E3E416485284005FFFB4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AA24E3EB16485285005FFFB4 /* libGCOAuth.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		AA4F559A1642F35700B66710 /* SocializeAPIClient Tests */ = {
 			isa = PBXGroup;
 			children = (
+				AA64C9B516C5D1DD004965F1 /* Test Helpers */,
 				AA4F55E41643054F00B66710 /* Test Cases */,
 				AA4F559B1642F35700B66710 /* Supporting Files */,
 			);
@@ -312,6 +393,12 @@
 				AA4F55F61643061400B66710 /* SZTestCase.m */,
 				AA4F55F81643071500B66710 /* SZAPIClientTests.h */,
 				AA4F55F91643071500B66710 /* SZAPIClientTests.m */,
+				AA64C98816C5A3D9004965F1 /* SZURLRequestDownloaderTests.h */,
+				AA64C98916C5A3D9004965F1 /* SZURLRequestDownloaderTests.m */,
+				AA620FF216C5F2ED0048740C /* SZURLRequestOperationTests.h */,
+				AA620FF316C5F2ED0048740C /* SZURLRequestOperationTests.m */,
+				AAC5E08816DC301F008CABA7 /* SZAPIOperationTests.h */,
+				AAC5E08916DC3020008CABA7 /* SZAPIOperationTests.m */,
 			);
 			name = "Test Cases";
 			sourceTree = "<group>";
@@ -324,6 +411,25 @@
 				AA4F55F3164305BC00B66710 /* libOCMock.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AA64C96216C44D71004965F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA64C96616C44D71004965F1 /* libOAuthCore.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA64C9B516C5D1DD004965F1 /* Test Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AA64C9BE16C5D1FD004965F1 /* NSURLConnection+Testing.h */,
+				AA64C9BF16C5D1FD004965F1 /* NSURLConnection+Testing.m */,
+				AA127FC016DEDC1200791906 /* SZFakeOperationQueue.h */,
+				AA127FC116DEDC1200791906 /* SZFakeOperationQueue.m */,
+			);
+			name = "Test Helpers";
 			sourceTree = "<group>";
 		};
 		AAC06A2B163B3F680077C025 = {
@@ -364,7 +470,7 @@
 				AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */,
 				AA08F47F1640C63D00CB803F /* Helpers */,
 				AA08F4741640807400CB803F /* OAuth Requests */,
-				AA08F4731640805700CB803F /* URL Operations */,
+				AA08F4731640805700CB803F /* Operations */,
 				AA08F48E1641C8EA00CB803F /* SZAPIClient.h */,
 				AA08F48F1641C8EA00CB803F /* SZAPIClient.m */,
 				AAD913E8163EFFF700223157 /* SZAPIClientVersion.h */,
@@ -375,6 +481,8 @@
 				AAC06A83163B5A970077C025 /* SZError.m */,
 				AA08F48D1641A85700CB803F /* SZGlobal.h */,
 				AAC06A41163B3F680077C025 /* Supporting Files */,
+				AA64C97716C46479004965F1 /* SZURLRequestDownloader.h */,
+				AA64C97816C46479004965F1 /* SZURLRequestDownloader.m */,
 			);
 			path = SocializeAPIClient;
 			sourceTree = "<group>";
@@ -390,7 +498,7 @@
 		AAC06A6C163B53B10077C025 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				AA24E3E316485284005FFFB4 /* GCOAuth.xcodeproj */,
+				AA64C96116C44D71004965F1 /* OAuthCore.xcodeproj */,
 				AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */,
 				AA4F55E5164305BC00B66710 /* OCMock.xcodeproj */,
 			);
@@ -404,7 +512,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA24E45716485978005FFFB4 /* NSURLRequest+Socialize.h in Headers */,
+				AA24E45716485978005FFFB4 /* NSMutableURLRequest+Socialize.h in Headers */,
 				AA24E45816485978005FFFB4 /* SZAPIClient.h in Headers */,
 				AA24E45916485978005FFFB4 /* SZAPIClientVersion.h in Headers */,
 				AA24E45A16485978005FFFB4 /* SZCommon.h in Headers */,
@@ -413,6 +521,17 @@
 				AA24E46516485A9A005FFFB4 /* SocializeAPIClient.h in Headers */,
 				AA082A0116485B8A00A992B5 /* SZURLRequestOperation.h in Headers */,
 				AA082A0216485B8A00A992B5 /* SZAPIOperation.h in Headers */,
+				AA64C97916C4647A004965F1 /* SZURLRequestDownloader.h in Headers */,
+				AA64C9C216C5E410004965F1 /* SZFallibleOperation.h in Headers */,
+				AA64C9C716C5E492004965F1 /* SZOperation.h in Headers */,
+				AA620FF516C604410048740C /* SZURLRequestOperation_private.h in Headers */,
+				AA09925916D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */,
+				AAE1765B16D6F83100A59380 /* NSMutableURLRequest+Parameters.h in Headers */,
+				AA508A8416D86F740005277A /* SZAPIOperation_private.h in Headers */,
+				AAC5E09916DC4368008CABA7 /* NSObject+JRSwizzle.h in Headers */,
+				AAC5E0A216DD77EF008CABA7 /* NSOperation+AdditionalCompletion.h in Headers */,
+				AA127FB916DEC62E00791906 /* NSDictionary+Functional.h in Headers */,
+				AA127FBE16DEC66200791906 /* Functional.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +539,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA24E45E1648598C005FFFB4 /* NSURLRequest+Socialize.h in Headers */,
+				AA24E45E1648598C005FFFB4 /* NSMutableURLRequest+Socialize.h in Headers */,
 				AA24E45F1648598C005FFFB4 /* SZAPIClient.h in Headers */,
 				AA24E4601648598C005FFFB4 /* SZAPIClientVersion.h in Headers */,
 				AA24E4611648598C005FFFB4 /* SZCommon.h in Headers */,
@@ -429,6 +548,14 @@
 				AA24E46616485A9B005FFFB4 /* SocializeAPIClient.h in Headers */,
 				AA082A0316485B8B00A992B5 /* SZURLRequestOperation.h in Headers */,
 				AA082A0416485B8B00A992B5 /* SZAPIOperation.h in Headers */,
+				AA620FF616C604420048740C /* SZURLRequestOperation_private.h in Headers */,
+				AA09925A16D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */,
+				AAE1765C16D6F83100A59380 /* NSMutableURLRequest+Parameters.h in Headers */,
+				AA508A8516D86F740005277A /* SZAPIOperation_private.h in Headers */,
+				AAC5E09A16DC4368008CABA7 /* NSObject+JRSwizzle.h in Headers */,
+				AAC5E0A316DD77EF008CABA7 /* NSOperation+AdditionalCompletion.h in Headers */,
+				AA127FBA16DEC62E00791906 /* NSDictionary+Functional.h in Headers */,
+				AA127FBF16DEC66200791906 /* Functional.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,12 +642,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = AA24E3E416485284005FFFB4 /* Products */;
-					ProjectRef = AA24E3E316485284005FFFB4 /* GCOAuth.xcodeproj */;
-				},
-				{
 					ProductGroup = AA24E3D3164851CE005FFFB4 /* Products */;
 					ProjectRef = AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */;
+				},
+				{
+					ProductGroup = AA64C96216C44D71004965F1 /* Products */;
+					ProjectRef = AA64C96116C44D71004965F1 /* OAuthCore.xcodeproj */;
 				},
 				{
 					ProductGroup = AA4F55E6164305BC00B66710 /* Products */;
@@ -558,13 +685,6 @@
 			remoteRef = AA24E3E1164851CF005FFFB4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AA24E3EB16485285005FFFB4 /* libGCOAuth.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libGCOAuth.a;
-			remoteRef = AA24E3EA16485285005FFFB4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		AA4F55EF164305BC00B66710 /* OCMock.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -584,6 +704,13 @@
 			fileType = archive.ar;
 			path = libOCMock.a;
 			remoteRef = AA4F55F2164305BC00B66710 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA64C96616C44D71004965F1 /* libOAuthCore.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libOAuthCore.a;
+			remoteRef = AA64C96516C44D71004965F1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -688,13 +815,20 @@
 				AA4F55841642F2D200B66710 /* NSData+JSONHelpers.m in Sources */,
 				AA4F55851642F2D200B66710 /* NSObject+JSONHelpers.m in Sources */,
 				AA4F55861642F2D200B66710 /* NSHTTPURLResponse+StringEncoding.m in Sources */,
-				AA4F55871642F2D200B66710 /* NSURLRequest+Socialize.m in Sources */,
+				AA4F55871642F2D200B66710 /* NSMutableURLRequest+Socialize.m in Sources */,
 				AA4F55881642F2D200B66710 /* SZURLRequestOperation.m in Sources */,
-				AA4F55891642F2D200B66710 /* SZAPIOperation.m in Sources */,
 				AA4F558A1642F2D200B66710 /* SZAPIClientVersion.m in Sources */,
 				AA4F558C1642F2D200B66710 /* SZCommon.m in Sources */,
 				AA4F558D1642F2D200B66710 /* SZError.m in Sources */,
 				AA4F558E1642F2D200B66710 /* SZAPIClient.m in Sources */,
+				AA64C97A16C4647A004965F1 /* SZURLRequestDownloader.m in Sources */,
+				AA64C9C816C5E492004965F1 /* SZOperation.m in Sources */,
+				AA09925516D6E98E00835134 /* SZAPIOperation.m in Sources */,
+				AA09925B16D6EB0D00835134 /* NSMutableURLRequest+OAuth.m in Sources */,
+				AAE1765D16D6F83100A59380 /* NSMutableURLRequest+Parameters.m in Sources */,
+				AAC5E09B16DC4368008CABA7 /* NSObject+JRSwizzle.m in Sources */,
+				AAC5E0A416DD77EF008CABA7 /* NSOperation+AdditionalCompletion.m in Sources */,
+				AA127FBB16DEC62E00791906 /* NSDictionary+Functional.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,9 +838,14 @@
 			files = (
 				AA4F55A11642F35700B66710 /* main.m in Sources */,
 				AA4F55F71643061400B66710 /* SZTestCase.m in Sources */,
-				AA4F55FA1643071500B66710 /* SZAPIClientTests.m in Sources */,
 				AA4F568416431F1000B66710 /* SocializeUnitTestApplication.m in Sources */,
 				AA24E41F16485409005FFFB4 /* GCDAProfiling.c in Sources */,
+				AA64C9C016C5D1FD004965F1 /* NSURLConnection+Testing.m in Sources */,
+				AA127FC216DEDC1200791906 /* SZFakeOperationQueue.m in Sources */,
+				AACFE1A716DEE5930016C008 /* SZAPIClientTests.m in Sources */,
+				AACFE1A816DEE5980016C008 /* SZURLRequestDownloaderTests.m in Sources */,
+				AACFE1A916DEE5980016C008 /* SZURLRequestOperationTests.m in Sources */,
+				AACFE1AA16DEE5980016C008 /* SZAPIOperationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,13 +856,20 @@
 				AA4F568E1643233C00B66710 /* NSData+JSONHelpers.m in Sources */,
 				AA4F568F1643233C00B66710 /* NSObject+JSONHelpers.m in Sources */,
 				AA4F56901643233C00B66710 /* NSHTTPURLResponse+StringEncoding.m in Sources */,
-				AA4F56911643233C00B66710 /* NSURLRequest+Socialize.m in Sources */,
+				AA4F56911643233C00B66710 /* NSMutableURLRequest+Socialize.m in Sources */,
 				AA4F56921643233C00B66710 /* SZURLRequestOperation.m in Sources */,
-				AA4F56931643233C00B66710 /* SZAPIOperation.m in Sources */,
 				AA4F56941643233C00B66710 /* SZAPIClientVersion.m in Sources */,
 				AA4F56951643233C00B66710 /* SZCommon.m in Sources */,
 				AA4F56961643233C00B66710 /* SZError.m in Sources */,
 				AA4F56971643233C00B66710 /* SZAPIClient.m in Sources */,
+				AA64C98B16C5A54C004965F1 /* SZURLRequestDownloader.m in Sources */,
+				AA64C9C916C5E806004965F1 /* SZOperation.m in Sources */,
+				AA09925616D6E98F00835134 /* SZAPIOperation.m in Sources */,
+				AA09925C16D6EB0D00835134 /* NSMutableURLRequest+OAuth.m in Sources */,
+				AAE1765E16D6F83100A59380 /* NSMutableURLRequest+Parameters.m in Sources */,
+				AAC5E09C16DC4368008CABA7 /* NSObject+JRSwizzle.m in Sources */,
+				AAC5E0A516DD77EF008CABA7 /* NSOperation+AdditionalCompletion.m in Sources */,
+				AA127FBC16DEC62E00791906 /* NSDictionary+Functional.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

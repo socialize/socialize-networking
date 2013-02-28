@@ -7,7 +7,18 @@
 //
 
 #import "SZTestCase.h"
+#import "NSMutableURLRequest+Parameters.h"
+#import "NSMutableURLRequest+OAuth.h"
+#import "SZAPIOperation.h"
 
 @implementation SZTestCase
+
+- (void)setUp {
+    [ClassMockRegistry stopMockingAllClasses];
+}
+
+- (void)tearDown {
+    [ClassMockRegistry stopMockingAllClassesAndVerify];
+}
 
 @end
