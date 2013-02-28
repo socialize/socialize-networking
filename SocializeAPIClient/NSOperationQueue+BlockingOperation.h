@@ -11,5 +11,5 @@
 @interface NSOperationQueue (BlockingOperation)
 
 - (void)addBlockingOperation:(NSOperation*)operation dontBlock:(BOOL(^)(NSOperation *otherOperation))dontBlock;
-
+- (void)addBlockingOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait dontBlock:(BOOL(^)(NSOperation *otherOperation))dontBlock;
 @end

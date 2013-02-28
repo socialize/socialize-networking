@@ -76,20 +76,27 @@ static const char *BlockingOperationsKey = "BlockingOperationsKey";
     [self _BlockingOperation_addOperations:ops waitUntilFinished:wait];
 }
 
-- (void)addBlockingOperation:(NSOperation*)operation dontBlock:(BOOL(^)(NSOperation *otherOperation))dontBlock {
+- (void)addBlockingOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait dontBlock:(BOOL(^)(NSOperation *otherOperation))dontBlock {
 
-    operation.doNotBlockBlock = dontBlock;
     
     @synchronized(self) {
-        [[self blockingOperations] addObject:operation];
+        [[self blockingOperations] addObjectsFromArray:operations];
+    }
+
+    for (NSOperation *operation in operations) {
+        operation.doNotBlockBlock = dontBlock;
+        
+        WEAK(operation) weakOperation = operation;
+        [operation addCompletionBlock:^{
+            [[self blockingOperations] removeObject:weakOperation];
+        }];
     }
     
-    WEAK(operation) weakOperation = operation;
-    [operation addCompletionBlock:^{
-        [[self blockingOperations] removeObject:weakOperation];
-    }];
-    
-    [self addOperation:operation];
+    [self addOperations:operations waitUntilFinished:wait];
+}
+
+- (void)addBlockingOperation:(NSOperation*)operation dontBlock:(BOOL(^)(NSOperation *otherOperation))dontBlock {
+    [self addBlockingOperations:@[operation] waitUntilFinished:NO dontBlock:dontBlock];
 }
 
 @end

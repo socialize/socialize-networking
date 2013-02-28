@@ -13,14 +13,13 @@
 #import "NSOperation+AdditionalCompletion.h"
 #import "NSMutableURLRequest+OAuth.h"
 #import "SZAPIOperation_private.h"
+#import "NSOperationQueue+BlockingOperation.h"
 
 @interface SZAPIClient () {
     BOOL _authenticating;
 }
 
 @property (nonatomic, strong) NSRecursiveLock *authLock;
-@property (nonatomic, strong) NSMutableSet *blockingOperations;
-@property (nonatomic, strong) NSMutableSet *outstandingOperations;
 
 @end
 
@@ -84,55 +83,28 @@
     return _udid;
 }
 
-- (NSMutableSet *)blockingOperations {
-    if (_blockingOperations == nil) {
-        _blockingOperations = [NSMutableSet set];
-    }
-    
-    return _blockingOperations;
-}
+- (void)_addOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait blocking:(BOOL)blocking {
+    [self authenticateIfNeeded];
 
-- (NSMutableSet *)outstandingOperations {
-    if (_outstandingOperations == nil) {
-        _outstandingOperations = [NSMutableSet set];
-    }
-    
-    return _outstandingOperations;
-}
-
-- (void)addBlockingDependencies:(NSArray*)operations {
-    @synchronized(self.blockingOperations) {
-        for (NSOperation *operation in operations) {
-            for (NSOperation *blockingOperation in self.blockingOperations) {
-                [operation addDependency:blockingOperation];
-            }
-        }
-    }
-}
-
-- (void)_addOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait {
-    
-    [self.outstandingOperations addObjectsFromArray:operations];
-    
     for (SZAPIOperation *operation in operations) {
         if ([operation isKindOfClass:[SZAPIOperation class]]) {
             operation.APIClient = self;
         }
-        
-        WEAK(operation) weakOperation = operation;
-        [operation addCompletionBlock:^{
-            [self.outstandingOperations removeObject:weakOperation];
-        }];
     }
     
-    [self.operationQueue addOperations:operations waitUntilFinished:wait];
+    if (blocking) {
+        WEAK(self) weakSelf = self;
+        [self.operationQueue addBlockingOperations:operations waitUntilFinished:wait dontBlock:^BOOL(NSOperation *otherOperation) {
+            return ![otherOperation isKindOfClass:[SZAPIOperation class]] || [(SZAPIOperation*)otherOperation APIClient] != weakSelf;
+        }];
+        
+    } else {
+        [self.operationQueue addOperations:operations waitUntilFinished:wait];
+    }
 }
 
 - (void)addOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait {
-    [self authenticateIfNeeded];
-    [self addBlockingDependencies:operations];
-    
-    [self _addOperations:operations waitUntilFinished:wait];
+    [self _addOperations:operations waitUntilFinished:wait blocking:NO];
 }
 
 - (void)addOperation:(NSOperation*)operation {
@@ -140,25 +112,8 @@
 }
 
 - (void)addBlockingOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait {
-    [self authenticateIfNeeded];
-    [self addBlockingDependencies:operations];
 
-    @synchronized(self.blockingOperations) {
-        [self.blockingOperations addObjectsFromArray:operations];
-    }
-    
-    for (NSOperation *operation in operations) {
-        
-        WEAK(operation) weakOperation = operation;
-        [operation addCompletionBlock:^{
-            
-            @synchronized(self.blockingOperations) {
-                [self.blockingOperations removeObject:weakOperation];
-            }
-        }];
-    }
-    
-    [self _addOperations:operations waitUntilFinished:wait];
+    [self _addOperations:operations waitUntilFinished:wait blocking:YES];
 }
 
 - (void)addBlockingOperation:(NSOperation*)operation {
@@ -252,8 +207,8 @@
     self.accessTokenSecret = [authOperation.result objectForKey:@"oauth_token_secret"];
     [self.authLock unlock];
     
-    for (SZAPIOperation *operation in self.outstandingOperations) {
-        if ([operation isKindOfClass:[SZAPIOperation class]] && operation != authOperation) {
+    for (SZAPIOperation *operation in self.operationQueue.operations) {
+        if ([operation isKindOfClass:[SZAPIOperation class]] && operation.APIClient == self && operation != authOperation) {
             [operation.request setAuthorizationHeaderWithConsumerKey:self.consumerKey consumerSecret:self.consumerSecret token:self.accessToken tokenSecret:self.accessTokenSecret];
         }
     }

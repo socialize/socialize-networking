@@ -7,23 +7,28 @@
 //
 
 #import "SZFakeOperationQueue.h"
+#import "NSObject+JRSwizzle.h"
 
 @implementation SZFakeOperationQueue
 
-- (NSMutableArray *)operations {
-    if (_operations == nil) {
-        _operations = [NSMutableArray array];
+- (NSArray*)operations {
+    return self.fakeOperations;
+}
+
+- (NSMutableArray *)fakeOperations {
+    if (_fakeOperations == nil) {
+        _fakeOperations = [NSMutableArray array];
     }
     
-    return _operations;
+    return _fakeOperations;
 }
 
 - (void)addOperation:(NSOperation *)op {
-    [self.operations addObject:op];
+    [self.fakeOperations addObject:op];
 }
 
 - (void)addOperations:(NSArray *)ops waitUntilFinished:(BOOL)wait {
-    [self.operations addObjectsFromArray:ops];
+    [self.fakeOperations addObjectsFromArray:ops];
 }
 
 @end

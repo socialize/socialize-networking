@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SZFakeOperationQueue : NSObject
-@property (nonatomic, strong) NSMutableArray *operations;
+@interface SZFakeOperationQueue : NSOperationQueue
+@property (nonatomic, strong) NSMutableArray *fakeOperations;
 
 @end
