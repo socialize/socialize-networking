@@ -85,13 +85,13 @@
 
 - (void)_addOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait blocking:(BOOL)blocking {
     [self authenticateIfNeeded];
-
+    
     for (SZAPIOperation *operation in operations) {
         if ([operation isKindOfClass:[SZAPIOperation class]]) {
             operation.APIClient = self;
         }
     }
-    
+
     if (blocking) {
         WEAK(self) weakSelf = self;
         [self.operationQueue addBlockingOperations:operations waitUntilFinished:wait dontBlock:^BOOL(NSOperation *otherOperation) {
@@ -154,30 +154,33 @@
 - (SZAPIOperation*)APIOperationForMethod:(NSString*)method
                                   scheme:(NSString*)scheme
                                     path:(NSString*)path
-                              parameters:(id)parameters {
+                              parameters:(id)parameters
+                           operationType:(SZAPIOperationType)operationType {
     
     return [[SZAPIOperation alloc] initWithConsumerKey:self.consumerKey
-                                        consumerSecret:self.consumerSecret
-                                           accessToken:self.accessToken
-                                     accessTokenSecret:self.accessTokenSecret
-                                                method:method
-                                                scheme:scheme
-                                                  host:self.hostname
-                                                  path:path
-                                            parameters:parameters];
+                                                             consumerSecret:self.consumerSecret
+                                                                accessToken:self.accessToken
+                                                          accessTokenSecret:self.accessTokenSecret
+                                                                     method:method
+                                                                     scheme:scheme
+                                                                       host:self.hostname
+                                                                       path:path
+                                                                 parameters:parameters
+                                                              operationType:operationType];
+}
+
+- (SZAPIOperation*)APIOperationForMethod:(NSString*)method
+                                  scheme:(NSString*)scheme
+                                    path:(NSString*)path
+                              parameters:(id)parameters {
     
+    return [self APIOperationForMethod:method scheme:scheme path:path parameters:parameters operationType:SZAPIOperationTypeUndefined];
 }
 
 - (SZAPIOperation*)APIOperationForOperationType:(SZAPIOperationType)operationType
                                      parameters:(id)parameters {
     
-    return [[SZAPIOperation alloc] initWithConsumerKey:self.consumerKey
-                                        consumerSecret:self.consumerSecret
-                                           accessToken:self.accessToken
-                                     accessTokenSecret:self.accessTokenSecret
-                                                  host:self.hostname
-                                         operationType:operationType
-                                            parameters:parameters];
+    return [self APIOperationForMethod:nil scheme:nil path:nil parameters:parameters operationType:operationType];
 }
 
 - (SZAPIOperation*)addAPIOperationForMethod:(NSString*)method
