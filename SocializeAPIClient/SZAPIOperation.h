@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, SZShareMedium) {
 
 @class SZAPIClient;
 
+/** NSOperationQueue-queueable operation object for use with the Socialize API servers */
 @interface SZAPIOperation : SZURLRequestOperation
 
 - (id)initWithConsumerKey:(NSString *)consumerKey
@@ -52,9 +53,16 @@ typedef NS_ENUM(NSUInteger, SZShareMedium) {
 
 + (NSString *)defaultHost;
 
+/** Completion block */
 @property (nonatomic, copy) void (^APICompletionBlock)(id result, NSError *error);
+
+/** Result object for a completed operation. This is the decoded server JSON response. */
 @property (nonatomic, strong, readonly) id result;
+
+/** The SZAPIClient associated with this operation, if any */
 @property (nonatomic, weak, readonly) SZAPIClient *APIClient;
+
+/** SZAPIOperationType of this operation. SZAPIOperationTypeUndefined if not set. */
 @property (nonatomic, assign, readonly) SZAPIOperationType operationType;
 
 @end

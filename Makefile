@@ -22,3 +22,6 @@ framework:
 
 release: framework
 	cd build && rm -f ${RELEASE_ZIP} && zip -r $(RELEASE_ZIP) $(FRAMEWORK_NAME)
+
+install-docs:
+	appledoc --project-name "Socialize API Client" --project-company Socialize --company-id com.socialize --output ./build/appledoc-output SocializeAPIClient
