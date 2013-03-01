@@ -121,6 +121,12 @@ static NSString *ConsumerSecret = @"ConsumerSecret";
     GHAssertTrue(self.APIClient.authOperation != nil, @"Should have auth operation");
 }
 
+- (void)testAuthenticateDoesNotDependOnSelf {
+    [self.APIClient authenticate];
+    
+    GHAssertFalse([[self.APIClient.authOperation dependencies] containsObject:self.APIClient.authOperation], @"Should not depend on self");
+}
+
 - (void)testAuthenticatingTwiceCreatesNewOperation {
     [self.APIClient authenticate];
     
