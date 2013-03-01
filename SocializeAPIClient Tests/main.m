@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
         if (getenv("GHUNIT_CLI")) {
             return [GHTestRunner run];
         } else {
-            return UIApplicationMain(argc, argv, nil, @"GHUnitIOSAppDelegate");
+            return UIApplicationMain(argc, argv, nil, @"SocializeUnitTestApplication");
         }
 
     }

@@ -12,6 +12,8 @@
 #import "SZGlobal.h"
 #import "NSURLConnection+Testing.h"
 #import "SZFakeOperationQueue.h"
+#import "SZAPIOperation+Testing.h"
+#import "NSOperation+Testing.h"
 
 @interface SZTestCase : GHAsyncTestCase
 

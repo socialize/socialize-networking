@@ -14,10 +14,6 @@ static const char *CompletionBlocksKey = "CompletionBlocksKey";
 
 @implementation NSOperation (AdditionalCompletion)
 
-- (void)addCompletionBlock:(void(^)())completionBlock {
-    [[self completionBlock] addObject:completionBlock];
-}
-
 - (NSMutableArray*)completionBlocks {
     
     NSMutableArray *completionBlocks = objc_getAssociatedObject(self, CompletionBlocksKey);
@@ -28,6 +24,10 @@ static const char *CompletionBlocksKey = "CompletionBlocksKey";
     }
     
     return completionBlocks;
+}
+
+- (void)addCompletionBlock:(void(^)())completionBlock {
+    [[self completionBlocks] addObject:completionBlock];
 }
 
 @end
@@ -56,7 +56,7 @@ static const char *CompletionBlocksKey = "CompletionBlocksKey";
     if ([keyPath isEqualToString:@"isFinished"] && [[change objectForKey:NSKeyValueChangeNewKey] boolValue]) {
         [object removeObserver:self forKeyPath:@"isFinished"];
         
-        for (BOOL(^completionBlock)() in [object completionBlocks]) {
+        for (void(^completionBlock)() in [object completionBlocks]) {
             completionBlock();
         }
     }

@@ -10,6 +10,7 @@
 
 @interface NSOperation (AdditionalCompletion)
 
+@property (nonatomic, strong, readonly) NSMutableArray *completionBlocks;
 - (void)addCompletionBlock:(void(^)())completionBlock;
 
 @end

@@ -13,13 +13,12 @@
 #import "NSOperation+AdditionalCompletion.h"
 #import "NSMutableURLRequest+OAuth.h"
 #import "SZAPIOperation_private.h"
-#import "NSOperationQueue+BlockingOperation.h"
 
-@interface SZAPIClient () {
-    BOOL _authenticating;
-}
+@interface SZAPIClient ()
 
 @property (nonatomic, strong) NSRecursiveLock *authLock;
+@property (nonatomic, assign, getter=isAuthenticating) BOOL authenticating;
+@property (nonatomic, strong) SZAPIOperation *authOperation;
 
 @end
 
@@ -83,41 +82,60 @@
     return _udid;
 }
 
-- (void)_addOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait blocking:(BOOL)blocking {
+- (void)_addOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait {
     [self authenticateIfNeeded];
     
     for (SZAPIOperation *operation in operations) {
         if ([operation isKindOfClass:[SZAPIOperation class]]) {
             operation.APIClient = self;
+            
+            if (operation == self.authOperation) {
+                continue;
+            }
+            
+            [self.authLock lock];
+            if (_authenticating) {
+                [operation addDependency:self.authOperation];
+            }
+            [self.authLock unlock];
         }
     }
 
-    if (blocking) {
-        WEAK(self) weakSelf = self;
-        [self.operationQueue addBlockingOperations:operations waitUntilFinished:wait dontBlock:^BOOL(NSOperation *otherOperation) {
-            return ![otherOperation isKindOfClass:[SZAPIOperation class]] || [(SZAPIOperation*)otherOperation APIClient] != weakSelf;
-        }];
-        
-    } else {
-        [self.operationQueue addOperations:operations waitUntilFinished:wait];
+    [self.operationQueue addOperations:operations waitUntilFinished:wait];
+}
+
+- (void)addAuthOperation:(SZAPIOperation*)operation {
+    if (self.authOperation != nil) {
+        [operation addDependency:self.authOperation];
     }
+    
+    [self.authLock lock];
+    _authenticating = YES;
+    self.authOperation = operation;
+    [self.authLock unlock];
+    
+    WEAK(operation) weakOperation = operation;
+    [operation addCompletionBlock:^{
+
+        [self.authLock lock];
+        [self updateAuthorizationInfoFromAuthOperation:weakOperation];
+
+        // This implies another auth has not been started
+        if (self.authOperation == weakOperation) {
+            self.authOperation = nil;
+        }
+        [self.authLock unlock];
+    }];
+    
+    [self _addOperations:@[operation] waitUntilFinished:NO];
 }
 
 - (void)addOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait {
-    [self _addOperations:operations waitUntilFinished:wait blocking:NO];
+    [self _addOperations:operations waitUntilFinished:wait];
 }
 
 - (void)addOperation:(NSOperation*)operation {
     [self addOperations:@[operation] waitUntilFinished:NO];
-}
-
-- (void)addBlockingOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait {
-
-    [self _addOperations:operations waitUntilFinished:wait blocking:YES];
-}
-
-- (void)addBlockingOperation:(NSOperation*)operation {
-    [self addBlockingOperations:@[operation] waitUntilFinished:NO];
 }
 
 - (void)authenticateIfNeeded {
@@ -130,10 +148,6 @@
 
 - (SZAPIOperation*)authenticate {
     
-    [self.authLock lock];
-    _authenticating = YES;
-    [self.authLock unlock];
-
     NSDictionary *parameters = @{
         @"udid": self.udid,
     };
@@ -141,12 +155,7 @@
     SZAPIOperation *authOperation = [self APIOperationForOperationType:SZAPIOperationTypeAuthenticate
                                                             parameters:parameters];
     
-    WEAK(authOperation) weakAuthOperation = authOperation;
-    [authOperation addCompletionBlock:^{
-        [self updateAuthorizationInfoFromAuthOperation:weakAuthOperation];
-    }];
-    
-    [self addBlockingOperation:authOperation];
+    [self addAuthOperation:authOperation];
     
     return authOperation;
 }

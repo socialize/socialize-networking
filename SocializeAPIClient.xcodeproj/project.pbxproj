@@ -25,6 +25,8 @@
 		AA127FBE16DEC66200791906 /* Functional.h in Headers */ = {isa = PBXBuildFile; fileRef = AA127FBD16DEC66200791906 /* Functional.h */; };
 		AA127FBF16DEC66200791906 /* Functional.h in Headers */ = {isa = PBXBuildFile; fileRef = AA127FBD16DEC66200791906 /* Functional.h */; };
 		AA127FC216DEDC1200791906 /* SZFakeOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA127FC116DEDC1200791906 /* SZFakeOperationQueue.m */; };
+		AA147C6A16E15E9300CA19DD /* NSOperation+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C6916E15E9300CA19DD /* NSOperation+Testing.m */; };
+		AA147C7516E16A5B00CA19DD /* SZAPIOperation+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C7416E16A5B00CA19DD /* SZAPIOperation+Testing.m */; };
 		AA24E3EE164852A2005FFFB4 /* libGHUnitIOSSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3DE164851CF005FFFB4 /* libGHUnitIOSSimulator.a */; };
 		AA24E41F16485409005FFFB4 /* GCDAProfiling.c in Sources */ = {isa = PBXBuildFile; fileRef = AA24E41E16485409005FFFB4 /* GCDAProfiling.c */; };
 		AA24E45716485978005FFFB4 /* NSMutableURLRequest+Socialize.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91428163F347A00223157 /* NSMutableURLRequest+Socialize.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -195,6 +197,10 @@
 		AA127FBD16DEC66200791906 /* Functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Functional.h; sourceTree = "<group>"; };
 		AA127FC016DEDC1200791906 /* SZFakeOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZFakeOperationQueue.h; sourceTree = "<group>"; };
 		AA127FC116DEDC1200791906 /* SZFakeOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZFakeOperationQueue.m; sourceTree = "<group>"; };
+		AA147C6816E15E9300CA19DD /* NSOperation+Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperation+Testing.h"; sourceTree = "<group>"; };
+		AA147C6916E15E9300CA19DD /* NSOperation+Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+Testing.m"; sourceTree = "<group>"; };
+		AA147C7316E16A5B00CA19DD /* SZAPIOperation+Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SZAPIOperation+Testing.h"; sourceTree = "<group>"; };
+		AA147C7416E16A5B00CA19DD /* SZAPIOperation+Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SZAPIOperation+Testing.m"; sourceTree = "<group>"; };
 		AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperation_private.h; sourceTree = "<group>"; };
 		AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHUnitIOS.xcodeproj; path = "ThirdParty/gh-unit/Project-iOS/GHUnitIOS.xcodeproj"; sourceTree = "<group>"; };
 		AA24E41E16485409005FFFB4 /* GCDAProfiling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GCDAProfiling.c; sourceTree = "<group>"; };
@@ -436,6 +442,10 @@
 				AA64C9BF16C5D1FD004965F1 /* NSURLConnection+Testing.m */,
 				AA127FC016DEDC1200791906 /* SZFakeOperationQueue.h */,
 				AA127FC116DEDC1200791906 /* SZFakeOperationQueue.m */,
+				AA147C6816E15E9300CA19DD /* NSOperation+Testing.h */,
+				AA147C6916E15E9300CA19DD /* NSOperation+Testing.m */,
+				AA147C7316E16A5B00CA19DD /* SZAPIOperation+Testing.h */,
+				AA147C7416E16A5B00CA19DD /* SZAPIOperation+Testing.m */,
 			);
 			name = "Test Helpers";
 			sourceTree = "<group>";
@@ -857,6 +867,8 @@
 				AACFE1A816DEE5980016C008 /* SZURLRequestDownloaderTests.m in Sources */,
 				AACFE1A916DEE5980016C008 /* SZURLRequestOperationTests.m in Sources */,
 				AACFE1AA16DEE5980016C008 /* SZAPIOperationTests.m in Sources */,
+				AA147C6A16E15E9300CA19DD /* NSOperation+Testing.m in Sources */,
+				AA147C7516E16A5B00CA19DD /* SZAPIOperation+Testing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

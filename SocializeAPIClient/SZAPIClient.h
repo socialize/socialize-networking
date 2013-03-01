@@ -33,7 +33,10 @@
 @property (nonatomic, copy) NSString *udid;
 
 /** Whether or not this client is currently authenticating */
-@property (nonatomic, assign) BOOL authenticating;
+@property (nonatomic, assign, getter=isAuthenticating, readonly) BOOL authenticating;
+
+/** The current auth operation, only non-nil if isAuthenticating is YES */
+@property (nonatomic, strong, readonly) SZAPIOperation *authOperation;
 
 /** Whether or not this client has successfully authenticated (has an access token and secret) */
 @property (nonatomic, assign, readonly, getter=isAuthenticated) BOOL authenticated;
@@ -77,21 +80,6 @@
  SZAPIOperations added using this method or addOperation: will be associated with this API client. This currently means they will block on any of this client's blocking operations.
  */
 - (void)addOperation:(NSOperation*)operation;
-
-/** 
- Add multiple operations. Block subsequent operations until completed.
- 
- @param operations Operations to add. The operations will block other operations added by this client until completed.
- @param wait Same as _NSOperationQueue addOperations:_
-*/
-- (void)addBlockingOperations:(NSArray*)operations waitUntilFinished:(BOOL)wait;
-
-/**
- Add single operation. Block subsequent operations until completed.
- 
- @param operation Operations to add. The operation will block other operations added by this client until completed.
-*/
-- (void)addBlockingOperation:(NSOperation*)operation;
 
 /**
  Generate an SZAPIOperation using credentials from this client. The operation is not automatically queued.
