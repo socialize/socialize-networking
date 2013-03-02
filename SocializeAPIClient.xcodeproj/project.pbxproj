@@ -27,6 +27,7 @@
 		AA127FC216DEDC1200791906 /* SZFakeOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA127FC116DEDC1200791906 /* SZFakeOperationQueue.m */; };
 		AA147C6A16E15E9300CA19DD /* NSOperation+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C6916E15E9300CA19DD /* NSOperation+Testing.m */; };
 		AA147C7516E16A5B00CA19DD /* SZAPIOperation+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C7416E16A5B00CA19DD /* SZAPIOperation+Testing.m */; };
+		AA147C7816E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C7716E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m */; };
 		AA24E3EE164852A2005FFFB4 /* libGHUnitIOSSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3DE164851CF005FFFB4 /* libGHUnitIOSSimulator.a */; };
 		AA24E41F16485409005FFFB4 /* GCDAProfiling.c in Sources */ = {isa = PBXBuildFile; fileRef = AA24E41E16485409005FFFB4 /* GCDAProfiling.c */; };
 		AA24E45716485978005FFFB4 /* NSMutableURLRequest+Socialize.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91428163F347A00223157 /* NSMutableURLRequest+Socialize.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -201,6 +202,8 @@
 		AA147C6916E15E9300CA19DD /* NSOperation+Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+Testing.m"; sourceTree = "<group>"; };
 		AA147C7316E16A5B00CA19DD /* SZAPIOperation+Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SZAPIOperation+Testing.h"; sourceTree = "<group>"; };
 		AA147C7416E16A5B00CA19DD /* SZAPIOperation+Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SZAPIOperation+Testing.m"; sourceTree = "<group>"; };
+		AA147C7616E1783200CA19DD /* NSOperation+AdditionalCompletionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperation+AdditionalCompletionTests.h"; sourceTree = "<group>"; };
+		AA147C7716E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+AdditionalCompletionTests.m"; sourceTree = "<group>"; };
 		AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperation_private.h; sourceTree = "<group>"; };
 		AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHUnitIOS.xcodeproj; path = "ThirdParty/gh-unit/Project-iOS/GHUnitIOS.xcodeproj"; sourceTree = "<group>"; };
 		AA24E41E16485409005FFFB4 /* GCDAProfiling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GCDAProfiling.c; sourceTree = "<group>"; };
@@ -413,6 +416,8 @@
 				AA620FF316C5F2ED0048740C /* SZURLRequestOperationTests.m */,
 				AAC5E08816DC301F008CABA7 /* SZAPIOperationTests.h */,
 				AAC5E08916DC3020008CABA7 /* SZAPIOperationTests.m */,
+				AA147C7616E1783200CA19DD /* NSOperation+AdditionalCompletionTests.h */,
+				AA147C7716E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m */,
 			);
 			name = "Test Cases";
 			sourceTree = "<group>";
@@ -869,6 +874,7 @@
 				AACFE1AA16DEE5980016C008 /* SZAPIOperationTests.m in Sources */,
 				AA147C6A16E15E9300CA19DD /* NSOperation+Testing.m in Sources */,
 				AA147C7516E16A5B00CA19DD /* SZAPIOperation+Testing.m in Sources */,
+				AA147C7816E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
