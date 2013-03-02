@@ -14,9 +14,7 @@
 
 @implementation TestOperation
 
-- (void)main {
-    NSLog(@"Running op %@", self);
-    
+- (void)main {    
 }
 
 @end
