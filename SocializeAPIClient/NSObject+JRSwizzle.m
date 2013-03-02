@@ -46,8 +46,8 @@
 	return YES;
 }
 
-+ (BOOL)sz_jr_swizzleClassMethod:(SEL)origSel_ withClassMethod:(SEL)altSel_ error:(NSError**)error_ {
-	return [GetClass((id)self) sz_jr_swizzleMethod:origSel_ withMethod:altSel_ error:error_];
-}
+//+ (BOOL)sz_jr_swizzleClassMethod:(SEL)origSel_ withClassMethod:(SEL)altSel_ error:(NSError**)error_ {
+//	return [GetClass((id)self) sz_jr_swizzleMethod:origSel_ withMethod:altSel_ error:error_];
+//}
 
 @end

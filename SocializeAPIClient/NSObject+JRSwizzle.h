@@ -8,6 +8,6 @@
 @interface NSObject (SZJRSwizzle)
 
 + (BOOL)sz_jr_swizzleMethod:(SEL)origSel_ withMethod:(SEL)altSel_ error:(NSError**)error_;
-+ (BOOL)sz_jr_swizzleClassMethod:(SEL)origSel_ withClassMethod:(SEL)altSel_ error:(NSError**)error_;
+//+ (BOOL)sz_jr_swizzleClassMethod:(SEL)origSel_ withClassMethod:(SEL)altSel_ error:(NSError**)error_;
 
 @end
