@@ -32,6 +32,7 @@
 		AA147C8816E183F700CA19DD /* SZConcurrentOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA147C8516E183F700CA19DD /* SZConcurrentOperation.h */; };
 		AA147C8916E183F700CA19DD /* SZConcurrentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C8616E183F700CA19DD /* SZConcurrentOperation.m */; };
 		AA147C8A16E183F700CA19DD /* SZConcurrentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C8616E183F700CA19DD /* SZConcurrentOperation.m */; };
+		AA147C9516E1846800CA19DD /* SZOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C9416E1846800CA19DD /* SZOperationTests.m */; };
 		AA24E3EE164852A2005FFFB4 /* libGHUnitIOSSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3DE164851CF005FFFB4 /* libGHUnitIOSSimulator.a */; };
 		AA24E41F16485409005FFFB4 /* GCDAProfiling.c in Sources */ = {isa = PBXBuildFile; fileRef = AA24E41E16485409005FFFB4 /* GCDAProfiling.c */; };
 		AA24E45716485978005FFFB4 /* NSMutableURLRequest+Socialize.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91428163F347A00223157 /* NSMutableURLRequest+Socialize.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -206,6 +207,8 @@
 		AA147C7716E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+AdditionalCompletionTests.m"; sourceTree = "<group>"; };
 		AA147C8516E183F700CA19DD /* SZConcurrentOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZConcurrentOperation.h; sourceTree = "<group>"; };
 		AA147C8616E183F700CA19DD /* SZConcurrentOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZConcurrentOperation.m; sourceTree = "<group>"; };
+		AA147C9316E1846800CA19DD /* SZOperationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZOperationTests.h; sourceTree = "<group>"; };
+		AA147C9416E1846800CA19DD /* SZOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZOperationTests.m; sourceTree = "<group>"; };
 		AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperation_private.h; sourceTree = "<group>"; };
 		AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHUnitIOS.xcodeproj; path = "ThirdParty/gh-unit/Project-iOS/GHUnitIOS.xcodeproj"; sourceTree = "<group>"; };
 		AA24E41E16485409005FFFB4 /* GCDAProfiling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GCDAProfiling.c; sourceTree = "<group>"; };
@@ -406,6 +409,8 @@
 		AA4F55E41643054F00B66710 /* Test Cases */ = {
 			isa = PBXGroup;
 			children = (
+				AA147C9316E1846800CA19DD /* SZOperationTests.h */,
+				AA147C9416E1846800CA19DD /* SZOperationTests.m */,
 				AA4F55F51643061400B66710 /* SZTestCase.h */,
 				AA4F55F61643061400B66710 /* SZTestCase.m */,
 				AA4F55F81643071500B66710 /* SZAPIClientTests.h */,
@@ -875,6 +880,7 @@
 				AA147C6A16E15E9300CA19DD /* NSOperation+Testing.m in Sources */,
 				AA147C7516E16A5B00CA19DD /* SZAPIOperation+Testing.m in Sources */,
 				AA147C7816E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m in Sources */,
+				AA147C9516E1846800CA19DD /* SZOperationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
