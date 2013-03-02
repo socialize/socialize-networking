@@ -28,6 +28,10 @@
 		AA147C6A16E15E9300CA19DD /* NSOperation+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C6916E15E9300CA19DD /* NSOperation+Testing.m */; };
 		AA147C7516E16A5B00CA19DD /* SZAPIOperation+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C7416E16A5B00CA19DD /* SZAPIOperation+Testing.m */; };
 		AA147C7816E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C7716E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m */; };
+		AA147C8716E183F700CA19DD /* SZConcurrentOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA147C8516E183F700CA19DD /* SZConcurrentOperation.h */; };
+		AA147C8816E183F700CA19DD /* SZConcurrentOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA147C8516E183F700CA19DD /* SZConcurrentOperation.h */; };
+		AA147C8916E183F700CA19DD /* SZConcurrentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C8616E183F700CA19DD /* SZConcurrentOperation.m */; };
+		AA147C8A16E183F700CA19DD /* SZConcurrentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C8616E183F700CA19DD /* SZConcurrentOperation.m */; };
 		AA24E3EE164852A2005FFFB4 /* libGHUnitIOSSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3DE164851CF005FFFB4 /* libGHUnitIOSSimulator.a */; };
 		AA24E41F16485409005FFFB4 /* GCDAProfiling.c in Sources */ = {isa = PBXBuildFile; fileRef = AA24E41E16485409005FFFB4 /* GCDAProfiling.c */; };
 		AA24E45716485978005FFFB4 /* NSMutableURLRequest+Socialize.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91428163F347A00223157 /* NSMutableURLRequest+Socialize.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -200,6 +204,8 @@
 		AA147C7416E16A5B00CA19DD /* SZAPIOperation+Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SZAPIOperation+Testing.m"; sourceTree = "<group>"; };
 		AA147C7616E1783200CA19DD /* NSOperation+AdditionalCompletionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperation+AdditionalCompletionTests.h"; sourceTree = "<group>"; };
 		AA147C7716E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+AdditionalCompletionTests.m"; sourceTree = "<group>"; };
+		AA147C8516E183F700CA19DD /* SZConcurrentOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZConcurrentOperation.h; sourceTree = "<group>"; };
+		AA147C8616E183F700CA19DD /* SZConcurrentOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZConcurrentOperation.m; sourceTree = "<group>"; };
 		AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperation_private.h; sourceTree = "<group>"; };
 		AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHUnitIOS.xcodeproj; path = "ThirdParty/gh-unit/Project-iOS/GHUnitIOS.xcodeproj"; sourceTree = "<group>"; };
 		AA24E41E16485409005FFFB4 /* GCDAProfiling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GCDAProfiling.c; sourceTree = "<group>"; };
@@ -304,6 +310,8 @@
 		AA08F4731640805700CB803F /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				AA147C8516E183F700CA19DD /* SZConcurrentOperation.h */,
+				AA147C8616E183F700CA19DD /* SZConcurrentOperation.m */,
 				AA64C9C116C5E410004965F1 /* SZFallibleOperation.h */,
 				AA64C9C516C5E492004965F1 /* SZOperation.h */,
 				AA64C9C616C5E492004965F1 /* SZOperation.m */,
@@ -547,6 +555,7 @@
 				AAC5E0A216DD77EF008CABA7 /* NSOperation+AdditionalCompletion.h in Headers */,
 				AA127FB916DEC62E00791906 /* NSDictionary+Functional.h in Headers */,
 				AA127FBE16DEC66200791906 /* Functional.h in Headers */,
+				AA147C8716E183F700CA19DD /* SZConcurrentOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +580,7 @@
 				AAC5E0A316DD77EF008CABA7 /* NSOperation+AdditionalCompletion.h in Headers */,
 				AA127FBA16DEC62E00791906 /* NSDictionary+Functional.h in Headers */,
 				AA127FBF16DEC66200791906 /* Functional.h in Headers */,
+				AA147C8816E183F700CA19DD /* SZConcurrentOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +854,7 @@
 				AAC5E09B16DC4368008CABA7 /* NSObject+JRSwizzle.m in Sources */,
 				AAC5E0A416DD77EF008CABA7 /* NSOperation+AdditionalCompletion.m in Sources */,
 				AA127FBB16DEC62E00791906 /* NSDictionary+Functional.m in Sources */,
+				AA147C8916E183F700CA19DD /* SZConcurrentOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,6 +899,7 @@
 				AAC5E09C16DC4368008CABA7 /* NSObject+JRSwizzle.m in Sources */,
 				AAC5E0A516DD77EF008CABA7 /* NSOperation+AdditionalCompletion.m in Sources */,
 				AA127FBC16DEC62E00791906 /* NSDictionary+Functional.m in Sources */,
+				AA147C8A16E183F700CA19DD /* SZConcurrentOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

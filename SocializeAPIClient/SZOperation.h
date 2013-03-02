@@ -13,11 +13,6 @@
 
 @property (nonatomic, assign) BOOL didFail;
 
-- (void)KVStopExecuting;
-- (void)KVStartExecuting;
-- (void)KVFinish;
-- (void)KVFinishAndStopExecuting;
-
 - (NSArray*)failedDependencies;
 - (NSError*)failedDependenciesError;
 

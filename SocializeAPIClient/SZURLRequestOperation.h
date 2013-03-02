@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SZOperation.h"
+#import "SZConcurrentOperation.h"
 #import "SZURLRequestDownloader.h"
 
-@interface SZURLRequestOperation : SZOperation <NSURLConnectionDataDelegate>
+@interface SZURLRequestOperation : SZConcurrentOperation <NSURLConnectionDataDelegate>
 
 - (id)initWithURLRequest:(NSMutableURLRequest*)request;
 
