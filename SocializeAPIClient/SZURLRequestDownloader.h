@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SZURLRequestDownloader : NSObject
+@interface SZURLRequestDownloader : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
 - (id)initWithURLRequest:(NSURLRequest*)request;
 - (void)start;

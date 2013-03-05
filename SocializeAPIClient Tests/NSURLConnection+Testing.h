@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <OCMock/OCMock.h>
 
-@interface NSURLConnection (Testing)
+@interface OCMockObject (NSURLConnectionTesting)
 
-+ (void)expectRequestWithCheck:(BOOL(^)(NSURLRequest* request))checkBlock response:(NSURLResponse*)response chunks:(NSArray*)chunks;
+- (void)expectStartAndRespondWithDelegate:(id)delegate response:(NSURLResponse*)response chunks:(NSArray*)chunks;
+- (void)expectStartAndFailWithDelegate:(id)delegate error:(NSError*)error;
 
 @end

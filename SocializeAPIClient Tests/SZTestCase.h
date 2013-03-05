@@ -14,7 +14,10 @@
 #import "SZFakeOperationQueue.h"
 #import "SZAPIOperation+Testing.h"
 #import "NSOperation+Testing.h"
+#import "TestHelpers.h"
 
 @interface SZTestCase : GHAsyncTestCase
+
+- (void)disableClass:(Class)class;
 
 @end

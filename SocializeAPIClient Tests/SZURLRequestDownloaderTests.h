@@ -11,9 +11,6 @@
 
 @interface SZURLRequestDownloaderTests : SZTestCase
 
-- (void)testSuccessfulDownload;
 + (id)completingMockDownloaderWithResponse:(NSURLResponse*)response data:(NSData*)data error:(NSError*)error;
-
-@property (nonatomic, strong) SZURLRequestDownloader *URLRequestDownloader;
 
 @end

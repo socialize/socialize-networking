@@ -9,15 +9,7 @@
 #import "SZURLRequestDownloader.h"
 #import "SZGlobal.h"
 #import "NSHTTPURLResponse+StringEncoding.h"
-
-@interface SZURLRequestDownloader ()
-
-@property (nonatomic, strong) NSURLConnection *connection;
-@property (nonatomic, strong) NSError *error;
-@property (nonatomic, strong) NSURLResponse *response;
-@property (nonatomic, strong) NSMutableData *responseData;
-
-@end
+#import "SZURLRequestDownloader_private.h"
 
 @implementation SZURLRequestDownloader
 
@@ -37,17 +29,19 @@
     return _responseData;
 }
 
+- (void)startConnection {
+    if ([self isCancelled]) {
+        return;
+    }
+    
+    self.connection = [NSURLConnection connectionWithRequest:self.request delegate:self];
+    [self.connection start];
+}
+
 - (void)start {
     NSAssert(!self.isCancelled, @"%@: start called, but already cancelled", [self class]);
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if ([self isCancelled]) {
-            return;
-        }
-        
-        self.connection = [NSURLConnection connectionWithRequest:self.request delegate:self];
-        [self.connection start];
-    });
+
+    [self performSelectorOnMainThread:@selector(startConnection) withObject:nil waitUntilDone:NO];
 }
 
 - (void)cancel {

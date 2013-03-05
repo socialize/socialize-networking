@@ -9,30 +9,25 @@
 #import "NSURLConnection+Testing.h"
 #import <OCMock/OCMock.h>
 
-@implementation NSURLConnection (Testing)
+@implementation OCMockObject (NSURLConnectionTesting)
 
-+ (void)expectRequestWithCheck:(BOOL(^)(NSURLRequest*))checkBlock response:(NSURLResponse*)response chunks:(NSArray*)chunks {
-
-    __block id connectionDelegate = nil;
-    __block id connectionRequest = nil;
-    
-    id mockURLConnection = [OCMockObject mockForClass:[NSURLConnection class]];
-    [(NSURLConnection*)[[mockURLConnection stub] andDo0:^{
+- (void)expectStartAndRespondWithDelegate:(id)delegate response:(NSURLResponse*)response chunks:(NSArray*)chunks {
+    [(NSURLConnection*)[[self stub] andDo0:^{
         
-        [connectionDelegate connection:mockURLConnection didReceiveResponse:response];
+        [delegate connection:(NSURLConnection*)self didReceiveResponse:response];
         
         for (NSData *chunk in chunks) {
-            [connectionDelegate connection:mockURLConnection didReceiveData:chunk];
+            [delegate connection:(NSURLConnection*)self didReceiveData:chunk];
         }
         
-        [connectionDelegate connectionDidFinishLoading:mockURLConnection];
+        [delegate connectionDidFinishLoading:(NSURLConnection*)self];
     }] start];
-    
-    [[[[NSURLConnection stub] andDo2:^(NSURLRequest *request, id delegate) {
-        connectionDelegate = delegate;
-        connectionRequest = request;
-    }] andReturn:mockURLConnection] connectionWithRequest:[OCMArg checkWithBlock:checkBlock] delegate:OCMOCK_ANY];
-    
+}
+
+- (void)expectStartAndFailWithDelegate:(id)delegate error:(NSError*)error {
+    [(NSURLConnection*)[[self expect] andDo0:^{
+        [delegate connection:nil didFailWithError:error];
+    }] start];
 }
 
 @end
