@@ -12,53 +12,68 @@
 #import <objc/runtime.h>
 #import "SZURLRequestDownloaderTests.h"
 
-@interface SZURLRequestOperationHarness : SZURLRequestOperation
-@property (nonatomic, strong) SZURLRequestDownloader *realURLRequestDownloader;
-@end
-
-@implementation SZURLRequestOperationHarness
-- (void)setURLRequestDownloader:(SZURLRequestDownloader *)URLRequestDownloader { _realURLRequestDownloader = URLRequestDownloader; }
-- (void)setMockURLRequestDownloader:(SZURLRequestDownloader *)URLRequestDownloader { [super setURLRequestDownloader:URLRequestDownloader]; }
-@end
-
 @interface SZURLRequestOperationTests ()
-@property (nonatomic, strong) id realObject;
 @property (nonatomic, strong) SZURLRequestOperation *URLRequestOperation;
+@property (nonatomic, strong) id partial;
+@property (nonatomic, strong) id mockDownloader;
+@property (nonatomic, strong) SZURLRequestDownloader *realDownloader;
 
 @end
 
 @implementation SZURLRequestOperationTests
 
-- (NSOperationQueue*)operationQueue {
-    if (_operationQueue == nil) {
-        _operationQueue = [[NSOperationQueue alloc] init];
-    }
++ (NSURL*)testURL {
+    return [NSURL URLWithString:@"http://api.getsocialize.com"];
+}
+
++ (NSMutableURLRequest*)testURLRequest {
+    return [NSURLRequest requestWithURL:[self testURL]];
+}
+
+- (void)setUp {
+    self.URLRequestOperation = [[SZURLRequestOperation alloc] initWithURLRequest:[[self class] testURLRequest]];
     
-    return _operationQueue;
+    self.mockDownloader = [OCMockObject mockForClass:[SZURLRequestDownloader class]];
+    
+    [super setUp];
+}
+
+- (void)tearDown {
+    [self.mockDownloader verify];
+    
+    self.mockDownloader = nil;
+    self.partial = nil;
+
+    [super tearDown];
+}
+
+- (void)becomePartial {
+    if (self.partial == nil) {
+        self.partial = [OCMockObject partialMockForObject:self.URLRequestOperation];
+    }
+}
+
+- (void)replaceDownloaderProperty {
+    [self becomePartial];
+    REPLACE_PROPERTY(self.partial, URLRequestDownloader, self.mockDownloader, setURLRequestDownloader, self.realDownloader);
 }
 
 - (void)testRequestOperation {
+    [self replaceDownloaderProperty];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.google.com"]];
-    SZURLRequestOperationHarness *operation = [[SZURLRequestOperationHarness alloc] initWithURLRequest:request];
-
-    id mockResponse = [OCMockObject mockForClass:[NSHTTPURLResponse class]];
-    id mockData = [OCMockObject mockForClass:[NSData class]];
-    
-    id mockDownloader = [SZURLRequestDownloaderTests completingMockDownloaderWithResponse:mockResponse data:mockData error:nil];
-    [operation setMockURLRequestDownloader:mockDownloader];
-    
-    operation.URLCompletionBlock = ^(NSURLResponse *response, NSData *data, NSError *error) {
-        GHAssertEquals(response, mockResponse, @"Response incorrect");
-        GHAssertEquals(data, mockData, @"Data incorrect");
-        GHAssertNil(error, @"Unexpected error");
-        
-        [self notify:kGHUnitWaitStatusSuccess];
+    WEAK(self) weakSelf = self;
+    self.URLRequestOperation.URLCompletionBlock = ^(NSURLResponse *response, NSData *responseData, NSError *error) {
+        [weakSelf notify:kGHUnitWaitStatusSuccess];
     };
-        
+    
+    id mockResponse = [OCMockObject mockForClass:[NSURLResponse class]];
+    id mockData = [OCMockObject mockForClass:[NSMutableData class]];
+    id mockError = [OCMockObject mockForClass:[NSError class]];
+    [self.mockDownloader expectStartAndCompleteWithResponse:mockResponse data:mockData error:mockError];
+    
     [self prepare];
-    [self.operationQueue addOperation:operation];
-    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:2];
+    [self.URLRequestOperation start];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:0.5];
 }
 
 @end

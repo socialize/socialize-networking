@@ -19,21 +19,6 @@
 
 @implementation SZURLRequestDownloaderTests
 
-+ (id)completingMockDownloaderWithResponse:(NSURLResponse*)response data:(NSData*)data error:(NSError*)error {
-    __block void (^localCompletionBlock)(NSURLResponse *response, NSData *data, NSError *error);
-    
-    id mockDownloader = [OCMockObject mockForClass:[SZURLRequestDownloader class]];
-    [(SZURLRequestDownloader*)[[mockDownloader stub] andDo0:^{
-        localCompletionBlock(response, data, error);
-    }] start];
-    
-    [[[mockDownloader stub] andDo1:^(id completionBlock) {
-        localCompletionBlock = completionBlock;
-    }] setCompletionBlock:OCMOCK_ANY];
-    
-    return mockDownloader;
-}
-
 + (NSURL*)testURL {
     return [NSURL URLWithString:@"http://api.getsocialize.com"];
 }

@@ -11,6 +11,4 @@
 
 @interface SZURLRequestDownloaderTests : SZTestCase
 
-+ (id)completingMockDownloaderWithResponse:(NSURLResponse*)response data:(NSData*)data error:(NSError*)error;
-
 @end

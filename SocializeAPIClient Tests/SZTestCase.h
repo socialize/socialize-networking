@@ -15,6 +15,7 @@
 #import "SZAPIOperation+Testing.h"
 #import "NSOperation+Testing.h"
 #import "TestHelpers.h"
+#import "SZURLRequestOperation+Testing.h"
 
 @interface SZTestCase : GHAsyncTestCase
 

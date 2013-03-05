@@ -38,6 +38,20 @@
     [self KVFinishAndStopExecuting];
 }
 
+- (void)startConnection {
+    if ([self isCancelled]) {
+        [self KVFinishAndStopExecuting];
+        return;
+    }
+    
+    WEAK(self) weakSelf = self;
+    self.URLRequestDownloader = [[SZURLRequestDownloader alloc] initWithURLRequest:self.request];
+    self.URLRequestDownloader.completionBlock = ^(NSURLResponse *response, NSData *data, NSError *error) {
+        [weakSelf downloadCompletionWithResponse:response data:data error:error];
+    };
+    [self.URLRequestDownloader start];
+}
+
 - (void)start {
     if ([self isCancelled]) {
         [self KVFinish];
@@ -54,20 +68,7 @@
     }
 
     [self KVStartExecuting];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if ([self isCancelled]) {
-            [self KVFinishAndStopExecuting];
-            return;
-        }
-        
-        WEAK(self) weakSelf = self;
-        self.URLRequestDownloader = [[SZURLRequestDownloader alloc] initWithURLRequest:self.request];
-        self.URLRequestDownloader.completionBlock = ^(NSURLResponse *response, NSData *data, NSError *error) {
-            [weakSelf downloadCompletionWithResponse:response data:data error:error];
-        };
-        [self.URLRequestDownloader start];
-    });
+    [self performSelectorOnMainThread:@selector(startConnection) withObject:nil waitUntilDone:NO];
 }
 
 - (void)cancel {
