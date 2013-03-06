@@ -32,7 +32,7 @@
     return _operationQueue;
 }
 
-- (void)testAddSingleOperation {
+- (void)testAddSingleOperationWithMultipleHandlers {
     TestOperation *operation = [[TestOperation alloc] init];
     
     __block BOOL one = NO, two = NO;
@@ -52,7 +52,7 @@
     GHAssertTrue(two, @"Two not called");
 }
 
-- (void)testAddMultipleOperations {
+- (void)testAddMultipleOperationsWithSingleHandler {
     
     TestOperation *o1 = [[TestOperation alloc] init];
     __block BOOL one = NO, two = NO;
