@@ -632,8 +632,8 @@
 				AA4F55911642F35700B66710 /* Sources */,
 				AA4F55921642F35700B66710 /* Frameworks */,
 				AA4F55931642F35700B66710 /* Resources */,
-				AA4F56421643180700B66710 /* Run Simulator (CLI) */,
-				AA4F56851643230500B66710 /* Generate Coverage Report (CLI) */,
+				AA4F56421643180700B66710 /* Run Simulator (CLI Only) */,
+				AAFDEC9C16E7C6C3004F28F3 /* Generate Coverage Report (CLI Only) */,
 			);
 			buildRules = (
 			);
@@ -818,14 +818,14 @@
 			shellScript = "make subst";
 			showEnvVarsInLog = 0;
 		};
-		AA4F56421643180700B66710 /* Run Simulator (CLI) */ = {
+		AA4F56421643180700B66710 /* Run Simulator (CLI Only) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Run Simulator (CLI)";
+			name = "Run Simulator (CLI Only)";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -833,19 +833,19 @@
 			shellScript = "GHUNIT_CLI=1 ${PROJECT_DIR}/Scripts/run-headless-simulator.sh";
 			showEnvVarsInLog = 0;
 		};
-		AA4F56851643230500B66710 /* Generate Coverage Report (CLI) */ = {
+		AAFDEC9C16E7C6C3004F28F3 /* Generate Coverage Report (CLI Only) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Generate Coverage Report (CLI)";
+			name = "Generate Coverage Report (CLI Only)";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/Scripts/generate-coverage-report.sh SocializeAPIClient-profiling '*/SocializeAPIClient/*'";
+			shellScript = "${PROJECT_DIR}/Scripts/export-coverstory.sh SocializeAPIClient-profiling";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
