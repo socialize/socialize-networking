@@ -40,8 +40,6 @@ typedef NS_ENUM(NSUInteger, SZShareMedium) {
                      path:(NSString*)path
                parameters:(id)parameters;
 
-+ (NSString *)defaultHost;
-
 /** Completion block */
 @property (nonatomic, copy) void (^APICompletionBlock)(id result, NSError *error);
 

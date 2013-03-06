@@ -16,10 +16,6 @@
 
 @implementation SZAPIOperation
 
-+ (NSString *)defaultHost {
-    return SZDefaultAPIHost;
-}
-
 - (id)initWithConsumerKey:(NSString *)consumerKey
            consumerSecret:(NSString *)consumerSecret
               accessToken:(NSString *)accessToken
@@ -30,10 +26,6 @@
                      path:(NSString*)path
                parameters:(id)parameters
             operationType:(SZAPIOperationType)operationType {
-    
-    if (host == nil) {
-        host = [[self class] defaultHost];
-    }
     
     NSMutableURLRequest *request = [NSMutableURLRequest socializeRequestWithConsumerKey:consumerKey
                                                                          consumerSecret:consumerSecret

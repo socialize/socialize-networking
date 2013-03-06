@@ -38,6 +38,10 @@ static NSDictionary *operationTypes;
                                              parameters:(id)parameters
                                           operationType:(SZAPIOperationType)operationType {
     
+    if (host == nil) {
+        host = SZDefaultAPIHost;
+    }
+    
     if (operationType != SZAPIOperationTypeUndefined) {
         NSArray *info = [self.operationTypes objectForKey:@(operationType)];
         method = [info objectAtIndex:0];

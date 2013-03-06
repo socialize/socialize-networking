@@ -25,7 +25,7 @@
 @implementation SZAPIClient
 
 + (NSString *)defaultHost {
-    return [SZAPIOperation defaultHost];
+    return SZDefaultAPIHost;
 }
 
 + (NSString*)defaultUDID {

@@ -67,7 +67,21 @@
     GHAssertEqualStrings(req.HTTPMethod, method, @"Incorrect method");
     GHAssertEqualStrings([req.URL scheme], scheme, @"Incorrect scheme");
     GHAssertEqualStrings([req.URL path], path, @"Incorrect path");
+    GHAssertEqualStrings([req.URL host], [[self class] host], @"Incorrect path");
     GHAssertNotNil([req valueForHTTPHeaderField:@"Authorization"], @"Should have auth header");
 }
+
+- (void)testNilHostUsesDefault {
+    NSMutableURLRequest *req = [NSMutableURLRequest socializeRequestWithConsumerKey:[[self class] consumerKey]
+                                                                     consumerSecret:[[self class] consumerSecret]
+                                                                        accessToken:[[self class] accessToken]
+                                                                  accessTokenSecret:[[self class] accessTokenSecret]
+                                                                               host:nil
+                                                                      operationType:SZAPIOperationTypeAuthenticate
+                                                                         parameters:nil];
+    
+    GHAssertEqualStrings([req.URL host], SZDefaultAPIHost, @"Should have path");
+}
+
 
 @end

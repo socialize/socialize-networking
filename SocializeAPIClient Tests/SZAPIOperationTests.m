@@ -156,5 +156,14 @@
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:0.5];
 }
 
+- (void)testRequestWithNullHost {
+    self.APIOperation = [[SZAPIOperation alloc] initWithConsumerKey:[[self class] consumerKey] consumerSecret:[[self class] consumerSecret] accessToken:nil accessTokenSecret:nil method:@"POST" scheme:@"https" host:[[self class] testHost] path:@"/v1/authenticate/" parameters:nil];
+    
+    [self completeDownloadWithResponseObject:@{}];
+    
+    [self prepare];
+    [self.APIOperation start];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:0.5];
+}
 
 @end
