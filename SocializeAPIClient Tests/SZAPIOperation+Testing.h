@@ -11,7 +11,3 @@
 @interface SZAPIOperation (Testing)
 
 @end
-
-@interface SZAPIOperation ()
-@property (nonatomic, strong) id result;
-@end

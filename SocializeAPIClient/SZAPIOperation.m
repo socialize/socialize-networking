@@ -14,12 +14,6 @@
 #import "NSMutableURLRequest+OAuth.h"
 #import "SZAPIOperation_private.h"
 
-@interface SZAPIOperation ()
-@property (nonatomic, strong) NSDictionary *operationTypes;
-@property (nonatomic, strong) id result;
-@property (nonatomic, assign) SZAPIOperationType operationType;
-@end
-
 @implementation SZAPIOperation
 
 + (NSString *)defaultHost {

@@ -8,4 +8,7 @@
 
 @interface SZAPIOperation ()
 @property (nonatomic, weak) SZAPIClient *APIClient;
+@property (nonatomic, strong) id result;
+@property (nonatomic, assign) SZAPIOperationType operationType;
+
 @end

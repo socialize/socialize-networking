@@ -9,6 +9,7 @@
 #import "SZAPIClientTests.h"
 #import "SZAPIClient.h"
 #import "NSOperation+Testing.h"
+#import "SZAPIOperation_private.h"
 
 static NSString *ConsumerKey = @"ConsumerKey";
 static NSString *ConsumerSecret = @"ConsumerSecret";
