@@ -21,6 +21,17 @@ typedef NS_ENUM(NSUInteger, SZAPIOperationType) {
  */
 @interface NSMutableURLRequest (Socialize)
 
++ (NSMutableURLRequest*)socializeRequestWithConsumerKey:(NSString *)consumerKey
+                                         consumerSecret:(NSString *)consumerSecret
+                                            accessToken:(NSString *)accessToken
+                                      accessTokenSecret:(NSString *)accessTokenSecret
+                                                 scheme:(NSString*)scheme
+                                                 method:(NSString*)method
+                                                   host:(NSString*)host
+                                                   path:(NSString*)path
+                                             parameters:(id)parameters
+                                          operationType:(SZAPIOperationType)operationType;
+
 /**
  Create a Socialize request (operation type variant).
  

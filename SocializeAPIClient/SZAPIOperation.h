@@ -26,17 +26,6 @@ typedef NS_ENUM(NSUInteger, SZShareMedium) {
            consumerSecret:(NSString *)consumerSecret
               accessToken:(NSString *)accessToken
         accessTokenSecret:(NSString *)accessTokenSecret
-                   method:(NSString*)method
-                   scheme:(NSString*)scheme
-                     host:(NSString*)host
-                     path:(NSString*)path
-               parameters:(id)parameters
-            operationType:(SZAPIOperationType)operationType;
-
-- (id)initWithConsumerKey:(NSString *)consumerKey
-           consumerSecret:(NSString *)consumerSecret
-              accessToken:(NSString *)accessToken
-        accessTokenSecret:(NSString *)accessTokenSecret
                      host:(NSString*)host
             operationType:(SZAPIOperationType)operationType
                parameters:(id)parameters;

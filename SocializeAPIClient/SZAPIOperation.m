@@ -35,18 +35,17 @@
         host = [[self class] defaultHost];
     }
     
-    NSMutableURLRequest *request;
-    if (operationType == SZAPIOperationTypeUndefined) {
-        request = [NSMutableURLRequest socializeRequestWithConsumerKey:consumerKey
-                                                                             consumerSecret:consumerSecret
-                                                                                accessToken:accessToken
-                                                                          accessTokenSecret:accessTokenSecret
-                                                                                       host:host
-                                                                              operationType:operationType
-                                                                                 parameters:parameters];
-    } else {
-        request = [NSMutableURLRequest socializeRequestWithConsumerKey:consumerKey consumerSecret:consumerSecret accessToken:accessToken accessTokenSecret:accessTokenSecret host:host operationType:operationType parameters:parameters];
-    }
+    NSMutableURLRequest *request = [NSMutableURLRequest socializeRequestWithConsumerKey:consumerKey
+                                                                         consumerSecret:consumerSecret
+                                                                            accessToken:accessToken
+                                                                      accessTokenSecret:accessTokenSecret
+                                                                                 scheme:scheme
+                                                                                 method:method
+                                                                                   host:host
+                                                                                   path:path
+                                                                             parameters:parameters
+                                                                          operationType:operationType];
+    
 
     if (self = [super initWithURLRequest:request]) {
         self.operationType = operationType;

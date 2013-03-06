@@ -58,34 +58,99 @@
     REPLACE_PROPERTY(self.partial, URLRequestDownloader, self.mockDownloader, setURLRequestDownloader, self.realDownloader);
 }
 
-- (void)testSuccessfulAuthOperation {
-    
-    NSDictionary *params = @{ @"udid": @"blah" };
-    self.APIOperation = [[SZAPIOperation alloc] initWithConsumerKey:[[self class] consumerKey] consumerSecret:[[self class] consumerSecret] accessToken:nil accessTokenSecret:nil host:[[self class] testHost] operationType:SZAPIOperationTypeAuthenticate parameters:params];
-    
+- (void)completeDownloadWithResponseData:(NSMutableData*)responseData {
     [self replaceDownloaderProperty];
-
-    NSDictionary *responseDict = @{ @"item1_key": @"item1_value" };
-
+    
     WEAK(self) weakSelf = self;
     self.APIOperation.APICompletionBlock = ^(id result, NSError *error) {
 #define self weakSelf
         if (error != nil) {
             [self notify:kGHUnitWaitStatusFailure];
         } else {
-            
-            GHAssertEqualObjects(responseDict, result, @"Bad result");
             [self notify:kGHUnitWaitStatusSuccess];
         }
 #undef self
     };
-
+    
     id mockResponse = [OCMockObject mockForClass:[NSHTTPURLResponse class]];
     
-    NSMutableData *responseData = [[[responseDict JSONString] dataUsingEncoding:NSUTF8StringEncoding] mutableCopy];
-
     [self.mockDownloader expectStartAndCompleteWithResponse:mockResponse data:responseData error:nil];
+}
 
+- (void)completeDownloadWithResponseString:(NSString*)string {
+    [self completeDownloadWithResponseData:[[string dataUsingEncoding:NSUTF8StringEncoding] mutableCopy]];
+}
+
+- (void)completeDownloadWithResponseObject:(NSDictionary*)responseDict {
+    [self completeDownloadWithResponseString:[responseDict JSONString]];
+    
+}
+
+- (void)testSuccessfulAuthOperationUsingTypeInitialization {
+    
+    NSDictionary *params = @{ @"udid": @"blah" };
+    self.APIOperation = [[SZAPIOperation alloc] initWithConsumerKey:[[self class] consumerKey] consumerSecret:[[self class] consumerSecret] accessToken:nil accessTokenSecret:nil host:[[self class] testHost] operationType:SZAPIOperationTypeAuthenticate parameters:params];
+    
+    [self completeDownloadWithResponseObject:@{}];
+
+    [self prepare];
+    [self.APIOperation start];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:0.5];
+}
+
+- (void)testSuccessfulAuthOperationUsingManualInitialization {
+    
+    NSDictionary *params = @{ @"udid": @"blah" };
+    self.APIOperation = [[SZAPIOperation alloc] initWithConsumerKey:[[self class] consumerKey] consumerSecret:[[self class] consumerSecret] accessToken:nil accessTokenSecret:nil method:@"POST" scheme:@"https" host:[[self class] testHost] path:@"/v1/authenticate/" parameters:params];
+    
+    [self completeDownloadWithResponseObject:@{}];
+    
+    [self prepare];
+    [self.APIOperation start];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:0.5];
+}
+
+- (void)testFailedOperation {
+    
+    NSDictionary *params = @{ @"udid": @"blah" };
+    self.APIOperation = [[SZAPIOperation alloc] initWithConsumerKey:[[self class] consumerKey] consumerSecret:[[self class] consumerSecret] accessToken:nil accessTokenSecret:nil method:@"POST" scheme:@"https" host:[[self class] testHost] path:@"/v1/authenticate/" parameters:params];
+    
+    [self completeDownloadWithResponseObject:@{ @"errors": @[ @{@"k1": @"v1"} ] }];
+    
+    [self prepare];
+    [self.APIOperation start];
+    [self waitForStatus:kGHUnitWaitStatusFailure timeout:0.5];
+    
+    GHAssertNotNil(self.APIOperation.error, @"Should have error");
+}
+
+- (void)testInvalidJSONCausesCouldNotParseError {
+    NSDictionary *params = @{ @"udid": @"blah" };
+    self.APIOperation = [[SZAPIOperation alloc] initWithConsumerKey:[[self class] consumerKey] consumerSecret:[[self class] consumerSecret] accessToken:nil accessTokenSecret:nil method:@"POST" scheme:@"https" host:[[self class] testHost] path:@"/v1/authenticate/" parameters:params];
+
+    [self completeDownloadWithResponseString:@"Hello, there"];
+
+    [self prepare];
+    [self.APIOperation start];
+    [self waitForStatus:kGHUnitWaitStatusFailure timeout:0.5];
+    
+    NSError *error = self.APIOperation.error;
+    GHAssertTrue([error code] == SZAPIErrorCodeCouldNotParseServerResponse, @"Bad error");
+}
+
+- (void)testNilHostHasDefaultHost {
+    NSDictionary *params = @{ @"udid": @"blah" };
+    self.APIOperation = [[SZAPIOperation alloc] initWithConsumerKey:[[self class] consumerKey] consumerSecret:[[self class] consumerSecret] accessToken:nil accessTokenSecret:nil method:@"POST" scheme:@"https" host:[[self class] testHost] path:@"/v1/authenticate/" parameters:params];
+    NSURL *url = self.APIOperation.request.URL;
+    
+    GHAssertNotNil(url, @"Should have valid URL");
+}
+
+- (void)testRequestWithNullParams {
+    self.APIOperation = [[SZAPIOperation alloc] initWithConsumerKey:[[self class] consumerKey] consumerSecret:[[self class] consumerSecret] accessToken:nil accessTokenSecret:nil method:@"POST" scheme:@"https" host:[[self class] testHost] path:@"/v1/authenticate/" parameters:nil];
+
+    [self completeDownloadWithResponseObject:@{}];
+    
     [self prepare];
     [self.APIOperation start];
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:0.5];
