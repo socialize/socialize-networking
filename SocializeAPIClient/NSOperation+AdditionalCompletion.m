@@ -14,6 +14,26 @@ static const char *CompletionBlocksKey = "CompletionBlocksKey";
 
 @implementation NSOperation (AdditionalCompletion)
 
++ (void)load {
+    NSError *error = nil;
+    NSAssert([self sz_jr_swizzleMethod:@selector(start) withMethod:@selector(_AdditionalCompletion_start) error:&error], @"Swizzle failed %@", error);
+}
+
++ (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"isFinished"] && [[change objectForKey:NSKeyValueChangeNewKey] boolValue]) {
+        [object removeObserver:(NSObject*)self forKeyPath:@"isFinished"];
+        
+        for (void(^completionBlock)() in [object completionBlocks]) {
+            completionBlock();
+        }
+    }
+}
+
+- (void)_AdditionalCompletion_start {
+    [self addObserver:(NSObject*)[self class] forKeyPath:@"isFinished" options:NSKeyValueObservingOptionNew context:NULL];
+    [self _AdditionalCompletion_start];
+}
+
 - (NSMutableArray*)completionBlocks {
     
     NSMutableArray *completionBlocks = objc_getAssociatedObject(self, CompletionBlocksKey);
@@ -28,38 +48,6 @@ static const char *CompletionBlocksKey = "CompletionBlocksKey";
 
 - (void)addCompletionBlock:(void(^)())completionBlock {
     [[self completionBlocks] addObject:completionBlock];
-}
-
-@end
-
-@implementation NSOperationQueue (AdditionalCompletion)
-
-+ (void)load {
-    NSError *error = nil;
-    NSAssert([self sz_jr_swizzleMethod:@selector(addOperation:) withMethod:@selector(_AdditionalCompletion_addOperation:) error:&error], @"Swizzle failed %@", error);
-    NSAssert([self sz_jr_swizzleMethod:@selector(addOperations:waitUntilFinished:) withMethod:@selector(_AdditionalCompletion_addOperations:waitUntilFinished:) error:&error], @"Swizzle failed %@", error);
-}
-
-- (void)_AdditionalCompletion_addOperation:(NSOperation *)op {
-    [op addObserver:self forKeyPath:@"isFinished" options:NSKeyValueObservingOptionNew context:NULL];
-    [self _AdditionalCompletion_addOperation:op];
-}
-
-- (void)_AdditionalCompletion_addOperations:(NSArray *)ops waitUntilFinished:(BOOL)wait {
-    for (NSOperation *operation in ops) {
-        [operation addObserver:self forKeyPath:@"isFinished" options:NSKeyValueObservingOptionNew context:NULL];
-    }
-    [self _AdditionalCompletion_addOperations:ops waitUntilFinished:wait];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"isFinished"] && [[change objectForKey:NSKeyValueChangeNewKey] boolValue]) {
-        [object removeObserver:self forKeyPath:@"isFinished"];
-        
-        for (void(^completionBlock)() in [object completionBlocks]) {
-            completionBlock();
-        }
-    }
 }
 
 @end

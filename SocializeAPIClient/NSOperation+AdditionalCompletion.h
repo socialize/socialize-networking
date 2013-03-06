@@ -14,8 +14,3 @@
 - (void)addCompletionBlock:(void(^)())completionBlock;
 
 @end
-
-@interface NSOperationQueue (AdditionalCompletion)
-
-@end
-

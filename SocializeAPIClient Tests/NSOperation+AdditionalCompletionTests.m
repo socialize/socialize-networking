@@ -25,13 +25,6 @@
 
 @implementation NSOperation_AdditionalCompletionTests
 
-- (NSOperationQueue *)operationQueue {
-    if (_operationQueue == nil) {
-        _operationQueue = [[NSOperationQueue alloc] init];
-    }
-    return _operationQueue;
-}
-
 - (void)testAddSingleOperationWithMultipleHandlers {
     TestOperation *operation = [[TestOperation alloc] init];
     
@@ -45,8 +38,7 @@
     }];
 
     
-    [self.operationQueue addOperation:operation];
-    [self.operationQueue waitUntilAllOperationsAreFinished];
+    [operation start];
     
     GHAssertTrue(one, @"One not called");
     GHAssertTrue(two, @"Two not called");
@@ -61,13 +53,12 @@
     }];
     
     TestOperation *o2 = [[TestOperation alloc] init];
-//    __block BOOL two = NO;
     [o2 addCompletionBlock:^{
         two = YES;
     }];
     
-    [self.operationQueue addOperations:@[ o1, o2 ] waitUntilFinished:NO];
-    [self.operationQueue waitUntilAllOperationsAreFinished];
+    [o1 start];
+    [o2 start];
     GHAssertTrue(one, @"One not called");
     GHAssertTrue(two, @"Two not called");
 }
