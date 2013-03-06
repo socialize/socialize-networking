@@ -25,9 +25,6 @@
     
 	[self each:^(id key, id obj) {
 		id value = block(key, obj);
-		if (!value)
-			value = [NSNull null];
-		
 		[result addObject:value];
 	}];
 	
