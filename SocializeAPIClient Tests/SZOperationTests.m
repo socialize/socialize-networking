@@ -51,4 +51,19 @@
     GHAssertTrue([failedDependencies containsObject:op1], @"Should have failed deps");
 }
 
+- (void)testNormalDependency {
+    NSOperation *op1 = [[NSOperation alloc] init];
+    
+    SZTestOperation *op2 = [[SZTestOperation alloc] init];
+    [op2 addDependency:op1];
+    
+    [self.operationQueue addOperations:@[ op1, op2 ] waitUntilFinished:NO];
+    [self.operationQueue waitUntilAllOperationsAreFinished];
+    
+    NSError *error = [op2 failedDependenciesError];
+    GHAssertNil(error, @"Should not have error");
+
+}
+
+
 @end
