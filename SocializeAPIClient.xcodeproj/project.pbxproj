@@ -52,6 +52,7 @@
 		AA24E46516485A9A005FFFB4 /* SocializeAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E46616485A9B005FFFB4 /* SocializeAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA3D37D416E6B32900ED8645 /* SZURLRequestOperation+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3D37D316E6B32900ED8645 /* SZURLRequestOperation+Testing.m */; };
+		AA3D37DD16E6BFA200ED8645 /* SZAPIOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5E08916DC3020008CABA7 /* SZAPIOperationTests.m */; };
 		AA4F55791642F2AA00B66710 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC06A3C163B3F680077C025 /* Foundation.framework */; };
 		AA4F55841642F2D200B66710 /* NSData+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A80163B5A8E0077C025 /* NSData+JSONHelpers.m */; };
 		AA4F55851642F2D200B66710 /* NSObject+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD9142C163F3C6A00223157 /* NSObject+JSONHelpers.m */; };
@@ -893,6 +894,7 @@
 				AA147C7816E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m in Sources */,
 				AA147C9516E1846800CA19DD /* SZOperationTests.m in Sources */,
 				AA3D37D416E6B32900ED8645 /* SZURLRequestOperation+Testing.m in Sources */,
+				AA3D37DD16E6BFA200ED8645 /* SZAPIOperationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,26 +11,32 @@
 #import "SZURLRequestOperation_private.h"
 #import "SZURLRequestDownloaderTests.h"
 
-@interface SZAPIOperationHarness : SZAPIOperation
-@property (nonatomic, strong) SZURLRequestDownloader *realURLRequestDownloader;
-@end
-
-@implementation SZAPIOperationHarness
-- (void)setURLRequestDownloader:(SZURLRequestDownloader *)URLRequestDownloader { _realURLRequestDownloader = URLRequestDownloader; }
-- (void)setMockURLRequestDownloader:(SZURLRequestDownloader *)URLRequestDownloader { [super setURLRequestDownloader:URLRequestDownloader]; }
-@end
-
 @interface SZAPIOperationTests ()
-@property (nonatomic, strong) SZAPIOperation *operation;
+@property (nonatomic, strong) SZAPIOperation *APIOperation;
 @property (nonatomic, strong) id partial;
+@property (nonatomic, strong) id mockDownloader;
+@property (nonatomic, strong) SZURLRequestDownloader *realDownloader;
 @end
 
 @implementation SZAPIOperationTests
 
++ (NSString*)consumerKey {
+    return @"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa";
+}
+
++ (NSString*)consumerSecret {
+    return @"bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbbb";
+}
+
++ (NSString*)testHost {
+    return @"api.getsocialize.com";
+}
+
 - (void)setUp {
-    self.URLRequestDownloader = [[SZURLRequestDownloader alloc] initWithURLRequest:[[self class] testURLRequest]];
-    
-    self.mockConnection = [OCMockObject mockForClass:[NSURLConnection class]];
+    self.mockDownloader = [OCMockObject mockForClass:[SZURLRequestDownloader class]];
+}
+
+- (void)createAPIOperation {
 }
 
 - (void)disableAllConnections {
@@ -38,30 +44,36 @@
 }
 
 - (void)tearDown {
-    [self.mockConnection verify];
-    self.mockConnection = nil;
+    [self.mockDownloader verify];
+
+    self.mockDownloader = nil;
     self.partial = nil;
-    self.URLRequestDownloader = nil;
+    self.APIOperation = nil;
 }
 
 - (void)becomePartial {
     if (self.partial == nil) {
-        self.partial = [OCMockObject partialMockForObject:self.URLRequestDownloader];
+        self.partial = [OCMockObject partialMockForObject:self.APIOperation];
     }
 }
 
-- (void)replaceConnectionProperty {
+- (void)replaceDownloaderProperty {
     [self becomePartial];
-    REPLACE_PROPERTY(self.partial, connection, self.mockConnection, setConnection, self.realConnection);
+    REPLACE_PROPERTY(self.partial, URLRequestDownloader, self.mockDownloader, setURLRequestDownloader, self.realDownloader);
 }
 
-- (void)testSuccessfulAPIOperation {
+- (void)testSuccessfulAuthOperation {
+    
     NSDictionary *params = @{ @"udid": @"blah" };
+    self.APIOperation = [[SZAPIOperation alloc] initWithConsumerKey:[[self class] consumerKey] consumerSecret:[[self class] consumerSecret] accessToken:nil accessTokenSecret:nil host:[[self class] testHost] operationType:SZAPIOperationTypeAuthenticate parameters:params];
+    
+    [self replaceDownloaderProperty];
 
     NSDictionary *responseDict = @{ @"item1_key": @"item1_value" };
 
-    SZAPIOperation *operation = [[SZAPIOperation alloc] initWithConsumerKey:@"35ac50dd-b07c-463d-8de4-898447af738b" consumerSecret:@"7e8514ed-9acc-47a9-9721-2eac0afbf722" accessToken:nil accessTokenSecret:nil host:nil operationType:SZAPIOperationTypeAuthenticate parameters:params];
-    operation.APICompletionBlock = ^(id result, NSError *error) {
+    WEAK(self) weakSelf = self;
+    self.APIOperation.APICompletionBlock = ^(id result, NSError *error) {
+#define self weakSelf
         if (error != nil) {
             [self notify:kGHUnitWaitStatusFailure];
         } else {
@@ -69,20 +81,18 @@
             GHAssertEqualObjects(responseDict, result, @"Bad result");
             [self notify:kGHUnitWaitStatusSuccess];
         }
+#undef self
     };
 
     id mockResponse = [OCMockObject mockForClass:[NSHTTPURLResponse class]];
     
-    NSData *responseData = [[responseDict JSONString] dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableData *responseData = [[[responseDict JSONString] dataUsingEncoding:NSUTF8StringEncoding] mutableCopy];
 
-    id mockDownloader = [OCMockObject mockForClass:[SZURLRequestDownloader class]];
-    [[mockDownloader expect] ]
-    id mockDownloader = [SZURLRequestDownloaderTests completingMockDownloaderWithResponse:mockResponse data:responseData error:nil];
-    [operation setMockURLRequestDownloader:mockDownloader];
+    [self.mockDownloader expectStartAndCompleteWithResponse:mockResponse data:responseData error:nil];
 
     [self prepare];
-    [self.operationQueue addOperation:operation];
-    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:5];
+    [self.APIOperation start];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:0.5];
 }
 
 
