@@ -21,9 +21,4 @@
     [ClassMockRegistry stopMockingAllClassesAndVerify];
 }
 
-- (void)disableClass:(Class)class {
-    [class startNiceMockingClass];
-    [[class stub] alloc];
-}
-
 @end

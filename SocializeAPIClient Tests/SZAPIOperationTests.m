@@ -39,10 +39,6 @@
 - (void)createAPIOperation {
 }
 
-- (void)disableAllConnections {
-    [self disableClass:[NSURLConnection class]];
-}
-
 - (void)tearDown {
     [self.mockDownloader verify];
 

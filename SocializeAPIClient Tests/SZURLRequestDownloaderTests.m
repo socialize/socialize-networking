@@ -34,7 +34,7 @@
 }
 
 - (void)disableAllConnections {
-    [self disableClass:[NSURLConnection class]];
+    [NSURLConnection disable];
 }
 
 - (void)tearDown {

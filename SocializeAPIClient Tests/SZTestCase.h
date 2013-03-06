@@ -19,6 +19,4 @@
 
 @interface SZTestCase : GHAsyncTestCase
 
-- (void)disableClass:(Class)class;
-
 @end
