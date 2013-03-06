@@ -114,6 +114,7 @@
 		AAE1765C16D6F83100A59380 /* NSMutableURLRequest+Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE1765916D6F83100A59380 /* NSMutableURLRequest+Parameters.h */; };
 		AAE1765D16D6F83100A59380 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE1765A16D6F83100A59380 /* NSMutableURLRequest+Parameters.m */; };
 		AAE1765E16D6F83100A59380 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE1765A16D6F83100A59380 /* NSMutableURLRequest+Parameters.m */; };
+		AAFDECA716E7D3A7004F28F3 /* NSMutableURLRequest+SocializeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFDECA616E7D3A7004F28F3 /* NSMutableURLRequest+SocializeTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,6 +280,8 @@
 		AAD9142C163F3C6A00223157 /* NSObject+JSONHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSONHelpers.m"; sourceTree = "<group>"; };
 		AAE1765916D6F83100A59380 /* NSMutableURLRequest+Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Parameters.h"; sourceTree = "<group>"; };
 		AAE1765A16D6F83100A59380 /* NSMutableURLRequest+Parameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Parameters.m"; sourceTree = "<group>"; };
+		AAFDECA516E7D3A7004F28F3 /* NSMutableURLRequest+SocializeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+SocializeTests.h"; sourceTree = "<group>"; };
+		AAFDECA616E7D3A7004F28F3 /* NSMutableURLRequest+SocializeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+SocializeTests.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +433,8 @@
 				AAC5E08916DC3020008CABA7 /* SZAPIOperationTests.m */,
 				AA147C7616E1783200CA19DD /* NSOperation+AdditionalCompletionTests.h */,
 				AA147C7716E1783200CA19DD /* NSOperation+AdditionalCompletionTests.m */,
+				AAFDECA516E7D3A7004F28F3 /* NSMutableURLRequest+SocializeTests.h */,
+				AAFDECA616E7D3A7004F28F3 /* NSMutableURLRequest+SocializeTests.m */,
 			);
 			name = "Test Cases";
 			sourceTree = "<group>";
@@ -895,6 +900,7 @@
 				AA147C9516E1846800CA19DD /* SZOperationTests.m in Sources */,
 				AA3D37D416E6B32900ED8645 /* SZURLRequestOperation+Testing.m in Sources */,
 				AA3D37DD16E6BFA200ED8645 /* SZAPIOperationTests.m in Sources */,
+				AAFDECA716E7D3A7004F28F3 /* NSMutableURLRequest+SocializeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

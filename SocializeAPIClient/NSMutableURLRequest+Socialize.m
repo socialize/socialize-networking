@@ -77,7 +77,7 @@ static NSDictionary *operationTypes;
                                             path:(NSString*)path
                                       parameters:(id)parameters {
     
-    return [self socializeRequestWithConsumerKey:consumerKey consumerSecret:consumerSecret accessToken:accessToken accessTokenSecret:accessTokenSecret scheme:nil method:nil host:host path:nil parameters:parameters operationType:SZAPIOperationTypeUndefined];
+    return [self socializeRequestWithConsumerKey:consumerKey consumerSecret:consumerSecret accessToken:accessToken accessTokenSecret:accessTokenSecret scheme:scheme method:method host:host path:path parameters:parameters operationType:SZAPIOperationTypeUndefined];
 }
 
 @end
