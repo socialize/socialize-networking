@@ -11,7 +11,7 @@
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, strong) NSError *error;
 @property (nonatomic, strong) NSURLResponse *response;
-@property (nonatomic, strong) NSMutableData *responseData;
+@property (nonatomic, assign, getter=isCancelled) BOOL cancelled;
 
 @end
 

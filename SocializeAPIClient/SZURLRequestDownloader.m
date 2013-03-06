@@ -11,6 +11,12 @@
 #import "NSHTTPURLResponse+StringEncoding.h"
 #import "SZURLRequestDownloader_private.h"
 
+@interface SZURLRequestDownloader () {
+    NSMutableData *_responseData;
+    NSString *_responseString;
+}
+@end
+
 @implementation SZURLRequestDownloader
 
 - (id)initWithURLRequest:(NSURLRequest*)request {
@@ -39,12 +45,11 @@
 }
 
 - (void)start {
-    NSAssert(!self.isCancelled, @"%@: start called, but already cancelled", [self class]);
-
-    [self performSelectorOnMainThread:@selector(startConnection) withObject:nil waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(startConnection) withObject:nil waitUntilDone:YES];
 }
 
 - (void)cancel {
+    self.cancelled = YES;
     [self.connection cancel];
     self.connection = nil;
 }

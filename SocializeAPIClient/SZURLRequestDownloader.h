@@ -22,8 +22,8 @@
 @property (nonatomic, strong, readonly) NSURLResponse *response;
 @property (nonatomic, strong, readonly) NSMutableData *responseData;
 
-@property (nonatomic, assign, getter=isCancelled) BOOL cancelled;
+@property (nonatomic, assign, getter=isCancelled, readonly) BOOL cancelled;
 
-@property (nonatomic, strong) NSString *responseString;
+@property (nonatomic, strong, readonly) NSString *responseString;
 
 @end

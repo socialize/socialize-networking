@@ -64,13 +64,13 @@
 #define self weakSelf
         
         // Verify the response string was reassembled correctly
-        NSString *responseString = [(NSHTTPURLResponse*)response stringForResponseData:data];
+        NSString *responseString = [self.URLRequestDownloader responseString];
         GHAssertEqualStrings(responseString, @"Hello", @"Bad response string");
         
         [self notify:kGHUnitWaitStatusSuccess];
 #undef self
     };
-    
+        
     // Fake a 200 response with data by mimicking the NSURLConnection protocol
     NSDictionary *responseHeaders = @{@"Content-type": @"text/html;charset=utf-8"};
     NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[[self class] testURL]
@@ -127,6 +127,22 @@
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:1];
     
     GHAssertEquals(mockError, self.URLRequestDownloader.error, @"Should have error");
+}
+
+- (void)testCancelBeforeStartDoesNotDownload {
+    [self disableAllConnections];
+    [self replaceConnectionProperty];
+
+    [[self.mockConnection expect] cancel];
+    
+    [self.URLRequestDownloader cancel];
+    
+    [self.URLRequestDownloader start];
+}
+
+- (void)testCancellingSetsIsCancelled {
+    [self.URLRequestDownloader cancel];
+    GHAssertTrue(self.URLRequestDownloader.isCancelled, @"Should be cancelled");
 }
 
 @end
