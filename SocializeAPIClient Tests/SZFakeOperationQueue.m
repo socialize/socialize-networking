@@ -7,7 +7,6 @@
 //
 
 #import "SZFakeOperationQueue.h"
-#import "NSObject+JRSwizzle.h"
 
 @implementation SZFakeOperationQueue
 

@@ -97,10 +97,6 @@
 		AA64C9C716C5E492004965F1 /* SZOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA64C9C516C5E492004965F1 /* SZOperation.h */; };
 		AA64C9C816C5E492004965F1 /* SZOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C9C616C5E492004965F1 /* SZOperation.m */; };
 		AA64C9C916C5E806004965F1 /* SZOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C9C616C5E492004965F1 /* SZOperation.m */; };
-		AAC5E09916DC4368008CABA7 /* NSObject+JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC5E09716DC4368008CABA7 /* NSObject+JRSwizzle.h */; };
-		AAC5E09A16DC4368008CABA7 /* NSObject+JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC5E09716DC4368008CABA7 /* NSObject+JRSwizzle.h */; };
-		AAC5E09B16DC4368008CABA7 /* NSObject+JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5E09816DC4368008CABA7 /* NSObject+JRSwizzle.m */; };
-		AAC5E09C16DC4368008CABA7 /* NSObject+JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5E09816DC4368008CABA7 /* NSObject+JRSwizzle.m */; };
 		AACFE1A716DEE5930016C008 /* SZAPIClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4F55F91643071500B66710 /* SZAPIClientTests.m */; };
 		AACFE1A816DEE5980016C008 /* SZURLRequestDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C98916C5A3D9004965F1 /* SZURLRequestDownloaderTests.m */; };
 		AACFE1A916DEE5980016C008 /* SZURLRequestOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA620FF316C5F2ED0048740C /* SZURLRequestOperationTests.m */; };
@@ -259,8 +255,6 @@
 		AAC06A83163B5A970077C025 /* SZError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SZError.m; sourceTree = "<group>"; };
 		AAC5E08816DC301F008CABA7 /* SZAPIOperationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAPIOperationTests.h; sourceTree = "<group>"; };
 		AAC5E08916DC3020008CABA7 /* SZAPIOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZAPIOperationTests.m; sourceTree = "<group>"; };
-		AAC5E09716DC4368008CABA7 /* NSObject+JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JRSwizzle.h"; sourceTree = "<group>"; };
-		AAC5E09816DC4368008CABA7 /* NSObject+JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JRSwizzle.m"; sourceTree = "<group>"; };
 		AAD913E7163EFFF700223157 /* SZAPIClientVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZAPIClientVersion.m; sourceTree = "<group>"; };
 		AAD913E8163EFFF700223157 /* SZAPIClientVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAPIClientVersion.h; sourceTree = "<group>"; };
 		AAD91418163F33E300223157 /* SZURLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperation.h; sourceTree = "<group>"; };
@@ -346,8 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				AA127FB616DEC61A00791906 /* Functional */,
-				AAC5E09716DC4368008CABA7 /* NSObject+JRSwizzle.h */,
-				AAC5E09816DC4368008CABA7 /* NSObject+JRSwizzle.m */,
 				AAC06A7F163B5A8E0077C025 /* NSData+JSONHelpers.h */,
 				AAC06A80163B5A8E0077C025 /* NSData+JSONHelpers.m */,
 				AAD9142B163F3C6A00223157 /* NSObject+JSONHelpers.h */,
@@ -559,7 +551,6 @@
 				AA09925916D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */,
 				AAE1765B16D6F83100A59380 /* NSMutableURLRequest+Parameters.h in Headers */,
 				AA508A8416D86F740005277A /* SZAPIOperation_private.h in Headers */,
-				AAC5E09916DC4368008CABA7 /* NSObject+JRSwizzle.h in Headers */,
 				AA127FB916DEC62E00791906 /* NSDictionary+Functional.h in Headers */,
 				AA127FBE16DEC66200791906 /* Functional.h in Headers */,
 				AA147C8716E183F700CA19DD /* SZConcurrentOperation.h in Headers */,
@@ -584,7 +575,6 @@
 				AA09925A16D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */,
 				AAE1765C16D6F83100A59380 /* NSMutableURLRequest+Parameters.h in Headers */,
 				AA508A8516D86F740005277A /* SZAPIOperation_private.h in Headers */,
-				AAC5E09A16DC4368008CABA7 /* NSObject+JRSwizzle.h in Headers */,
 				AA127FBA16DEC62E00791906 /* NSDictionary+Functional.h in Headers */,
 				AA127FBF16DEC66200791906 /* Functional.h in Headers */,
 				AA147C8816E183F700CA19DD /* SZConcurrentOperation.h in Headers */,
@@ -859,7 +849,6 @@
 				AA09925516D6E98E00835134 /* SZAPIOperation.m in Sources */,
 				AA09925B16D6EB0D00835134 /* NSMutableURLRequest+OAuth.m in Sources */,
 				AAE1765D16D6F83100A59380 /* NSMutableURLRequest+Parameters.m in Sources */,
-				AAC5E09B16DC4368008CABA7 /* NSObject+JRSwizzle.m in Sources */,
 				AA127FBB16DEC62E00791906 /* NSDictionary+Functional.m in Sources */,
 				AA147C8916E183F700CA19DD /* SZConcurrentOperation.m in Sources */,
 			);
@@ -905,7 +894,6 @@
 				AA09925616D6E98F00835134 /* SZAPIOperation.m in Sources */,
 				AA09925C16D6EB0D00835134 /* NSMutableURLRequest+OAuth.m in Sources */,
 				AAE1765E16D6F83100A59380 /* NSMutableURLRequest+Parameters.m in Sources */,
-				AAC5E09C16DC4368008CABA7 /* NSObject+JRSwizzle.m in Sources */,
 				AA127FBC16DEC62E00791906 /* NSDictionary+Functional.m in Sources */,
 				AA147C8A16E183F700CA19DD /* SZConcurrentOperation.m in Sources */,
 			);
