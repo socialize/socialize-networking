@@ -7,16 +7,12 @@
 //
 
 #import "NSOperation+Testing.h"
-#import "NSOperation+AdditionalCompletion.h"
 #import "SZGlobal.h"
 
 @implementation NSOperation (Testing)
 
 - (void)simulateCompletion {
     BLOCK_CALL(self.completionBlock);
-    for (void(^completionBlock)() in [self completionBlocks]) {
-        completionBlock();
-    }
 }
 
 @end

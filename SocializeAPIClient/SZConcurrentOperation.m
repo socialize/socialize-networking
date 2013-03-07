@@ -42,5 +42,4 @@
     [self didChangeValueForKey:@"isFinished"];
 }
 
-
 @end

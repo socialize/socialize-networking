@@ -12,7 +12,9 @@
 @interface SZOperation : NSOperation <SZFallibleOperation>
 
 @property (nonatomic, assign) BOOL didFail;
+@property (nonatomic, strong, readonly) NSMutableArray *completionBlocks;
 
+- (void)addCompletionBlock:(void(^)())completionBlock;
 - (NSArray*)failedDependencies;
 - (NSError*)failedDependenciesError;
 

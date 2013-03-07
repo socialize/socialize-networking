@@ -19,4 +19,7 @@
 
 @interface SZTestCase : GHAsyncTestCase
 
+- (void)incrementAsyncCount;
+- (void)waitForAsyncCount:(NSUInteger)count;
+
 @end

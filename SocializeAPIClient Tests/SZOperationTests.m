@@ -65,5 +65,50 @@
 
 }
 
+- (void)testAddSingleOperationWithMultipleHandlers {
+    SZTestOperation *operation = [[SZTestOperation alloc] init];
+    
+    __block BOOL one = NO, two = NO;
+    [operation addCompletionBlock:^{
+        one = YES;
+        [self incrementAsyncCount];
+    }];
+    
+    [operation addCompletionBlock:^{
+        two = YES;
+        [self incrementAsyncCount];
+    }];
+    
+    [operation start];
+    [self waitForAsyncCount:2];
+    
+    GHAssertTrue(one, @"One not called");
+    GHAssertTrue(two, @"Two not called");
+}
+
+- (void)testAddMultipleOperationsWithSingleHandler {
+    
+    SZTestOperation *o1 = [[SZTestOperation alloc] init];
+    __block BOOL one = NO, two = NO;
+    [o1 addCompletionBlock:^{
+        one = YES;
+        [self incrementAsyncCount];
+    }];
+    
+    SZTestOperation *o2 = [[SZTestOperation alloc] init];
+    [o2 addCompletionBlock:^{
+        two = YES;
+        [self incrementAsyncCount];
+    }];
+    
+    [o1 start];
+    [o2 start];
+    [self waitForAsyncCount:2];
+
+    
+    GHAssertTrue(one, @"One not called");
+    GHAssertTrue(two, @"Two not called");
+}
+
 
 @end

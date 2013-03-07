@@ -9,8 +9,27 @@
 #import "SZOperation.h"
 #import "SZGlobal.h"
 
+@interface SZOperation () {
+    NSMutableArray *_completionBlocks;
+}
+
+@end
+
 @implementation SZOperation
 
+- (id)init {
+    if (self = [super init]) {
+        
+        WEAK(self) weakSelf = self;
+        self.completionBlock = ^{
+            for (void(^completionBlock)() in weakSelf.completionBlocks) {
+                completionBlock();
+            }
+        };
+    }
+    
+    return self;
+}
 - (NSError*)failedDependenciesError {
     NSArray *failedDependencies = [self failedDependencies];
     if ([failedDependencies count] == 0) {
@@ -38,5 +57,17 @@
     return failedDependencies;
 }
 
+- (NSMutableArray*)completionBlocks {
+    
+    if (_completionBlocks == nil) {
+        _completionBlocks = [[NSMutableArray alloc] init];
+    }
+    
+    return _completionBlocks;
+}
+
+- (void)addCompletionBlock:(void(^)())completionBlock {
+    [self.completionBlocks addObject:completionBlock];
+}
 
 @end

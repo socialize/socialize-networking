@@ -10,7 +10,6 @@
 #import "SZGlobal.h"
 #import "SZAPIOperation.h"
 #import "SZURLRequestOperation_private.h"
-#import "NSOperation+AdditionalCompletion.h"
 #import "NSMutableURLRequest+OAuth.h"
 #import "SZAPIOperation_private.h"
 

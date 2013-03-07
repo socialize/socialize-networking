@@ -11,10 +11,34 @@
 #import "NSMutableURLRequest+OAuth.h"
 #import "SZAPIOperation.h"
 
+@interface SZTestCase ()
+@property (nonatomic, strong) NSConditionLock *asyncCounter;
+
+@end
+
 @implementation SZTestCase
+
+- (NSConditionLock *)asyncCounter {
+    if (_asyncCounter == nil) {
+        _asyncCounter = [[NSConditionLock alloc] initWithCondition:0];
+    }
+    
+    return _asyncCounter;
+}
+
+- (void)incrementAsyncCount {
+    [self.asyncCounter lock];
+    [self.asyncCounter unlockWithCondition:[self.asyncCounter condition] + 1];
+}
+
+- (void)waitForAsyncCount:(NSUInteger)count {
+    [self.asyncCounter lockWhenCondition:count];
+    [self.asyncCounter unlock];
+}
 
 - (void)setUp {
     [ClassMockRegistry stopMockingAllClasses];
+    self.asyncCounter = nil;
 }
 
 - (void)tearDown {
