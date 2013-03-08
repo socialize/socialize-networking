@@ -10,7 +10,7 @@
 
 #define REPLACE_PROPERTY(partial, getter, mock, setter, variable) \
     do { \
-        [[[partial stub] andReturn:mock] getter]; \
+        [[[partial stub] andReturnFromBlock:^id{ return mock; }] getter]; \
         [[[partial stub] andDo1:^(id value) { \
             variable = value;\
         }] setter:OCMOCK_ANY]; \

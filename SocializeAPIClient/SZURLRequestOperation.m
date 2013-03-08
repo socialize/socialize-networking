@@ -68,7 +68,7 @@
     }
 
     [self KVStartExecuting];
-    [self performSelectorOnMainThread:@selector(startConnection) withObject:nil waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(startConnection) withObject:nil waitUntilDone:YES];
 }
 
 - (void)cancel {

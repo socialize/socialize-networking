@@ -55,6 +55,7 @@
 
 - (void)replaceDownloaderProperty {
     [self becomePartial];
+
     REPLACE_PROPERTY(self.partial, URLRequestDownloader, self.mockDownloader, setURLRequestDownloader, self.realDownloader);
 }
 

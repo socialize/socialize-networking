@@ -32,7 +32,6 @@
 
 - (void)setUp {
     self.URLRequestOperation = [[SZURLRequestOperation alloc] initWithURLRequest:[[self class] testURLRequest]];
-    
     self.mockDownloader = [OCMockObject mockForClass:[SZURLRequestDownloader class]];
     
     [super setUp];
@@ -55,6 +54,7 @@
 
 - (void)replaceDownloaderProperty {
     [self becomePartial];
+
     REPLACE_PROPERTY(self.partial, URLRequestDownloader, self.mockDownloader, setURLRequestDownloader, self.realDownloader);
 }
 
@@ -74,6 +74,28 @@
     [self prepare];
     [self.URLRequestOperation start];
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:0.5];
+}
+
+- (void)testCancelBeforeStartCancelsOperation {
+    [self.URLRequestOperation cancel];
+    [self.URLRequestOperation start];
+    
+    GHAssertTrue(self.URLRequestOperation.isFinished, @"Should be finished");
+    GHAssertFalse(self.URLRequestOperation.isExecuting, @"Should not be executing");
+    GHAssertTrue(self.URLRequestOperation.isCancelled, @"Should be cancelled");
+}
+
+- (void)testCancelAfterStartCancelsDownloadAndOperation {
+    [self replaceDownloaderProperty];
+
+    [self.mockDownloader makeNice];
+    [self.URLRequestOperation start];
+    [self.mockDownloader reset];
+    
+    self.mockDownloader = [OCMockObject mockForClass:[SZURLRequestDownloader class]];
+    [[self.mockDownloader expect] cancel];
+    
+    [self.URLRequestOperation cancel];
 }
 
 @end
