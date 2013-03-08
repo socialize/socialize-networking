@@ -12,14 +12,7 @@
 #import "SZURLRequestOperation_private.h"
 #import "NSMutableURLRequest+OAuth.h"
 #import "SZAPIOperation_private.h"
-
-@interface SZAPIClient ()
-
-@property (nonatomic, strong) NSRecursiveLock *authLock;
-@property (nonatomic, assign, getter=isAuthenticating) BOOL authenticating;
-@property (nonatomic, strong) SZAPIOperation *authOperation;
-
-@end
+#import "SZAPIClient_private.h"
 
 @implementation SZAPIClient
 
@@ -139,21 +132,26 @@
 
 - (void)authenticateIfNeeded {
     [self.authLock lock];
-    if (!_authenticating && (self.accessToken == nil || self.accessTokenSecret == nil)) {
+    if (!_authenticating && ![self isAuthenticated]) {
         [self authenticate];
     }
     [self.authLock unlock];
 }
 
-- (SZAPIOperation*)authenticate {
-    
+- (SZAPIOperation*)createAnonymousAuthOperation {
     NSDictionary *parameters = @{
-        @"udid": self.udid,
-    };
+                                 @"udid": self.udid,
+                                 };
     
     SZAPIOperation *authOperation = [self APIOperationForOperationType:SZAPIOperationTypeAuthenticate
                                                             parameters:parameters];
     
+    return authOperation;
+}
+
+- (SZAPIOperation*)authenticate {
+    
+    SZAPIOperation *authOperation = [self createAnonymousAuthOperation];
     [self addAuthOperation:authOperation];
     
     return authOperation;

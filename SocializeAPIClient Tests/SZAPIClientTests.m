@@ -10,6 +10,9 @@
 #import "SZAPIClient.h"
 #import "NSOperation+Testing.h"
 #import "SZAPIOperation_private.h"
+#import "SZAPIClient_private.h"
+#import "SZFakeAPIOperation.h"
+#import "NSMutableURLRequest+OAuth.h"
 
 static NSString *ConsumerKey = @"ConsumerKey";
 static NSString *ConsumerSecret = @"ConsumerSecret";
@@ -17,6 +20,7 @@ static NSString *ConsumerSecret = @"ConsumerSecret";
 @interface SZAPIClientTests ()
 @property (nonatomic, strong) SZAPIClient *APIClient;
 @property (nonatomic, strong) SZFakeOperationQueue *fakeOperationQueue;
+@property (nonatomic, strong) id partial;
 
 @end
 
@@ -63,12 +67,24 @@ static NSString *ConsumerSecret = @"ConsumerSecret";
 - (void)setUp {
     self.APIClient = [[SZAPIClient alloc] initWithConsumerKey:ConsumerKey consumerSecret:ConsumerSecret];
     self.fakeOperationQueue = [[SZFakeOperationQueue alloc] init];
-    self.APIClient.operationQueue = (NSOperationQueue*)self.fakeOperationQueue;
+    self.APIClient.operationQueue = self.fakeOperationQueue;
 }
 
 - (void)tearDown {
+    self.partial = nil;
     self.APIClient = nil;
     self.fakeOperationQueue = nil;
+}
+
+- (void)becomePartial {
+    if (self.partial == nil) {
+        self.partial = [OCMockObject partialMockForObject:self.APIClient];
+    }
+}
+
+- (void)replaceNextAnonymousAuthOperationWithOperation:(SZAPIOperation*)operation {
+    [self becomePartial];
+    [[[self.partial expect] andReturn:operation] createAnonymousAuthOperation];
 }
 
 - (void)testAddingOperationSetsAPIClient {
@@ -165,7 +181,7 @@ static NSString *ConsumerSecret = @"ConsumerSecret";
     GHAssertFalse(self.APIClient.authOperation != nil, @"Should not have auth operation");
 }
 
-- (void)testCompletingAuthSetsCredentialsFromResult {
+- (void)testCompletingAnonymousAuthSetsCredentialsFromResult {
     [self.APIClient authenticate];
 
     SZAPIOperation *authOperation = self.APIClient.authOperation;
@@ -175,6 +191,59 @@ static NSString *ConsumerSecret = @"ConsumerSecret";
     
     GHAssertEqualStrings(self.APIClient.accessToken, [[self class] fakeAuthTestToken], @"Bad access token");
     GHAssertEqualStrings(self.APIClient.accessTokenSecret, [[self class] fakeAuthTestTokenSecret], @"Bad access token secret");
+}
+
+- (void)testCompletingAnonymousAuthAddsCredentialsToPendingOperations {
+    SZFakeAPIOperation *fakeAuthOperation = [[SZFakeAPIOperation alloc] init];
+    fakeAuthOperation.result = [[self class] fakeAuthResult];
+    [self replaceNextAnonymousAuthOperationWithOperation:fakeAuthOperation];
+    
+    [self.APIClient authenticate];
+
+    id mockOperation = [OCMockObject niceMockForClass:[SZAPIOperation class]];
+    [[[mockOperation stub] andReturnBool:YES] isKindOfClass:[SZAPIOperation class]];
+    [[[mockOperation stub] andReturn:self.APIClient] APIClient];
+    id mockRequest = [OCMockObject mockForClass:[NSMutableURLRequest class]];
+    [[[mockOperation stub] andReturn:mockRequest] request];
+    [[mockRequest expect] setAuthorizationHeaderWithConsumerKey:ConsumerKey consumerSecret:ConsumerSecret token:[[self class] fakeAuthTestToken] tokenSecret:[[self class] fakeAuthTestTokenSecret]];
+    
+    [self.APIClient addOperation:mockOperation];
+    
+    [fakeAuthOperation start];
+}
+
+- (void)testOperationQueueHasDefaultValue {
+    self.APIClient.operationQueue = nil;
+    GHAssertNotNil(self.APIClient.operationQueue, @"Should be non-nil");
+}
+
+- (void)testAddOperation {
+    [self.APIClient addAPIOperationForMethod:@"GET" scheme:@"https" path:@"path" parameters:@{@"key": @"value"}];
+    SZAPIOperation *operation = [self.fakeOperationQueue.operations objectAtIndex:0];
+    GHAssertNotNil(operation, @"Should have operation");
+}
+
+- (void)testAddOperationWithType {
+    [self.APIClient addAPIOperationForOperationType:SZAPIOperationTypeAuthenticate parameters:@{@"key": @"value"}];
+    SZAPIOperation *operation = [self.fakeOperationQueue.operations objectAtIndex:0];
+    GHAssertNotNil(operation, @"Should have operation");
+}
+
+- (void)testUDIDIsUsed {
+    NSString *customUDID = @"customUDID";
+    self.APIClient.udid = customUDID;
+    [self.APIClient authenticate];
+    SZAPIOperation *authOperation = [self.fakeOperationQueue.operations objectAtIndex:0];
+    NSString *body = [[NSString alloc] initWithData:authOperation.request.HTTPBody encoding:NSUTF8StringEncoding];
+    GHAssertTrue([body rangeOfString:@"customUDID"].location != NSNotFound, @"UDID not found");
+}
+
+- (void)testHostnameIsUsed {
+    NSString *customHostname = @"customHostname";
+    self.APIClient.hostname = customHostname;
+    [self.APIClient authenticate];
+    SZAPIOperation *authOperation = [self.fakeOperationQueue.operations objectAtIndex:0];
+    GHAssertEqualStrings([authOperation.request.URL host], customHostname, @"Hello");
 }
 
 @end

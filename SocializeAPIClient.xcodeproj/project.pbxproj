@@ -97,6 +97,7 @@
 		AA64C9C716C5E492004965F1 /* SZOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA64C9C516C5E492004965F1 /* SZOperation.h */; };
 		AA64C9C816C5E492004965F1 /* SZOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C9C616C5E492004965F1 /* SZOperation.m */; };
 		AA64C9C916C5E806004965F1 /* SZOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C9C616C5E492004965F1 /* SZOperation.m */; };
+		AAA5297B16E957CE009FDF0A /* SZFakeAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA5297A16E957CE009FDF0A /* SZFakeAPIOperation.m */; };
 		AACFE1A716DEE5930016C008 /* SZAPIClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4F55F91643071500B66710 /* SZAPIClientTests.m */; };
 		AACFE1A816DEE5980016C008 /* SZURLRequestDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C98916C5A3D9004965F1 /* SZURLRequestDownloaderTests.m */; };
 		AACFE1A916DEE5980016C008 /* SZURLRequestOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA620FF316C5F2ED0048740C /* SZURLRequestOperationTests.m */; };
@@ -244,6 +245,9 @@
 		AA64C9C116C5E410004965F1 /* SZFallibleOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZFallibleOperation.h; sourceTree = "<group>"; };
 		AA64C9C516C5E492004965F1 /* SZOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZOperation.h; sourceTree = "<group>"; };
 		AA64C9C616C5E492004965F1 /* SZOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZOperation.m; sourceTree = "<group>"; };
+		AAA5297016E9550B009FDF0A /* SZAPIClient_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAPIClient_private.h; sourceTree = "<group>"; };
+		AAA5297916E957CE009FDF0A /* SZFakeAPIOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZFakeAPIOperation.h; sourceTree = "<group>"; };
+		AAA5297A16E957CE009FDF0A /* SZFakeAPIOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZFakeAPIOperation.m; sourceTree = "<group>"; };
 		AAC06A3A163B3F680077C025 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AAC06A3C163B3F680077C025 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AAC06A3E163B3F680077C025 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -319,6 +323,7 @@
 				AA508A8316D86F740005277A /* SZAPIOperation_private.h */,
 				AA08F4701640803300CB803F /* SZAPIOperation.h */,
 				AA08F4711640803300CB803F /* SZAPIOperation.m */,
+				AAA5297016E9550B009FDF0A /* SZAPIClient_private.h */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -450,6 +455,8 @@
 				AA57C8F616E664DD006DB527 /* TestHelpers.h */,
 				AA3D37D216E6B32900ED8645 /* SZURLRequestOperation+Testing.h */,
 				AA3D37D316E6B32900ED8645 /* SZURLRequestOperation+Testing.m */,
+				AAA5297916E957CE009FDF0A /* SZFakeAPIOperation.h */,
+				AAA5297A16E957CE009FDF0A /* SZFakeAPIOperation.m */,
 			);
 			name = "Test Helpers";
 			sourceTree = "<group>";
@@ -873,6 +880,7 @@
 				AA3D37D416E6B32900ED8645 /* SZURLRequestOperation+Testing.m in Sources */,
 				AA3D37DD16E6BFA200ED8645 /* SZAPIOperationTests.m in Sources */,
 				AAFDECA716E7D3A7004F28F3 /* NSMutableURLRequest+SocializeTests.m in Sources */,
+				AAA5297B16E957CE009FDF0A /* SZFakeAPIOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
