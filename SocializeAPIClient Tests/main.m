@@ -9,14 +9,27 @@
 #import <UIKit/UIKit.h>
 #import "SocializeUnitTestApplication.h"
 
+@interface RunnerDelegate : NSObject <GHTestRunnerDelegate>
+@end
+
+@implementation RunnerDelegate
+- (void)testRunnerDidEnd:(GHTestRunner *)runner {
+    exit((int)runner.stats.failureCount);
+}
+@end
+
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
+        
         if (getenv("GHUNIT_CLI")) {
-            return [GHTestRunner run];
+            GHTestRunner *runner = [GHTestRunner runnerFromEnv];
+            RunnerDelegate *delegate = [[RunnerDelegate alloc] init];
+            runner.delegate = delegate;
+            [runner runInBackground];
+            [[NSRunLoop mainRunLoop] run];
         } else {
             return UIApplicationMain(argc, argv, nil, @"SocializeUnitTestApplication");
         }
-
     }
 }
