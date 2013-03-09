@@ -17,6 +17,7 @@
 @property (nonatomic, strong) id partial;
 @property (nonatomic, strong) id mockDownloader;
 @property (nonatomic, strong) SZURLRequestDownloader *realDownloader;
+@property (nonatomic, strong) NSOperationQueue *operationQueue;
 
 @end
 
@@ -44,6 +45,15 @@
     self.partial = nil;
 
     [super tearDown];
+}
+
+- (NSOperationQueue *)operationQueue {
+    if (_operationQueue == nil) {
+        _operationQueue = [[NSOperationQueue alloc] init];
+        [_operationQueue setMaxConcurrentOperationCount:50];
+    }
+    
+    return _operationQueue;
 }
 
 - (void)becomePartial {
@@ -79,6 +89,7 @@
 - (void)testCancelBeforeStartCancelsOperation {
     [self.URLRequestOperation cancel];
     [self.URLRequestOperation start];
+    [self.URLRequestOperation waitUntilFinished];
     
     GHAssertTrue(self.URLRequestOperation.isFinished, @"Should be finished");
     GHAssertFalse(self.URLRequestOperation.isExecuting, @"Should not be executing");
@@ -96,6 +107,49 @@
     [[self.mockDownloader expect] cancel];
     
     [self.URLRequestOperation cancel];
+}
+
+- (void)testConsistencyOfStart {
+    int numOperations = 100;
+    
+    for (int i = 0; i < numOperations; i++) {
+
+        [self.operationQueue addOperationWithBlock:^{
+            SZURLRequestOperation *operation = [[SZURLRequestOperation alloc] initWithURLRequest:[[self class] testURLRequest]];
+            id mockDownloader = [OCMockObject mockForClass:[SZURLRequestDownloader class]];
+            operation.URLRequestDownloader = mockDownloader;
+            
+            __block BOOL downloaderStarted = NO;
+            [(SZURLRequestDownloader*)[[mockDownloader stub] andDo0:^{
+                downloaderStarted = YES;
+            }] start];
+            
+            __block BOOL downloaderCancelled = NO;
+            [[[mockDownloader stub] andDo0:^{
+                downloaderCancelled = YES;
+            }] cancel];
+            
+            downloaderStarted = NO;
+            downloaderCancelled = NO;
+            
+            // Perform a randomly timed early cancel
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSTimeInterval sleepInterval = RANDRANGE(0, 0.25);
+                [NSThread sleepForTimeInterval:sleepInterval];
+                [operation cancel];
+            });
+            [operation start];
+            [operation waitUntilFinished];
+            
+            GHAssertTrue([operation isCancelled], @"Should be cancelled");
+            GHAssertTrue(downloaderStarted && downloaderCancelled || !downloaderStarted && !downloaderCancelled, @"Should either be started and cancelled or never started");
+            
+            [self incrementAsyncCount];
+
+        }];
+    }
+    
+    [self waitForAsyncCount:numOperations];
 }
 
 @end

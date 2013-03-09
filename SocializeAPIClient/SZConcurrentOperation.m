@@ -11,6 +11,7 @@
 @interface SZConcurrentOperation ()
 @property (nonatomic, assign, getter=isExecuting) BOOL executing;
 @property (nonatomic, assign, getter=isFinished) BOOL finished;
+@property (nonatomic, assign, getter=isCancelled) BOOL cancelled;
 @end
 
 @implementation SZConcurrentOperation
@@ -39,6 +40,12 @@
     _executing = NO;
     _finished = YES;
     [self didChangeValueForKey:@"isExecuting"];
+    [self didChangeValueForKey:@"isFinished"];
+}
+
+- (void)KVCancel {
+    [self willChangeValueForKey:@"isExecuting"];
+    _cancelled = YES;
     [self didChangeValueForKey:@"isFinished"];
 }
 

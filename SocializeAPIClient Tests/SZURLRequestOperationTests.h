@@ -11,8 +11,4 @@
 
 @interface SZURLRequestOperationTests : SZTestCase
 
-- (void)testRequestOperation;
-
-@property (nonatomic, strong) NSOperationQueue *operationQueue;
-
 @end

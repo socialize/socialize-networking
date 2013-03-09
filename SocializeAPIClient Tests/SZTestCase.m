@@ -18,14 +18,6 @@
 
 @implementation SZTestCase
 
-- (NSConditionLock *)asyncCounter {
-    if (_asyncCounter == nil) {
-        _asyncCounter = [[NSConditionLock alloc] initWithCondition:0];
-    }
-    
-    return _asyncCounter;
-}
-
 - (void)incrementAsyncCount {
     [self.asyncCounter lock];
     [self.asyncCounter unlockWithCondition:[self.asyncCounter condition] + 1];
@@ -37,8 +29,9 @@
 }
 
 - (void)setUp {
+    _asyncCounter = [[NSConditionLock alloc] initWithCondition:0];
+    
     [ClassMockRegistry stopMockingAllClasses];
-    self.asyncCounter = nil;
 }
 
 - (void)tearDown {

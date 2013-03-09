@@ -16,7 +16,6 @@
 @implementation SZTestOperation
 
 - (void)main {
-    NSLog(@"Running op");
     self.didFail = self.shouldFail;
 }
 

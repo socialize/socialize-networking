@@ -12,6 +12,7 @@
 #import "NSObject+JSONHelpers.h"
 #import "NSHTTPURLResponse+StringEncoding.h"
 #import "Functional.h"
+#import "SZRandom.h"
 
 #define WEAK(obj) __weak __typeof__(obj)
 

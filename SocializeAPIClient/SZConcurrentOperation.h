@@ -14,5 +14,6 @@
 - (void)KVStartExecuting;
 - (void)KVFinish;
 - (void)KVFinishAndStopExecuting;
+- (void)KVCancel;
 
 @end

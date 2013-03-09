@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA026EDC16EA6D0B00BCE258 /* SZRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = AA026EDB16EA6D0B00BCE258 /* SZRandom.m */; };
 		AA082A0116485B8A00A992B5 /* SZURLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91418163F33E300223157 /* SZURLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA082A0216485B8A00A992B5 /* SZAPIOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F4701640803300CB803F /* SZAPIOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA082A0316485B8B00A992B5 /* SZURLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91418163F33E300223157 /* SZURLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -183,6 +184,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA026EDA16EA6D0B00BCE258 /* SZRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZRandom.h; sourceTree = "<group>"; };
+		AA026EDB16EA6D0B00BCE258 /* SZRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZRandom.m; sourceTree = "<group>"; };
 		AA08F4701640803300CB803F /* SZAPIOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAPIOperation.h; sourceTree = "<group>"; };
 		AA08F4711640803300CB803F /* SZAPIOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZAPIOperation.m; sourceTree = "<group>"; };
 		AA08F48D1641A85700CB803F /* SZGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZGlobal.h; sourceTree = "<group>"; };
@@ -444,6 +447,8 @@
 		AA64C9B516C5D1DD004965F1 /* Test Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AA026EDA16EA6D0B00BCE258 /* SZRandom.h */,
+				AA026EDB16EA6D0B00BCE258 /* SZRandom.m */,
 				AA64C9BE16C5D1FD004965F1 /* NSURLConnection+Testing.h */,
 				AA64C9BF16C5D1FD004965F1 /* NSURLConnection+Testing.m */,
 				AA127FC016DEDC1200791906 /* SZFakeOperationQueue.h */,
@@ -881,6 +886,7 @@
 				AA3D37DD16E6BFA200ED8645 /* SZAPIOperationTests.m in Sources */,
 				AAFDECA716E7D3A7004F28F3 /* NSMutableURLRequest+SocializeTests.m in Sources */,
 				AAA5297B16E957CE009FDF0A /* SZFakeAPIOperation.m in Sources */,
+				AA026EDC16EA6D0B00BCE258 /* SZRandom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
