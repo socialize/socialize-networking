@@ -6,10 +6,11 @@
 //  Copyright (c) 2013 Socialize. All rights reserved.
 //
 
-@interface SZAPIClient ()
+@interface SZAPIClient () {
+    BOOL _authenticating;
+}
 
 @property (nonatomic, strong) NSRecursiveLock *authLock;
-@property (nonatomic, assign, getter=isAuthenticating) BOOL authenticating;
 @property (nonatomic, strong) SZAPIOperation *authOperation;
 
 - (SZAPIOperation*)createAnonymousAuthOperation;
