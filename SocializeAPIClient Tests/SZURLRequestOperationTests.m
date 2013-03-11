@@ -11,6 +11,7 @@
 #import "SZURLRequestDownloader.h"
 #import <objc/runtime.h>
 #import "SZURLRequestDownloaderTests.h"
+#import "SZOperation+Testing.h"
 
 @interface SZURLRequestOperationTests ()
 @property (nonatomic, strong) SZURLRequestOperation *URLRequestOperation;
@@ -154,6 +155,23 @@
     }
     
     [self waitForAsyncCount:numOperations];
+}
+
+- (void)testFailedDependencyCausesFailedDependenciesError {
+    SZOperation *operation = [[SZOperation alloc] init];
+    [operation start];
+    operation.didFail = YES;
+    
+    [self.URLRequestOperation addDependency:operation];
+    [self.URLRequestOperation start];
+    
+    NSError *error = self.URLRequestOperation.error;
+    GHAssertTrue([error code] == SZAPIErrorOperationHasFailedDependencies, @"Not");
+}
+
+- (void)testCustomDescriptionIsNonNil {
+    NSString *description = [self.URLRequestOperation description];
+    GHAssertNotNil(description, @"Should have description");
 }
 
 @end

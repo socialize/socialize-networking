@@ -51,9 +51,7 @@
         // Check for failed dependencies
         NSError *error = [self failedDependenciesError];
         if (error != nil) {
-            self.error = error;
-            [self callCompletion];
-            [self KVStop];
+            [self failWithError:error];
             return;
         }
 

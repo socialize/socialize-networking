@@ -8,18 +8,7 @@
 
 #import "SZOperationTests.h"
 #import "SZOperation.h"
-
-@interface SZTestOperation : SZOperation
-@property (nonatomic, assign) BOOL shouldFail;
-@end
-
-@implementation SZTestOperation
-
-- (void)main {
-    self.didFail = self.shouldFail;
-}
-
-@end
+#import "SZOperation+Testing.h"
 
 @interface SZOperationTests ()
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
