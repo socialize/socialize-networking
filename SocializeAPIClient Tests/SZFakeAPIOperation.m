@@ -12,9 +12,9 @@
 @implementation SZFakeAPIOperation
 
 - (void)start {
-    [self KVStartExecuting];
+    [self KVStart];
     BLOCK_CALL_2(self.APICompletionBlock, self.result, self.error);
-    [self KVFinishAndStopExecuting];
+    [self KVStop];
 }
 
 @end

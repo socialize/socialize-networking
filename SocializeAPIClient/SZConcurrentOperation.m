@@ -7,46 +7,45 @@
 //
 
 #import "SZConcurrentOperation.h"
-
-@interface SZConcurrentOperation ()
-@property (nonatomic, assign, getter=isExecuting) BOOL executing;
-@property (nonatomic, assign, getter=isFinished) BOOL finished;
-@property (nonatomic, assign, getter=isCancelled) BOOL cancelled;
-@end
+#import "SZConcurrentOperation_private.h"
 
 @implementation SZConcurrentOperation
 
-- (void)KVStopExecuting {
-    [self willChangeValueForKey:@"isExecuting"];
+- (void)KVStop {
+    BOOL didChangeFinished = NO;
+    BOOL didChangeExecuting = NO;
+    
+    if (!_finished) {
+        [self willChangeValueForKey:@"isFinished"];
+        didChangeFinished = YES;
+    }
+    
+    if (_executing) {
+        [self willChangeValueForKey:@"isExecuting"];
+        didChangeExecuting = YES;
+    }
+    
     _executing = NO;
-    [self didChangeValueForKey:@"isExecuting"];
+    _finished = YES;
+    
+    if (didChangeFinished) {
+        [self didChangeValueForKey:@"isFinished"];
+    }
+    if (didChangeExecuting) {
+        [self didChangeValueForKey:@"isExecuting"];
+    }
 }
 
-- (void)KVStartExecuting {
+- (void)KVStart {
     [self willChangeValueForKey:@"isExecuting"];
     _executing = YES;
     [self didChangeValueForKey:@"isExecuting"];
 }
 
-- (void)KVFinish {
-    [self willChangeValueForKey:@"isFinished"];
-    _finished = YES;
-    [self didChangeValueForKey:@"isFinished"];
-}
-
-- (void)KVFinishAndStopExecuting {
-    [self willChangeValueForKey:@"isExecuting"];
-    [self willChangeValueForKey:@"isFinished"];
-    _executing = NO;
-    _finished = YES;
-    [self didChangeValueForKey:@"isExecuting"];
-    [self didChangeValueForKey:@"isFinished"];
-}
-
 - (void)KVCancel {
-    [self willChangeValueForKey:@"isExecuting"];
+    [self willChangeValueForKey:@"isCancelled"];
     _cancelled = YES;
-    [self didChangeValueForKey:@"isFinished"];
+    [self didChangeValueForKey:@"isCancelled"];
 }
 
 @end

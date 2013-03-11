@@ -103,7 +103,7 @@
     
     self.result = [dictionary objectForKey:@"items"] ?: dictionary;
     [self callCompletion];
-    [self KVFinishAndStopExecuting];
+    [self KVStop];
 }
 
 @end

@@ -10,10 +10,8 @@
 
 @interface SZConcurrentOperation : SZOperation
 
-- (void)KVStopExecuting;
-- (void)KVStartExecuting;
-- (void)KVFinish;
-- (void)KVFinishAndStopExecuting;
+- (void)KVStop;
+- (void)KVStart;
 - (void)KVCancel;
 
 @end

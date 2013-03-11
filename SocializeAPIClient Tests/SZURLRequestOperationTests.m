@@ -109,40 +109,44 @@
     [self.URLRequestOperation cancel];
 }
 
-- (void)testConsistencyOfStart {
-    int numOperations = 100;
+- (void)testCancellingIsConsistentWRTDownloader {
+    int numOperations = 200;
     
     for (int i = 0; i < numOperations; i++) {
 
         [self.operationQueue addOperationWithBlock:^{
             SZURLRequestOperation *operation = [[SZURLRequestOperation alloc] initWithURLRequest:[[self class] testURLRequest]];
-            id mockDownloader = [OCMockObject mockForClass:[SZURLRequestDownloader class]];
+            id partial = [OCMockObject partialMockForObject:operation];
+            id mockDownloader = [OCMockObject niceMockForClass:[SZURLRequestDownloader class]];
+            __block SZURLRequestDownloader *realDownloader;
             operation.URLRequestDownloader = mockDownloader;
+            REPLACE_PROPERTY(partial, URLRequestDownloader, mockDownloader, setURLRequestDownloader, realDownloader);
             
-            __block BOOL downloaderStarted = NO;
+            __block NSDate *downloaderStarted = nil;
             [(SZURLRequestDownloader*)[[mockDownloader stub] andDo0:^{
-                downloaderStarted = YES;
+                downloaderStarted = [NSDate date];
             }] start];
             
-            __block BOOL downloaderCancelled = NO;
+            __block NSDate *downloaderCancelled = nil;
             [[[mockDownloader stub] andDo0:^{
-                downloaderCancelled = YES;
+                downloaderCancelled = [NSDate date];
             }] cancel];
-            
-            downloaderStarted = NO;
-            downloaderCancelled = NO;
             
             // Perform a randomly timed early cancel
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                NSTimeInterval sleepInterval = RANDRANGE(0, 0.25);
+                NSTimeInterval sleepInterval = RANDRANGE(0, 0.025);
                 [NSThread sleepForTimeInterval:sleepInterval];
                 [operation cancel];
             });
             [operation start];
             [operation waitUntilFinished];
             
-            GHAssertTrue([operation isCancelled], @"Should be cancelled");
-            GHAssertTrue(downloaderStarted && downloaderCancelled || !downloaderStarted && !downloaderCancelled, @"Should either be started and cancelled or never started");
+            if (downloaderStarted && downloaderCancelled) {
+                GHAssertTrue([downloaderCancelled timeIntervalSinceDate:downloaderStarted] > 0, @"Cancelled before started");
+            }
+            GHAssertFalse(downloaderStarted && !downloaderCancelled, @"Started but not cancelled");
+            GHAssertFalse(downloaderCancelled && !downloaderStarted, @"Cancelled but never started");
+
             
             [self incrementAsyncCount];
 

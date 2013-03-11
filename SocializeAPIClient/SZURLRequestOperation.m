@@ -6,15 +6,7 @@
 #import "NSData+JSONHelpers.h"
 #import "SZURLRequestOperation_private.h"
 #import "SZURLRequestDownloader.h"
-
-@interface SZConcurrentOperation () {
-    @protected BOOL _executing;
-}
-@property (nonatomic, assign, getter=isExecuting) BOOL executing;
-@property (nonatomic, assign, getter=isFinished) BOOL finished;
-@property (nonatomic, assign, getter=isCancelled) BOOL cancelled;
-@end
-
+#import "SZConcurrentOperation_private.h"
 
 @interface SZURLRequestOperation () {
     NSObject *_stateLock;
@@ -39,14 +31,14 @@
     self.responseData = data;
     self.error = error;
     [self callCompletion];
-    [self KVFinishAndStopExecuting];
+    [self KVStop];
 }
 
 - (void)failWithError:(NSError*)error {
     self.error = error;
     self.didFail = YES;
     [self callCompletion];
-    [self KVFinishAndStopExecuting];
+    [self KVStop];
 }
 
 - (void)start {
@@ -61,11 +53,11 @@
         if (error != nil) {
             self.error = error;
             [self callCompletion];
-            [self KVFinish];
+            [self KVStop];
             return;
         }
 
-        [self KVStartExecuting];
+        [self KVStart];
         
         WEAK(self) weakSelf = self;
         self.URLRequestDownloader = [[SZURLRequestDownloader alloc] initWithURLRequest:self.request];
@@ -78,18 +70,15 @@
 
 - (void)cancel {
     @synchronized(_stateLock) {
-        [self KVCancel];
-        
+    
         if (_executing) {
             [self.URLRequestDownloader cancel];
             self.URLRequestDownloader = nil;
-
-            [self KVStopExecuting];
+            
         }
         
-        if (!self.isFinished) {
-            [self KVFinish];
-        }
+        [self KVCancel];
+        [self KVStop];
     }
 }
 

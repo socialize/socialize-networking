@@ -35,6 +35,8 @@
 		AA147C9516E1846800CA19DD /* SZOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA147C9416E1846800CA19DD /* SZOperationTests.m */; };
 		AA147C9716E18D8D00CA19DD /* SZURLRequestDownloader_private.h in Headers */ = {isa = PBXBuildFile; fileRef = AA147C9616E18D8D00CA19DD /* SZURLRequestDownloader_private.h */; };
 		AA147C9816E18D8D00CA19DD /* SZURLRequestDownloader_private.h in Headers */ = {isa = PBXBuildFile; fileRef = AA147C9616E18D8D00CA19DD /* SZURLRequestDownloader_private.h */; };
+		AA1759AC16EE851500550082 /* SZConcurrentOperation_private.h in Headers */ = {isa = PBXBuildFile; fileRef = AA1759AB16EE851500550082 /* SZConcurrentOperation_private.h */; };
+		AA1759AD16EE851500550082 /* SZConcurrentOperation_private.h in Headers */ = {isa = PBXBuildFile; fileRef = AA1759AB16EE851500550082 /* SZConcurrentOperation_private.h */; };
 		AA24E3EE164852A2005FFFB4 /* libGHUnitIOSSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24E3DE164851CF005FFFB4 /* libGHUnitIOSSimulator.a */; };
 		AA24E41F16485409005FFFB4 /* GCDAProfiling.c in Sources */ = {isa = PBXBuildFile; fileRef = AA24E41E16485409005FFFB4 /* GCDAProfiling.c */; };
 		AA24E45716485978005FFFB4 /* NSMutableURLRequest+Socialize.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91428163F347A00223157 /* NSMutableURLRequest+Socialize.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -207,6 +209,7 @@
 		AA147C9316E1846800CA19DD /* SZOperationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZOperationTests.h; sourceTree = "<group>"; };
 		AA147C9416E1846800CA19DD /* SZOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZOperationTests.m; sourceTree = "<group>"; };
 		AA147C9616E18D8D00CA19DD /* SZURLRequestDownloader_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZURLRequestDownloader_private.h; sourceTree = "<group>"; };
+		AA1759AB16EE851500550082 /* SZConcurrentOperation_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZConcurrentOperation_private.h; sourceTree = "<group>"; };
 		AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperation_private.h; sourceTree = "<group>"; };
 		AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHUnitIOS.xcodeproj; path = "ThirdParty/gh-unit/Project-iOS/GHUnitIOS.xcodeproj"; sourceTree = "<group>"; };
 		AA24E41E16485409005FFFB4 /* GCDAProfiling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GCDAProfiling.c; sourceTree = "<group>"; };
@@ -317,6 +320,7 @@
 			children = (
 				AA147C8516E183F700CA19DD /* SZConcurrentOperation.h */,
 				AA147C8616E183F700CA19DD /* SZConcurrentOperation.m */,
+				AA1759AB16EE851500550082 /* SZConcurrentOperation_private.h */,
 				AA64C9C116C5E410004965F1 /* SZFallibleOperation.h */,
 				AA64C9C516C5E492004965F1 /* SZOperation.h */,
 				AA64C9C616C5E492004965F1 /* SZOperation.m */,
@@ -567,6 +571,7 @@
 				AA127FBE16DEC66200791906 /* Functional.h in Headers */,
 				AA147C8716E183F700CA19DD /* SZConcurrentOperation.h in Headers */,
 				AA147C9716E18D8D00CA19DD /* SZURLRequestDownloader_private.h in Headers */,
+				AA1759AC16EE851500550082 /* SZConcurrentOperation_private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +596,7 @@
 				AA127FBF16DEC66200791906 /* Functional.h in Headers */,
 				AA147C8816E183F700CA19DD /* SZConcurrentOperation.h in Headers */,
 				AA147C9816E18D8D00CA19DD /* SZURLRequestDownloader_private.h in Headers */,
+				AA1759AD16EE851500550082 /* SZConcurrentOperation_private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
