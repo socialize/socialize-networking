@@ -35,17 +35,13 @@
     return _responseData;
 }
 
-- (void)startConnection {
+- (void)start {
     if ([self isCancelled]) {
         return;
     }
     
     self.connection = [NSURLConnection connectionWithRequest:self.request delegate:self];
     [self.connection start];
-}
-
-- (void)start {
-    [self performSelectorOnMainThread:@selector(startConnection) withObject:nil waitUntilDone:YES];
 }
 
 - (void)cancel {
