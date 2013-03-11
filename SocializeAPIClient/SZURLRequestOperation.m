@@ -49,10 +49,6 @@
     [self KVFinishAndStopExecuting];
 }
 
-- (void)startConnection {
-    [self.URLRequestDownloader start];
-}
-
 - (void)start {
     
     @synchronized(_stateLock) {
@@ -74,12 +70,9 @@
         WEAK(self) weakSelf = self;
         self.URLRequestDownloader = [[SZURLRequestDownloader alloc] initWithURLRequest:self.request];
         self.URLRequestDownloader.completionBlock = ^(NSURLResponse *response, NSData *data, NSError *error) {
-            SZURLRequestDownloader *downloader = weakSelf.URLRequestDownloader;
-            (void)downloader;
             [weakSelf downloadCompletionWithResponse:response data:data error:error];
         };
-
-        [self performSelectorOnMainThread:@selector(startConnection) withObject:nil waitUntilDone:YES];
+        [self.URLRequestDownloader start];
     }
 }
 
