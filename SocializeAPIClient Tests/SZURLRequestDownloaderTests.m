@@ -99,6 +99,30 @@
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:2];
 }
 
+- (void)testCompletionHandlerIsForciblyCalledOnStartingThread {
+    [self disableAllConnections];
+    [self replaceConnectionProperty];
+    
+    NSThread *startThread = [NSThread currentThread];
+    WEAK(self) weakSelf = self;
+    self.URLRequestDownloader.completionBlock = ^(NSURLResponse *response, NSData *data, NSError *error) {
+#define self weakSelf
+        GHAssertEquals([NSThread currentThread], startThread, @"Completion thread should be same as start thread");
+        [self notify:kGHUnitWaitStatusSuccess];
+#undef self
+    };
+    
+    [(NSURLConnection*)[[self.mockConnection expect] andDo0:^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self.URLRequestDownloader connection:nil didFailWithError:nil];
+        });
+    }] start];
+    
+    [self prepare];
+    [self.URLRequestDownloader start];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:2];
+}
+
 - (void)testHTTPErrorResponse {
     [self disableAllConnections];
     [self replaceConnectionProperty];

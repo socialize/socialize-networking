@@ -19,6 +19,8 @@ static NSThread *connectionThread;
     NSObject *_stateLock;
 }
 
+@property (nonatomic, strong) NSThread *startThread;
+
 @end
 
 @implementation SZURLRequestDownloader
@@ -76,6 +78,8 @@ static NSThread *connectionThread;
             return;
         }
         
+        self.startThread = [NSThread currentThread];
+        
         [self performSelector:@selector(startConnection) onThread:[[self class] connectionThread] withObject:nil waitUntilDone:YES];
     }
 }
@@ -88,13 +92,25 @@ static NSThread *connectionThread;
     }
 }
 
-- (void)failWithError:(NSError*)error {
+- (void)_failWithError:(NSError*)error {
     self.error = error;
     BLOCK_CALL_3(self.completionBlock, self.response, self.responseData, error);
 }
 
-- (void)succeed {
+- (void)failWithError:(NSError*)error {
+    @synchronized(_stateLock) {
+        [self performSelector:@selector(_failWithError:) onThread:self.startThread withObject:error waitUntilDone:YES];
+    }
+}
+
+- (void)_succeed {
     BLOCK_CALL_3(self.completionBlock, self.response, self.responseData, self.error);
+}
+
+- (void)succeed {
+    @synchronized(_stateLock) {
+        [self performSelector:@selector(_succeed) onThread:self.startThread withObject:nil waitUntilDone:YES];
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {

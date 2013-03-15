@@ -14,19 +14,26 @@
 - (void)expectStartAndRespondWithDelegate:(id)delegate response:(NSURLResponse*)response chunks:(NSArray*)chunks {
     [(NSURLConnection*)[[self stub] andDo0:^{
         
-        [delegate connection:(NSURLConnection*)self didReceiveResponse:response];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [delegate connection:(NSURLConnection*)self didReceiveResponse:response];
+            
+            for (NSData *chunk in chunks) {
+                [delegate connection:(NSURLConnection*)self didReceiveData:chunk];
+            }
+            
+            [delegate connectionDidFinishLoading:(NSURLConnection*)self];
+        });
         
-        for (NSData *chunk in chunks) {
-            [delegate connection:(NSURLConnection*)self didReceiveData:chunk];
-        }
-        
-        [delegate connectionDidFinishLoading:(NSURLConnection*)self];
     }] start];
 }
 
 - (void)expectStartAndFailWithDelegate:(id)delegate error:(NSError*)error {
     [(NSURLConnection*)[[self expect] andDo0:^{
-        [delegate connection:nil didFailWithError:error];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+            [delegate connection:nil didFailWithError:error];
+        });
     }] start];
 }
 
