@@ -55,6 +55,20 @@
     REPLACE_PROPERTY(self.partial, connection, self.mockConnection, setConnection, self.realConnection);
 }
 
+- (void)testConnectionIsStartedOnDedicatedThread {
+    [self disableAllConnections];
+    [self replaceConnectionProperty];
+
+    NSThread *testThread = [NSThread currentThread];
+    
+    [(NSURLConnection*)[[self.mockConnection expect] andDo0:^{
+        GHAssertNotEquals([NSThread currentThread], testThread, @"Should not be test thread");
+        GHAssertNotEquals([NSThread currentThread], [NSThread mainThread], @"Should not be main thread");
+    }] start];
+    
+    [self.URLRequestDownloader start];
+}
+
 - (void)testSuccessfulDownload {
     [self disableAllConnections];
     [self replaceConnectionProperty];

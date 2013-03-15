@@ -11,17 +11,41 @@
 #import "NSHTTPURLResponse+StringEncoding.h"
 #import "SZURLRequestDownloader_private.h"
 
+static NSThread *connectionThread;
+
 @interface SZURLRequestDownloader () {
     NSMutableData *_responseData;
     NSString *_responseString;
+    NSObject *_stateLock;
 }
+
 @end
 
 @implementation SZURLRequestDownloader
 
++ (void)load {
+    [[self connectionThread] start];
+}
+
++ (void)runConnectionThread {
+    NSTimer *dummy = [[NSTimer alloc] initWithFireDate:[NSDate distantFuture] interval:0 target:nil selector:NULL userInfo:nil repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:dummy forMode:NSDefaultRunLoopMode];
+    
+    while ([[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]) {
+    }
+}
+
++ (NSThread*)connectionThread {
+    if (connectionThread == nil) {
+        connectionThread = [[NSThread alloc] initWithTarget:self selector:@selector(runConnectionThread) object:nil];
+    }
+    return connectionThread;
+}
+
 - (id)initWithURLRequest:(NSURLRequest*)request {
     
     if (self = [super init]) {
+        _stateLock = [[NSObject alloc] init];
         self.request = request;
     }
     
@@ -35,19 +59,33 @@
     return _responseData;
 }
 
-- (void)start {
-    if ([self isCancelled]) {
-        return;
-    }
-    
+- (void)startConnection {
     self.connection = [NSURLConnection connectionWithRequest:self.request delegate:self];
     [self.connection start];
 }
 
-- (void)cancel {
-    self.cancelled = YES;
+- (void)cancelConnection {
     [self.connection cancel];
     self.connection = nil;
+}
+
+- (void)start {
+
+    @synchronized(_stateLock) {
+        if (_cancelled) {
+            return;
+        }
+        
+        [self performSelector:@selector(startConnection) onThread:[[self class] connectionThread] withObject:nil waitUntilDone:YES];
+    }
+}
+
+- (void)cancel {
+    
+    @synchronized(_stateLock) {
+        _cancelled = YES;
+        [self performSelector:@selector(cancelConnection) onThread:[[self class] connectionThread] withObject:nil waitUntilDone:YES];
+    }
 }
 
 - (void)failWithError:(NSError*)error {
@@ -55,7 +93,7 @@
     BLOCK_CALL_3(self.completionBlock, self.response, self.responseData, error);
 }
 
-- (void)succeedWithResult:(id)result {
+- (void)succeed {
     BLOCK_CALL_3(self.completionBlock, self.response, self.responseData, self.error);
 }
 
@@ -81,11 +119,7 @@
         return;
     }
     
-    [self handleResponse];
-}
-
-- (void)handleResponse {
-    [self succeedWithResult:self.responseString];
+    [self succeed];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
