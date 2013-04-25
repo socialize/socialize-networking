@@ -7,10 +7,14 @@ different architecture, fewer features and a lot less code. It’s meant to be
 (nearly) the bare minimum you need to create http requests and manage
 NSMutableURLRequests through NSOperation and NSOperationQueue.
 
-It’s not used in any production apps at the moment. Use should be considered
-experimental. However, it does have heavy unit test coverage. It is small
-enough where bugs should be minimal and you can quickly get a good
-understanding of what’s going on if you’d like to help with support. 
+It’s not used in any production apps at the moment. It's intended for use with
+the next generation Socialize API. Use should be experimental at this point
+unless you intend to fix a bug or two. The project does have heavy unit test
+coverage. It is small enough where bugs should be minimal and you can quickly
+get a good understanding of what’s going on if you’d like to.
+
+Example GET (GitHub API)
+------------------------
 
 ``` objective-c
 self.operationQueue = [[NSOperationQueue alloc] init];
@@ -24,6 +28,20 @@ operation.URLCompletionBlock = ^(NSURLResponse *response, NSData *data, NSError 
 };
 
 [self.operationQueue addOperation:operation];
+```
+
+Example POST With OAuth (Socialize API v1)
+------------------------------------------
+
+``` objective-c
+NSString *payload = [@{@"udid": @"12345"} JSONString];
+NSMutableURLRequest *request = [NSMutableURLRequest HTTPRequestWithMethod:@"POST" scheme:@"https" host:@"api.getsocialize.com" path:@"/v1/authenticate/" parameters:@{@"payload": payload}];
+[request setAuthorizationHeaderWithConsumerKey:@"252f7ed8-2fe5-49a5-8b52-b5c06bd63891" consumerSecret:@"ea9dc991-fb32-4d40-9d85-aab35debf61c" token:nil tokenSecret:nil];
+SZURLRequestOperation *operation = [[SZURLRequestOperation alloc] initWithURLRequest:request];
+operation.URLCompletionBlock = ^(NSURLResponse *response, NSData *data, NSError *error) {
+    id result = [data objectFromJSONData];
+    NSLog(@"%@", result);
+};
 ```
 
 Some major differences from AFNetworking:
