@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Socialize. All rights reserved.
 //
 
-#import "SZCommon.h"
 #import "NSData+JSONHelpers.h"
 #import "SZError.h"
 #import "NSObject+JSONHelpers.h"
