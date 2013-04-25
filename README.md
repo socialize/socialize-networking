@@ -25,6 +25,6 @@ Planned but missing features:
 - Progress delegate callbacks.
 
 It’s not used in any production apps at the moment. Use should be considered
-experimental. However, it does have ~100% unit test coverage. It is small
+experimental. However, it does have heavy unit test coverage. It is small
 enough where bugs should be minimal and you can quickly get a good
 understanding of what’s going on if you’d like to help with support. 
