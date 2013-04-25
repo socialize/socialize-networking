@@ -6,8 +6,10 @@
 //  Copyright (c) 2012 Socialize. All rights reserved.
 //
 
-#import "SZAPIClient.h"
 #import "SZNetworkingVersion.h"
-#import "NSMutableURLRequest+Socialize.h"
-#import "SZAPIOperation.h"
 #import "SZURLRequestOperation.h"
+#import "NSHTTPURLResponse+StringEncoding.h"
+#import "NSData+JSONHelpers.h"
+#import "NSObject+JSONHelpers.h"
+#import "NSMutableURLRequest+OAuth.h"
+#import "NSMutableURLRequest+Parameters.h"
