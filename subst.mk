@@ -2,7 +2,7 @@
 
 .PHONY: subst clean-subst
 
-SUBST_BUILD_FILES := SocializeAPIClient/SZAPIClientVersion.h
+SUBST_BUILD_FILES := SocializeAPIClient/SZNetworkingVersion.h
 
 %: %.in version
 	sed \
