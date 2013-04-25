@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		AA082A0116485B8A00A992B5 /* SZURLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91418163F33E300223157 /* SZURLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA082A0316485B8B00A992B5 /* SZURLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91418163F33E300223157 /* SZURLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AA09925916D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = AA09925716D6EB0D00835134 /* NSMutableURLRequest+OAuth.h */; };
-		AA09925A16D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = AA09925716D6EB0D00835134 /* NSMutableURLRequest+OAuth.h */; };
+		AA09925916D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = AA09925716D6EB0D00835134 /* NSMutableURLRequest+OAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA09925A16D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = AA09925716D6EB0D00835134 /* NSMutableURLRequest+OAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA09925B16D6EB0D00835134 /* NSMutableURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = AA09925816D6EB0D00835134 /* NSMutableURLRequest+OAuth.m */; };
 		AA09925C16D6EB0D00835134 /* NSMutableURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = AA09925816D6EB0D00835134 /* NSMutableURLRequest+OAuth.m */; };
 		AA09925F16D6EB9F00835134 /* libOAuthCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA64C96616C44D71004965F1 /* libOAuthCore.a */; };
@@ -38,8 +38,8 @@
 		AA24E4611648598C005FFFB4 /* SZCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC06A7C163B5A760077C025 /* SZCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E4621648598C005FFFB4 /* SZError.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC06A82163B5A970077C025 /* SZError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA24E4631648598C005FFFB4 /* SZGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = AA08F48D1641A85700CB803F /* SZGlobal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AA24E46516485A9A005FFFB4 /* SocializeAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AA24E46616485A9B005FFFB4 /* SocializeAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E46516485A9A005FFFB4 /* SZNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = AA24E464164859D2005FFFB4 /* SZNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA24E46616485A9B005FFFB4 /* SZNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = AA24E464164859D2005FFFB4 /* SZNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA4F55791642F2AA00B66710 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC06A3C163B3F680077C025 /* Foundation.framework */; };
 		AA4F55841642F2D200B66710 /* NSData+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A80163B5A8E0077C025 /* NSData+JSONHelpers.m */; };
 		AA4F55851642F2D200B66710 /* NSObject+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD9142C163F3C6A00223157 /* NSObject+JSONHelpers.m */; };
@@ -76,8 +76,8 @@
 		AA64C9C816C5E492004965F1 /* SZOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C9C616C5E492004965F1 /* SZOperation.m */; };
 		AA64C9C916C5E806004965F1 /* SZOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C9C616C5E492004965F1 /* SZOperation.m */; };
 		AAE1765116D6F31A00A59380 /* libOAuthCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA64C96616C44D71004965F1 /* libOAuthCore.a */; };
-		AAE1765B16D6F83100A59380 /* NSMutableURLRequest+Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE1765916D6F83100A59380 /* NSMutableURLRequest+Parameters.h */; };
-		AAE1765C16D6F83100A59380 /* NSMutableURLRequest+Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE1765916D6F83100A59380 /* NSMutableURLRequest+Parameters.h */; };
+		AAE1765B16D6F83100A59380 /* NSMutableURLRequest+Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE1765916D6F83100A59380 /* NSMutableURLRequest+Parameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAE1765C16D6F83100A59380 /* NSMutableURLRequest+Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE1765916D6F83100A59380 /* NSMutableURLRequest+Parameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAE1765D16D6F83100A59380 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE1765A16D6F83100A59380 /* NSMutableURLRequest+Parameters.m */; };
 		AAE1765E16D6F83100A59380 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE1765A16D6F83100A59380 /* NSMutableURLRequest+Parameters.m */; };
 		AAE57CCC1729BD9C00993C57 /* SZURLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD91419163F33E300223157 /* SZURLRequestOperation.m */; };
@@ -91,6 +91,12 @@
 		AAE57CD81729BEBF00993C57 /* SZTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4F55F61643061400B66710 /* SZTestCase.m */; };
 		AAE57CDA1729D73200993C57 /* SZURLRequestDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA64C98916C5A3D9004965F1 /* SZURLRequestDownloaderTests.m */; };
 		AAE57CDB1729D73200993C57 /* SZURLRequestOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA620FF316C5F2ED0048740C /* SZURLRequestOperationTests.m */; };
+		AAE57CE61729E4AF00993C57 /* NSHTTPURLResponse+StringEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = AA459ED51641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAE57CE71729E4B000993C57 /* NSHTTPURLResponse+StringEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = AA459ED51641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAE57CE81729E4B500993C57 /* NSObject+JSONHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD9142B163F3C6A00223157 /* NSObject+JSONHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAE57CE91729E4B600993C57 /* NSObject+JSONHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD9142B163F3C6A00223157 /* NSObject+JSONHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAE57CEA1729E4C400993C57 /* NSData+JSONHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC06A7F163B5A8E0077C025 /* NSData+JSONHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAE57CEB1729E4C500993C57 /* NSData+JSONHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC06A7F163B5A8E0077C025 /* NSData+JSONHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,7 +196,7 @@
 		AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperation_private.h; sourceTree = "<group>"; };
 		AA24E3D2164851CE005FFFB4 /* GHUnitIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GHUnitIOS.xcodeproj; path = "ThirdParty/gh-unit/Project-iOS/GHUnitIOS.xcodeproj"; sourceTree = "<group>"; };
 		AA24E41E16485409005FFFB4 /* GCDAProfiling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GCDAProfiling.c; sourceTree = "<group>"; };
-		AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocializeAPIClient.h; sourceTree = "<group>"; };
+		AA24E464164859D2005FFFB4 /* SZNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SZNetworking.h; sourceTree = "<group>"; };
 		AA3D37D216E6B32900ED8645 /* SZURLRequestOperation+Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SZURLRequestOperation+Testing.h"; sourceTree = "<group>"; };
 		AA3D37D316E6B32900ED8645 /* SZURLRequestOperation+Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SZURLRequestOperation+Testing.m"; sourceTree = "<group>"; };
 		AA459ED51641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+StringEncoding.h"; sourceTree = "<group>"; };
@@ -456,7 +462,7 @@
 		AAC06A40163B3F680077C025 /* SZNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */,
+				AA24E464164859D2005FFFB4 /* SZNetworking.h */,
 				AA08F47F1640C63D00CB803F /* Helpers */,
 				AA08F4741640807400CB803F /* OAuth Requests */,
 				AA08F4731640805700CB803F /* Operations */,
@@ -504,7 +510,7 @@
 				AA24E45A16485978005FFFB4 /* SZCommon.h in Headers */,
 				AA24E45B16485978005FFFB4 /* SZError.h in Headers */,
 				AA24E45C16485978005FFFB4 /* SZGlobal.h in Headers */,
-				AA24E46516485A9A005FFFB4 /* SocializeAPIClient.h in Headers */,
+				AA24E46516485A9A005FFFB4 /* SZNetworking.h in Headers */,
 				AA082A0116485B8A00A992B5 /* SZURLRequestOperation.h in Headers */,
 				AA64C97916C4647A004965F1 /* SZURLRequestDownloader.h in Headers */,
 				AA64C9C216C5E410004965F1 /* SZFallibleOperation.h in Headers */,
@@ -517,6 +523,9 @@
 				AA147C8716E183F700CA19DD /* SZConcurrentOperation.h in Headers */,
 				AA147C9716E18D8D00CA19DD /* SZURLRequestDownloader_private.h in Headers */,
 				AA1759AC16EE851500550082 /* SZConcurrentOperation_private.h in Headers */,
+				AAE57CE61729E4AF00993C57 /* NSHTTPURLResponse+StringEncoding.h in Headers */,
+				AAE57CE91729E4B600993C57 /* NSObject+JSONHelpers.h in Headers */,
+				AAE57CEA1729E4C400993C57 /* NSData+JSONHelpers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +537,7 @@
 				AA24E4611648598C005FFFB4 /* SZCommon.h in Headers */,
 				AA24E4621648598C005FFFB4 /* SZError.h in Headers */,
 				AA24E4631648598C005FFFB4 /* SZGlobal.h in Headers */,
-				AA24E46616485A9B005FFFB4 /* SocializeAPIClient.h in Headers */,
+				AA24E46616485A9B005FFFB4 /* SZNetworking.h in Headers */,
 				AA082A0316485B8B00A992B5 /* SZURLRequestOperation.h in Headers */,
 				AA620FF616C604420048740C /* SZURLRequestOperation_private.h in Headers */,
 				AA09925A16D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */,
@@ -538,6 +547,9 @@
 				AA147C8816E183F700CA19DD /* SZConcurrentOperation.h in Headers */,
 				AA147C9816E18D8D00CA19DD /* SZURLRequestDownloader_private.h in Headers */,
 				AA1759AD16EE851500550082 /* SZConcurrentOperation_private.h in Headers */,
+				AAE57CE71729E4B000993C57 /* NSHTTPURLResponse+StringEncoding.h in Headers */,
+				AAE57CE81729E4B500993C57 /* NSObject+JSONHelpers.h in Headers */,
+				AAE57CEB1729E4C500993C57 /* NSData+JSONHelpers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
