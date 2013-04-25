@@ -784,7 +784,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/Scripts/export-coverstory.sh SocializeAPIClient-profiling";
+			shellScript = "${PROJECT_DIR}/Scripts/export-coverstory.sh SZNetworking-profiling";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
