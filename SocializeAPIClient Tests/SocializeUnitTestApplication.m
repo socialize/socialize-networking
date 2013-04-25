@@ -7,10 +7,6 @@
 //
 
 #import "SocializeUnitTestApplication.h"
-#import <GHUnitIOS/GHTestSuite.h>
-#import <objc/runtime.h>
-#import "SZAPIClient.h"
-#import "SZGlobal.h"
 
 @implementation SocializeUnitTestApplication
 

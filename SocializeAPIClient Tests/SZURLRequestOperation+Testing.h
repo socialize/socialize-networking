@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Socialize. All rights reserved.
 //
 
-#import <SocializeAPIClient/SocializeAPIClient.h>
+#import "SZURLRequestOperation.h"
 #import <OCMock/OCMock.h>
 
 @interface SZURLRequestOperation (Testing)

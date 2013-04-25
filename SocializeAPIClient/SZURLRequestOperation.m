@@ -1,7 +1,6 @@
 
 #import "SZURLRequestOperation.h"
 #import "SZGlobal.h"
-#import "NSMutableURLRequest+Socialize.h"
 #import "NSHTTPURLResponse+StringEncoding.h"
 #import "NSData+JSONHelpers.h"
 #import "SZURLRequestOperation_private.h"

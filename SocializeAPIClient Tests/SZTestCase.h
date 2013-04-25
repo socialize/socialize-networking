@@ -12,7 +12,6 @@
 #import "SZGlobal.h"
 #import "NSURLConnection+Testing.h"
 #import "SZFakeOperationQueue.h"
-#import "SZAPIOperation+Testing.h"
 #import "NSOperation+Testing.h"
 #import "TestHelpers.h"
 #import "SZURLRequestOperation+Testing.h"

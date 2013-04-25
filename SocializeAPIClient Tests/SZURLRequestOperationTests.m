@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Socialize. All rights reserved.
 //
 
+#import "SZURLRequestOperation.h"
 #import "SZURLRequestOperationTests.h"
 #import "SZURLRequestOperation_private.h"
 #import "SZURLRequestDownloader.h"

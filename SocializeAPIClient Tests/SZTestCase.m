@@ -9,7 +9,7 @@
 #import "SZTestCase.h"
 #import "NSMutableURLRequest+Parameters.h"
 #import "NSMutableURLRequest+OAuth.h"
-#import "SZAPIOperation.h"
+#import "SZURLRequestOperation.h"
 
 @interface SZTestCase ()
 @property (nonatomic, strong) NSConditionLock *asyncCounter;
