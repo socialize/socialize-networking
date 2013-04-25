@@ -341,14 +341,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AA4F559A1642F35700B66710 /* SocializeAPIClient Tests */ = {
+		AA4F559A1642F35700B66710 /* SZNetworking Tests */ = {
 			isa = PBXGroup;
 			children = (
 				AA64C9B516C5D1DD004965F1 /* Test Helpers */,
 				AA4F55E41643054F00B66710 /* Test Cases */,
 				AA4F559B1642F35700B66710 /* Supporting Files */,
 			);
-			path = "SocializeAPIClient Tests";
+			path = "SZNetworking Tests";
 			sourceTree = "<group>";
 		};
 		AA4F559B1642F35700B66710 /* Supporting Files */ = {
@@ -424,8 +424,8 @@
 		AAC06A2B163B3F680077C025 = {
 			isa = PBXGroup;
 			children = (
-				AAC06A40163B3F680077C025 /* SocializeAPIClient */,
-				AA4F559A1642F35700B66710 /* SocializeAPIClient Tests */,
+				AAC06A40163B3F680077C025 /* SZNetworking */,
+				AA4F559A1642F35700B66710 /* SZNetworking Tests */,
 				AAC06A6C163B53B10077C025 /* ThirdParty */,
 				AAC06A39163B3F680077C025 /* Frameworks */,
 				AAC06A37163B3F680077C025 /* Products */,
@@ -453,7 +453,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AAC06A40163B3F680077C025 /* SocializeAPIClient */ = {
+		AAC06A40163B3F680077C025 /* SZNetworking */ = {
 			isa = PBXGroup;
 			children = (
 				AA24E464164859D2005FFFB4 /* SocializeAPIClient.h */,
@@ -472,7 +472,7 @@
 				AA64C97816C46479004965F1 /* SZURLRequestDownloader.m */,
 				AA147C9616E18D8D00CA19DD /* SZURLRequestDownloader_private.h */,
 			);
-			path = SocializeAPIClient;
+			path = SZNetworking;
 			sourceTree = "<group>";
 		};
 		AAC06A41163B3F680077C025 /* Supporting Files */ = {
@@ -868,7 +868,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/SocializeAPIClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SocializeAPIClient/SZNetworking-Prefix.pch";
+				GCC_PREFIX_HEADER = "SZNetworking/SZNetworking-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = SZNetworking;
 				PUBLIC_HEADERS_FOLDER_PATH = SocializeAPIClient;
@@ -881,7 +881,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/SocializeAPIClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SocializeAPIClient/SZNetworking-Prefix.pch";
+				GCC_PREFIX_HEADER = "SZNetworking/SZNetworking-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = SZNetworking;
 				PUBLIC_HEADERS_FOLDER_PATH = SocializeAPIClient;
@@ -898,9 +898,9 @@
 					"\"$(SRCROOT)/ThirdParty\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SocializeAPIClient Tests/SZNetworking Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "SZNetworking Tests/SZNetworking Tests-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
-				INFOPLIST_FILE = "SocializeAPIClient Tests/SZNetworking Tests-Info.plist";
+				INFOPLIST_FILE = "SZNetworking Tests/SZNetworking Tests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -920,9 +920,9 @@
 					"\"$(SRCROOT)/ThirdParty\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SocializeAPIClient Tests/SZNetworking Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "SZNetworking Tests/SZNetworking Tests-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
-				INFOPLIST_FILE = "SocializeAPIClient Tests/SZNetworking Tests-Info.plist";
+				INFOPLIST_FILE = "SZNetworking Tests/SZNetworking Tests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -938,7 +938,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/SocializeAPIClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SocializeAPIClient/SZNetworking-Prefix.pch";
+				GCC_PREFIX_HEADER = "SZNetworking/SZNetworking-Prefix.pch";
 				OTHER_CFLAGS = (
 					"-fprofile-arcs",
 					"-ftest-coverage",
@@ -955,7 +955,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/SocializeAPIClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SocializeAPIClient/SZNetworking-Prefix.pch";
+				GCC_PREFIX_HEADER = "SZNetworking/SZNetworking-Prefix.pch";
 				OTHER_CFLAGS = (
 					"-fprofile-arcs",
 					"-ftest-coverage",
