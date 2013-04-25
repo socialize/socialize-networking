@@ -130,7 +130,7 @@ static NSThread *connectionThread;
                                    SZErrorURLResponseBodyKey: self.responseData,
                                    };
         
-        NSError *error = [[NSError alloc] initWithDomain:SZAPIClientErrorDomain code:SZAPIErrorCodeServerReturnedHTTPErrorStatus userInfo:userInfo];
+        NSError *error = [[NSError alloc] initWithDomain:SZNetworkingErrorDomain code:SZNetworkingErrorCodeServerReturnedHTTPErrorStatus userInfo:userInfo];
         [self failWithError:error];
         return;
     }

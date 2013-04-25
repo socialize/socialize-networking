@@ -9,9 +9,8 @@
 #import "SZError.h"
 
 
-NSString *const SZAPIClientErrorDomain = @"SZAPIClientErrorDomain";
+NSString *const SZNetworkingErrorDomain = @"SZNetworkingErrorDomain";
 
 NSString *const SZErrorURLResponseKey = @"SZErrorURLResponseKey";
 NSString *const SZErrorURLResponseBodyKey = @"SZErrorURLResponseBodyKey";
 NSString *const SZErrorFailedDependenciesKey = @"SZErrorFailedDependenciesKey";
-NSString *const SZErrorServerErrorsListKey = @"SZErrorServerErrorsListKey";

@@ -40,7 +40,7 @@
         SZErrorFailedDependenciesKey: failedDependencies,
     };
     
-    return [[NSError alloc] initWithDomain:SZAPIClientErrorDomain code:SZAPIErrorOperationHasFailedDependencies userInfo:userInfo];
+    return [[NSError alloc] initWithDomain:SZNetworkingErrorDomain code:SZNetworkingErrorOperationHasFailedDependencies userInfo:userInfo];
 }
 
 - (NSArray*)failedDependencies {

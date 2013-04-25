@@ -167,7 +167,7 @@
     [self.URLRequestOperation start];
     
     NSError *error = self.URLRequestOperation.error;
-    GHAssertTrue([error code] == SZAPIErrorOperationHasFailedDependencies, @"Not");
+    GHAssertTrue([error code] == SZNetworkingErrorOperationHasFailedDependencies, @"Not");
 }
 
 - (void)testCustomDescriptionIsNonNil {

@@ -8,16 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, SZAPIError) {
-    SZAPIErrorCodeRequestCancelled,
-    SZAPIErrorCodeServerReturnedHTTPErrorStatus,
-    SZAPIErrorCodeServerReturnedErrors,
-    SZAPIErrorCodeCouldNotParseServerResponse,
-    SZAPIErrorOperationHasFailedDependencies,
+typedef NS_ENUM(NSUInteger, SZNetworkingError) {
+    SZNetworkingErrorCodeRequestCancelled,
+    SZNetworkingErrorCodeServerReturnedHTTPErrorStatus,
+    SZNetworkingErrorOperationHasFailedDependencies,
 };
 
-extern NSString *const SZAPIClientErrorDomain;
+extern NSString *const SZNetworkingErrorDomain;
 extern NSString *const SZErrorURLResponseKey;
 extern NSString *const SZErrorURLResponseBodyKey;
 extern NSString *const SZErrorFailedDependenciesKey;
-extern NSString *const SZErrorServerErrorsListKey;
