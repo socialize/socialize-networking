@@ -23,7 +23,7 @@ BOOL MethodIsBodyStyle(NSString *method) {
     
 
     NSMutableString *URLString = [NSMutableString stringWithFormat:@"%@://%@%@", scheme, host, path];
-    if (!MethodIsBodyStyle(method)) {
+    if (!MethodIsBodyStyle(method) && [queryString length] > 0) {
         [URLString appendFormat:@"?%@", queryString];
     }
     
