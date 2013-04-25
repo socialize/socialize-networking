@@ -88,7 +88,7 @@
 		AA4F56961643233C00B66710 /* SZError.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC06A83163B5A970077C025 /* SZError.m */; };
 		AA4F56971643233C00B66710 /* SZAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AA08F48F1641C8EA00CB803F /* SZAPIClient.m */; };
 		AA4F569B1643233C00B66710 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC06A3C163B3F680077C025 /* Foundation.framework */; };
-		AA4F56A41643248700B66710 /* libSocializeAPIClient-profiling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4F56A01643233C00B66710 /* libSocializeAPIClient-profiling.a */; };
+		AA4F56A41643248700B66710 /* libSZNetworking-profiling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4F56A01643233C00B66710 /* libSZNetworking-profiling.a */; };
 		AA508A8416D86F740005277A /* SZAPIOperation_private.h in Headers */ = {isa = PBXBuildFile; fileRef = AA508A8316D86F740005277A /* SZAPIOperation_private.h */; };
 		AA508A8516D86F740005277A /* SZAPIOperation_private.h in Headers */ = {isa = PBXBuildFile; fileRef = AA508A8316D86F740005277A /* SZAPIOperation_private.h */; };
 		AA620FF516C604410048740C /* SZURLRequestOperation_private.h in Headers */ = {isa = PBXBuildFile; fileRef = AA1A7360164343D6001F385F /* SZURLRequestOperation_private.h */; };
@@ -221,13 +221,13 @@
 		AA3D37D316E6B32900ED8645 /* SZURLRequestOperation+Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SZURLRequestOperation+Testing.m"; sourceTree = "<group>"; };
 		AA459ED51641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+StringEncoding.h"; sourceTree = "<group>"; };
 		AA459ED61641FA7000B45CBC /* NSHTTPURLResponse+StringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPURLResponse+StringEncoding.m"; sourceTree = "<group>"; };
-		AA4F55781642F2AA00B66710 /* libSocializeAPIClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSocializeAPIClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA4F557C1642F2AA00B66710 /* SocializeAPIClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocializeAPIClient-Prefix.pch"; sourceTree = "<group>"; };
-		AA4F55951642F35700B66710 /* SocializeAPIClient Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SocializeAPIClient Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA4F559C1642F35700B66710 /* SocializeAPIClient Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SocializeAPIClient Tests-Info.plist"; sourceTree = "<group>"; };
+		AA4F55781642F2AA00B66710 /* libSZNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSZNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA4F557C1642F2AA00B66710 /* SZNetworking-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SZNetworking-Prefix.pch"; sourceTree = "<group>"; };
+		AA4F55951642F35700B66710 /* SZNetworking Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SZNetworking Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA4F559C1642F35700B66710 /* SZNetworking Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SZNetworking Tests-Info.plist"; sourceTree = "<group>"; };
 		AA4F559E1642F35700B66710 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA4F55A01642F35700B66710 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AA4F55A21642F35700B66710 /* SocializeAPIClient Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocializeAPIClient Tests-Prefix.pch"; sourceTree = "<group>"; };
+		AA4F55A21642F35700B66710 /* SZNetworking Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SZNetworking Tests-Prefix.pch"; sourceTree = "<group>"; };
 		AA4F55A61642F35700B66710 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		AA4F55A81642F35700B66710 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AA4F55AA1642F35700B66710 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 		AA4F55F91643071500B66710 /* SZAPIClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZAPIClientTests.m; sourceTree = "<group>"; };
 		AA4F568216431F1000B66710 /* SocializeUnitTestApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocializeUnitTestApplication.h; sourceTree = "<group>"; };
 		AA4F568316431F1000B66710 /* SocializeUnitTestApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocializeUnitTestApplication.m; sourceTree = "<group>"; };
-		AA4F56A01643233C00B66710 /* libSocializeAPIClient-profiling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSocializeAPIClient-profiling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA4F56A01643233C00B66710 /* libSZNetworking-profiling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSZNetworking-profiling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA508A8316D86F740005277A /* SZAPIOperation_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAPIOperation_private.h; sourceTree = "<group>"; };
 		AA57C8F616E664DD006DB527 /* TestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelpers.h; sourceTree = "<group>"; };
 		AA620FF216C5F2ED0048740C /* SZURLRequestOperationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZURLRequestOperationTests.h; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA24E3EE164852A2005FFFB4 /* libGHUnitIOSSimulator.a in Frameworks */,
-				AA4F56A41643248700B66710 /* libSocializeAPIClient-profiling.a in Frameworks */,
+				AA4F56A41643248700B66710 /* libSZNetworking-profiling.a in Frameworks */,
 				AA4F55F4164305CB00B66710 /* libOCMock.a in Frameworks */,
 				AA4F55E31643033E00B66710 /* QuartzCore.framework in Frameworks */,
 				AA4F55971642F35700B66710 /* UIKit.framework in Frameworks */,
@@ -401,10 +401,10 @@
 				AA24E41E16485409005FFFB4 /* GCDAProfiling.c */,
 				AA4F568216431F1000B66710 /* SocializeUnitTestApplication.h */,
 				AA4F568316431F1000B66710 /* SocializeUnitTestApplication.m */,
-				AA4F559C1642F35700B66710 /* SocializeAPIClient Tests-Info.plist */,
+				AA4F559C1642F35700B66710 /* SZNetworking Tests-Info.plist */,
 				AA4F559D1642F35700B66710 /* InfoPlist.strings */,
 				AA4F55A01642F35700B66710 /* main.m */,
-				AA4F55A21642F35700B66710 /* SocializeAPIClient Tests-Prefix.pch */,
+				AA4F55A21642F35700B66710 /* SZNetworking Tests-Prefix.pch */,
 				AA4F55A61642F35700B66710 /* Default.png */,
 				AA4F55A81642F35700B66710 /* Default@2x.png */,
 				AA4F55AA1642F35700B66710 /* Default-568h@2x.png */,
@@ -489,9 +489,9 @@
 		AAC06A37163B3F680077C025 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA4F55781642F2AA00B66710 /* libSocializeAPIClient.a */,
-				AA4F55951642F35700B66710 /* SocializeAPIClient Tests.app */,
-				AA4F56A01643233C00B66710 /* libSocializeAPIClient-profiling.a */,
+				AA4F55781642F2AA00B66710 /* libSZNetworking.a */,
+				AA4F55951642F35700B66710 /* SZNetworking Tests.app */,
+				AA4F56A01643233C00B66710 /* libSZNetworking-profiling.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -534,7 +534,7 @@
 		AAC06A41163B3F680077C025 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AA4F557C1642F2AA00B66710 /* SocializeAPIClient-Prefix.pch */,
+				AA4F557C1642F2AA00B66710 /* SZNetworking-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -608,9 +608,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		AA4F55771642F2AA00B66710 /* SocializeAPIClient */ = {
+		AA4F55771642F2AA00B66710 /* SZNetworking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA4F55811642F2AA00B66710 /* Build configuration list for PBXNativeTarget "SocializeAPIClient" */;
+			buildConfigurationList = AA4F55811642F2AA00B66710 /* Build configuration list for PBXNativeTarget "SZNetworking" */;
 			buildPhases = (
 				AA24E3D116485181005FFFB4 /* External Substitutions */,
 				AA4F55741642F2AA00B66710 /* Sources */,
@@ -623,14 +623,14 @@
 			);
 			dependencies = (
 			);
-			name = SocializeAPIClient;
+			name = SZNetworking;
 			productName = SocializeAPIClient;
-			productReference = AA4F55781642F2AA00B66710 /* libSocializeAPIClient.a */;
+			productReference = AA4F55781642F2AA00B66710 /* libSZNetworking.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		AA4F55941642F35700B66710 /* SocializeAPIClient Tests */ = {
+		AA4F55941642F35700B66710 /* SZNetworking Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA4F55AC1642F35700B66710 /* Build configuration list for PBXNativeTarget "SocializeAPIClient Tests" */;
+			buildConfigurationList = AA4F55AC1642F35700B66710 /* Build configuration list for PBXNativeTarget "SZNetworking Tests" */;
 			buildPhases = (
 				AA4F55911642F35700B66710 /* Sources */,
 				AA4F55921642F35700B66710 /* Frameworks */,
@@ -642,14 +642,14 @@
 			);
 			dependencies = (
 			);
-			name = "SocializeAPIClient Tests";
+			name = "SZNetworking Tests";
 			productName = "SocializeAPIClient Tests";
-			productReference = AA4F55951642F35700B66710 /* SocializeAPIClient Tests.app */;
+			productReference = AA4F55951642F35700B66710 /* SZNetworking Tests.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AA4F568C1643233C00B66710 /* SocializeAPIClient-profiling */ = {
+		AA4F568C1643233C00B66710 /* SZNetworking-profiling */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA4F569D1643233C00B66710 /* Build configuration list for PBXNativeTarget "SocializeAPIClient-profiling" */;
+			buildConfigurationList = AA4F569D1643233C00B66710 /* Build configuration list for PBXNativeTarget "SZNetworking-profiling" */;
 			buildPhases = (
 				AA4F568D1643233C00B66710 /* Sources */,
 				AA4F569A1643233C00B66710 /* Frameworks */,
@@ -661,9 +661,9 @@
 			);
 			dependencies = (
 			);
-			name = "SocializeAPIClient-profiling";
+			name = "SZNetworking-profiling";
 			productName = SocializeAPIClient;
-			productReference = AA4F56A01643233C00B66710 /* libSocializeAPIClient-profiling.a */;
+			productReference = AA4F56A01643233C00B66710 /* libSZNetworking-profiling.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -676,7 +676,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Socialize;
 			};
-			buildConfigurationList = AAC06A30163B3F680077C025 /* Build configuration list for PBXProject "SocializeAPIClient" */;
+			buildConfigurationList = AAC06A30163B3F680077C025 /* Build configuration list for PBXProject "SZNetworking" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -702,9 +702,9 @@
 			);
 			projectRoot = "";
 			targets = (
-				AA4F55771642F2AA00B66710 /* SocializeAPIClient */,
-				AA4F568C1643233C00B66710 /* SocializeAPIClient-profiling */,
-				AA4F55941642F35700B66710 /* SocializeAPIClient Tests */,
+				AA4F55771642F2AA00B66710 /* SZNetworking */,
+				AA4F568C1643233C00B66710 /* SZNetworking-profiling */,
+				AA4F55941642F35700B66710 /* SZNetworking Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -944,9 +944,9 @@
 			buildSettings = {
 				DSTROOT = /tmp/SocializeAPIClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SocializeAPIClient/SocializeAPIClient-Prefix.pch";
+				GCC_PREFIX_HEADER = "SocializeAPIClient/SZNetworking-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SZNetworking;
 				PUBLIC_HEADERS_FOLDER_PATH = SocializeAPIClient;
 				SKIP_INSTALL = YES;
 			};
@@ -957,9 +957,9 @@
 			buildSettings = {
 				DSTROOT = /tmp/SocializeAPIClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SocializeAPIClient/SocializeAPIClient-Prefix.pch";
+				GCC_PREFIX_HEADER = "SocializeAPIClient/SZNetworking-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SZNetworking;
 				PUBLIC_HEADERS_FOLDER_PATH = SocializeAPIClient;
 				SKIP_INSTALL = YES;
 			};
@@ -974,14 +974,14 @@
 					"\"$(SRCROOT)/ThirdParty\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SocializeAPIClient Tests/SocializeAPIClient Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "SocializeAPIClient Tests/SZNetworking Tests-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
-				INFOPLIST_FILE = "SocializeAPIClient Tests/SocializeAPIClient Tests-Info.plist";
+				INFOPLIST_FILE = "SocializeAPIClient Tests/SZNetworking Tests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SZNetworking Tests";
 				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
@@ -996,14 +996,14 @@
 					"\"$(SRCROOT)/ThirdParty\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SocializeAPIClient Tests/SocializeAPIClient Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "SocializeAPIClient Tests/SZNetworking Tests-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
-				INFOPLIST_FILE = "SocializeAPIClient Tests/SocializeAPIClient Tests-Info.plist";
+				INFOPLIST_FILE = "SocializeAPIClient Tests/SZNetworking Tests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SZNetworking Tests";
 				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1020,7 +1020,7 @@
 					"-ftest-coverage",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "SocializeAPIClient-profiling";
+				PRODUCT_NAME = "SZNetworking-profiling";
 				PUBLIC_HEADERS_FOLDER_PATH = SocializeAPIClient;
 				SKIP_INSTALL = YES;
 			};
@@ -1037,7 +1037,7 @@
 					"-ftest-coverage",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "SocializeAPIClient-profiling";
+				PRODUCT_NAME = "SZNetworking-profiling";
 				PUBLIC_HEADERS_FOLDER_PATH = SocializeAPIClient;
 				SKIP_INSTALL = YES;
 			};
@@ -1103,7 +1103,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AA4F55811642F2AA00B66710 /* Build configuration list for PBXNativeTarget "SocializeAPIClient" */ = {
+		AA4F55811642F2AA00B66710 /* Build configuration list for PBXNativeTarget "SZNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA4F55821642F2AA00B66710 /* Debug */,
@@ -1112,7 +1112,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA4F55AC1642F35700B66710 /* Build configuration list for PBXNativeTarget "SocializeAPIClient Tests" */ = {
+		AA4F55AC1642F35700B66710 /* Build configuration list for PBXNativeTarget "SZNetworking Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA4F55AD1642F35700B66710 /* Debug */,
@@ -1121,7 +1121,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA4F569D1643233C00B66710 /* Build configuration list for PBXNativeTarget "SocializeAPIClient-profiling" */ = {
+		AA4F569D1643233C00B66710 /* Build configuration list for PBXNativeTarget "SZNetworking-profiling" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA4F569E1643233C00B66710 /* Debug */,
@@ -1130,7 +1130,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAC06A30163B3F680077C025 /* Build configuration list for PBXProject "SocializeAPIClient" */ = {
+		AAC06A30163B3F680077C025 /* Build configuration list for PBXProject "SZNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAC06A52163B3F680077C025 /* Debug */,

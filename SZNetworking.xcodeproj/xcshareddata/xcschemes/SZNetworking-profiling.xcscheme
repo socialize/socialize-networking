@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA4F568C1643233C00B66710"
-               BuildableName = "libSocializeAPIClient-profiling.a"
-               BlueprintName = "SocializeAPIClient-profiling"
-               ReferencedContainer = "container:SocializeAPIClient.xcodeproj">
+               BuildableName = "libSZNetworking-profiling.a"
+               BlueprintName = "SZNetworking-profiling"
+               ReferencedContainer = "container:SZNetworking.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

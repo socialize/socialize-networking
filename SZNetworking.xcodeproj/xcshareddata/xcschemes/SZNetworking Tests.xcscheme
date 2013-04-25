@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA4F55941642F35700B66710"
-               BuildableName = "SocializeAPIClient Tests.app"
-               BlueprintName = "SocializeAPIClient Tests"
-               ReferencedContainer = "container:SocializeAPIClient.xcodeproj">
+               BuildableName = "SZNetworking Tests.app"
+               BlueprintName = "SZNetworking Tests"
+               ReferencedContainer = "container:SZNetworking.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA4F55941642F35700B66710"
-            BuildableName = "SocializeAPIClient Tests.app"
-            BlueprintName = "SocializeAPIClient Tests"
-            ReferencedContainer = "container:SocializeAPIClient.xcodeproj">
+            BuildableName = "SZNetworking Tests.app"
+            BlueprintName = "SZNetworking Tests"
+            ReferencedContainer = "container:SZNetworking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,17 +52,12 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA4F55941642F35700B66710"
-            BuildableName = "SocializeAPIClient Tests.app"
-            BlueprintName = "SocializeAPIClient Tests"
-            ReferencedContainer = "container:SocializeAPIClient.xcodeproj">
+            BuildableName = "SZNetworking Tests.app"
+            BlueprintName = "SZNetworking Tests"
+            ReferencedContainer = "container:SZNetworking.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
-         <AdditionalOption
-            key = "NSZombieEnabled"
-            value = "YES"
-            isEnabled = "YES">
-         </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
@@ -75,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA4F55941642F35700B66710"
-            BuildableName = "SocializeAPIClient Tests.app"
-            BlueprintName = "SocializeAPIClient Tests"
-            ReferencedContainer = "container:SocializeAPIClient.xcodeproj">
+            BuildableName = "SZNetworking Tests.app"
+            BlueprintName = "SZNetworking Tests"
+            ReferencedContainer = "container:SZNetworking.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
