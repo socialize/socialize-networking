@@ -1,12 +1,3 @@
-[submodule "ThirdParty/gh-unit"]
-	path = ThirdParty/gh-unit
-	url = git@github.com:socialize/gh-unit.git
-[submodule "ThirdParty/ocmock"]
-	path = ThirdParty/ocmock
-	url = git@github.com:socialize/ocmock.git
 [submodule "Scripts"]
 	path = Scripts
 	url = git@github.com:socialize/socialize-project-helpers-ios.git
-[submodule "ThirdParty/OAuthCore"]
-	path = ThirdParty/OAuthCore
-	url = git@github.com:socialize/OAuthCore.git
