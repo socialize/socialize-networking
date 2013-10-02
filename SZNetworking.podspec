@@ -1,10 +1,17 @@
 Pod::Spec.new do |s|
   s.name         = "SZNetworking"
-  s.version      = "0.0.1"
-  s.summary      = "Podspec for Socialize Networking project"
-  s.homepage     = "https://github.com/socialize/socialize-networkingblob/dev/SZNetworking.podspec"
+  s.version      = "0.3"
+  s.summary      = "Similar to AFNetworking, with a slightly different architecture, fewer features and a lot less code."
+
+  s.description  = "SZNetworking is meant to be (nearly) the bare minimum you need to create http requests and manage NSMutableURLRequests through NSOperation and NSOperationQueue"
+  s.homepage     = "https://github.com/socialize/socialize-networking"
+  
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "David Jedeikin" => "djedeikin@sharethis.com" }
-  s.source       = { :git => "https://github.com/socialize/socialize-networking.git", :commit => 'b77e7a66a4bd9a0973bc74ef0c742e32159655a8' }
+ 
   s.platform     = :ios
-  s.source_files = 'SZNetworking', 'SZNetworking/*.{h,m}'
-end
+
+  s.dependency     'OAuthCore'
+  s.source       = { :git => "https://github.com/socialize/socialize-networking.git", :tag => "0.3" }
+  s.source_files = 'Classes', 'SZNetworking/**/*.{h,m}'
+ end
