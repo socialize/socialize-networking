@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C34328017FB977A0039A2D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C34327F17FB977A0039A2D8 /* libPods.a */; };
+		2C04581D17FCB8EC003EE6CB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C04581C17FCB8EC003EE6CB /* libPods.a */; };
 		2C34328117FB97B90039A2D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4F55A01642F35700B66710 /* main.m */; };
 		2C34328217FB97BB0039A2D8 /* SocializeUnitTestApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4F568316431F1000B66710 /* SocializeUnitTestApplication.m */; };
+		2C9A95DA17FCCE0000D1E4CD /* SZRandom.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C9A95D817FCCE0000D1E4CD /* SZRandom.h */; };
+		2C9A95DB17FCCE0000D1E4CD /* SZRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9A95D917FCCE0000D1E4CD /* SZRandom.m */; };
 		AA082A0116485B8A00A992B5 /* SZURLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91418163F33E300223157 /* SZURLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA082A0316485B8B00A992B5 /* SZURLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD91418163F33E300223157 /* SZURLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA09925916D6EB0D00835134 /* NSMutableURLRequest+OAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = AA09925716D6EB0D00835134 /* NSMutableURLRequest+OAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -103,11 +105,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2C34327F17FB977A0039A2D8 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		4E3991DF35E3404F82DD607D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C04581A17FCB8AA003EE6CB /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		2C04581C17FCB8EC003EE6CB /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		2C9A95D817FCCE0000D1E4CD /* SZRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZRandom.h; sourceTree = "<group>"; };
+		2C9A95D917FCCE0000D1E4CD /* SZRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZRandom.m; sourceTree = "<group>"; };
 		9F2A9534F0754915BA1F80FC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		AA026EDA16EA6D0B00BCE258 /* SZRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZRandom.h; sourceTree = "<group>"; };
-		AA026EDB16EA6D0B00BCE258 /* SZRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZRandom.m; sourceTree = "<group>"; };
 		AA08F48D1641A85700CB803F /* SZGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZGlobal.h; sourceTree = "<group>"; };
 		AA09925716D6EB0D00835134 /* NSMutableURLRequest+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+OAuth.h"; sourceTree = "<group>"; };
 		AA09925816D6EB0D00835134 /* NSMutableURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+OAuth.m"; sourceTree = "<group>"; };
@@ -191,7 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C34328017FB977A0039A2D8 /* libPods.a in Frameworks */,
+				2C04581D17FCB8EC003EE6CB /* libPods.a in Frameworks */,
 				AA4F55E31643033E00B66710 /* QuartzCore.framework in Frameworks */,
 				AA4F55971642F35700B66710 /* UIKit.framework in Frameworks */,
 				AA4F55981642F35700B66710 /* Foundation.framework in Frameworks */,
@@ -241,6 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				AA127FB616DEC61A00791906 /* Functional */,
+				2C9A95D817FCCE0000D1E4CD /* SZRandom.h */,
+				2C9A95D917FCCE0000D1E4CD /* SZRandom.m */,
 				AAC06A7F163B5A8E0077C025 /* NSData+JSONHelpers.h */,
 				AAC06A80163B5A8E0077C025 /* NSData+JSONHelpers.m */,
 				AAD9142B163F3C6A00223157 /* NSObject+JSONHelpers.h */,
@@ -306,8 +310,6 @@
 		AA64C9B516C5D1DD004965F1 /* Test Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				AA026EDA16EA6D0B00BCE258 /* SZRandom.h */,
-				AA026EDB16EA6D0B00BCE258 /* SZRandom.m */,
 				AA64C9BE16C5D1FD004965F1 /* NSURLConnection+Testing.h */,
 				AA64C9BF16C5D1FD004965F1 /* NSURLConnection+Testing.m */,
 				AA127FC016DEDC1200791906 /* SZFakeOperationQueue.h */,
@@ -347,12 +349,12 @@
 		AAC06A39163B3F680077C025 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2C34327F17FB977A0039A2D8 /* libPods.a */,
+				2C04581C17FCB8EC003EE6CB /* libPods.a */,
+				2C04581A17FCB8AA003EE6CB /* libPods.a */,
 				AA4F55E21643033E00B66710 /* QuartzCore.framework */,
 				AAC06A3A163B3F680077C025 /* UIKit.framework */,
 				AAC06A3C163B3F680077C025 /* Foundation.framework */,
 				AAC06A3E163B3F680077C025 /* CoreGraphics.framework */,
-				4E3991DF35E3404F82DD607D /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -406,6 +408,7 @@
 				AA127FB916DEC62E00791906 /* NSDictionary+Functional.h in Headers */,
 				AA127FBE16DEC66200791906 /* Functional.h in Headers */,
 				AA147C8716E183F700CA19DD /* SZConcurrentOperation.h in Headers */,
+				2C9A95DA17FCCE0000D1E4CD /* SZRandom.h in Headers */,
 				AA147C9716E18D8D00CA19DD /* SZURLRequestDownloader_private.h in Headers */,
 				AA1759AC16EE851500550082 /* SZConcurrentOperation_private.h in Headers */,
 				AAE57CE61729E4AF00993C57 /* NSHTTPURLResponse+StringEncoding.h in Headers */,
@@ -469,7 +472,6 @@
 				AA4F55911642F35700B66710 /* Sources */,
 				AA4F55921642F35700B66710 /* Frameworks */,
 				AA4F55931642F35700B66710 /* Resources */,
-				AA4F56421643180700B66710 /* Run Simulator (CLI Only) */,
 			);
 			buildRules = (
 			);
@@ -588,21 +590,6 @@
 			shellScript = "make subst";
 			showEnvVarsInLog = 0;
 		};
-		AA4F56421643180700B66710 /* Run Simulator (CLI Only) */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Simulator (CLI Only)";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "GHUNIT_CLI=1 ${PROJECT_DIR}/Scripts/run-headless-simulator.sh";
-			showEnvVarsInLog = 0;
-		};
 		B0277F410D354E7FAFC4F4E7 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -644,6 +631,7 @@
 				AA4F55851642F2D200B66710 /* NSObject+JSONHelpers.m in Sources */,
 				AA4F55861642F2D200B66710 /* NSHTTPURLResponse+StringEncoding.m in Sources */,
 				AA4F558A1642F2D200B66710 /* SZNetworkingVersion.m in Sources */,
+				2C9A95DB17FCCE0000D1E4CD /* SZRandom.m in Sources */,
 				AA4F558D1642F2D200B66710 /* SZError.m in Sources */,
 				AA64C97A16C4647A004965F1 /* SZURLRequestDownloader.m in Sources */,
 				AA64C9C816C5E492004965F1 /* SZOperation.m in Sources */,
