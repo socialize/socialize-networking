@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name = 'OCMock'
-  s.version = '2.2.1'
+  s.version = '2.0.1.1'
   s.homepage = 'http://ocmock.org'
   s.author = { 'Erik Doernenburg' => 'erik@doernenburg.com' }
-  s.source = { :git => 'https://github.com/erikdoe/ocmock.git', :tag => 'v2.2.1' }
+  s.source = { :git => 'https://github.com/socialize/ocmock.git', :tag => 'v2.0.1.1' }
 
   s.summary = 'OCMock is an Objective-C implementation of mock objects.'
 

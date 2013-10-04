@@ -30,24 +30,21 @@ static NSMutableDictionary *mockTable;
 
 + (void)rememberPartialMock:(OCPartialMockObject *)mock forObject:(id)anObject
 {
-    @synchronized(mockTable)
-    {
+    @synchronized(mockTable) {
         [mockTable setObject:[NSValue valueWithNonretainedObject:mock] forKey:[NSValue valueWithNonretainedObject:anObject]];
     }
 }
 
 + (void)forgetPartialMockForObject:(id)anObject
 {
-    @synchronized(mockTable)
-    {
+    @synchronized(mockTable) {
         [mockTable removeObjectForKey:[NSValue valueWithNonretainedObject:anObject]];
     }
 }
 
 + (OCPartialMockObject *)existingPartialMockForObject:(id)anObject
 {
-    @synchronized(mockTable)
-    {
+    @synchronized(mockTable) {
         OCPartialMockObject *mock = [[mockTable objectForKey:[NSValue valueWithNonretainedObject:anObject]] nonretainedObjectValue];
         if(mock == nil)
             [NSException raise:NSInternalInconsistencyException format:@"No partial mock for object %p", anObject];
@@ -151,7 +148,6 @@ static NSMutableDictionary *mockTable;
 
 - (id)forwardingTargetForSelectorForRealObject:(SEL)sel
 {
-	// in here "self" is a reference to the real object, not the mock
     OCPartialMockObject *mock = [OCPartialMockObject existingPartialMockForObject:self];
     if ([mock handleSelector:sel])
         return self;

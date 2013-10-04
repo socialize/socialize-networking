@@ -8,9 +8,10 @@
 
 // GHUnitIOS
 #define COCOAPODS_POD_AVAILABLE_GHUnitIOS
-#define COCOAPODS_VERSION_MAJOR_GHUnitIOS 0
-#define COCOAPODS_VERSION_MINOR_GHUnitIOS 5
-#define COCOAPODS_VERSION_PATCH_GHUnitIOS 6
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 0.5.6.1.
 
 // NSData+Base64
 #define COCOAPODS_POD_AVAILABLE_NSData_Base64
@@ -26,7 +27,8 @@
 
 // OCMock
 #define COCOAPODS_POD_AVAILABLE_OCMock
-#define COCOAPODS_VERSION_MAJOR_OCMock 2
-#define COCOAPODS_VERSION_MINOR_OCMock 2
-#define COCOAPODS_VERSION_PATCH_OCMock 1
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 2.0.1.1.
 

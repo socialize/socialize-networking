@@ -7,6 +7,7 @@
 #import "OCClassMockObject.h"
 #import "OCProtocolMockObject.h"
 #import "OCPartialMockObject.h"
+#import "OCMockClassObject.h"
 #import "OCObserverMockObject.h"
 #import <OCMock/OCMockRecorder.h>
 #import "NSInvocation+OCMAdditions.h"
@@ -37,9 +38,19 @@
 	return [[[OCClassMockObject alloc] initWithClass:aClass] autorelease];
 }
 
++ (id)mockForClassObject:(Class)aClass;
+{
+    return [[[OCMockClassObject alloc] initWithClass:aClass] autorelease];
+}
+
 + (id)mockForProtocol:(Protocol *)aProtocol
 {
-	return [[[OCProtocolMockObject alloc] initWithProtocol:aProtocol] autorelease];
+	return [[[OCProtocolMockObject alloc] initWithProtocol:aProtocol isClass:NO] autorelease];
+}
+
++ (id)classMockForProtocol:(Protocol *)aProtocol
+{
+	return [[[OCProtocolMockObject alloc] initWithProtocol:aProtocol isClass:YES] autorelease];
 }
 
 + (id)partialMockForObject:(NSObject *)anObject
@@ -142,8 +153,8 @@
 	}
 	if([expectations count] > 0)
 	{
-		[NSException raise:NSInternalInconsistencyException format:@"%@ : %@ expected methods were not invoked: %@", 
-			[self description], @([expectations count]), [self _recorderDescriptions:YES]];
+		[NSException raise:NSInternalInconsistencyException format:@"%@ : %ld expected methods were not invoked: %@", 
+			[self description], (unsigned long)[expectations count], [self _recorderDescriptions:YES]];
 	}
 	if([exceptions count] > 0)
 	{

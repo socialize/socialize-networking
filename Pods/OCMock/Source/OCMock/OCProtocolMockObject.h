@@ -7,10 +7,11 @@
 
 @interface OCProtocolMockObject : OCMockObject 
 {
+    BOOL        isClass_;
 	Protocol	*mockedProtocol;
 }
 
-- (id)initWithProtocol:(Protocol *)aProtocol;
+- (id)initWithProtocol:(Protocol *)aProtocol isClass:(BOOL)isClass;
 
 @end
 

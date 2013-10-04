@@ -11,14 +11,14 @@ default: release
 -include subst.mk
 
 test: subst
-	GHUNIT_CLI=1 WRITE_JUNIT_XML=YES JUNIT_XML_DIR=build/test-results RUN_CLI=1 xcodebuild -scheme 'SZNetworking Tests' -configuration Debug -sdk iphonesimulator
+	GHUNIT_CLI=1 WRITE_JUNIT_XML=YES JUNIT_XML_DIR=build/test-results RUN_CLI=1 xcodebuild -workspace SZNetworking.xcworkspace -scheme "SZNetworking Tests" -configuration Debug -sdk iphonesimulator build
 
 clean: clean-subst
-	xcodebuild -scheme 'SZNetworking Tests' -configuration Debug -sdk iphonesimulator clean
+	xcodebuild -workspace SZNetworking.xcworkspace -scheme 'SZNetworking Tests' -configuration Debug -sdk iphonesimulator clean
 	rm -rfd build
 
 framework:
-	BUILD_FRAMEWORK=1 xcodebuild -scheme "$(API_TARGET)" -configuration Release
+	BUILD_FRAMEWORK=1 xcodebuild -workspace SZNetworking.xcworkspace -scheme "$(API_TARGET)" -configuration Release
 
 release: framework
 	cd build && rm -f ${RELEASE_ZIP} && zip -r $(RELEASE_ZIP) $(FRAMEWORK_NAME)

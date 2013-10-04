@@ -1,0 +1,1 @@
+../../OCMock/Source/OCMock/NSObject+ClassMock.h

@@ -1,17 +1,21 @@
 //---------------------------------------------------------------------------------------
 //  $Id$
-//  Copyright (c) 2005-2008 by Mulle Kybernetik. See License file for details.
+//  Copyright (c) 2012 by Mulle Kybernetik. See License file for details.
 //---------------------------------------------------------------------------------------
 
 #import <OCMock/OCMockObject.h>
 
-@interface OCClassMockObject : OCMockObject 
+@interface OCMockClassObject : OCMockObject
 {
 	Class	mockedClass;
+	NSMutableDictionary *replacedClassMethods;
 }
 
 - (id)initWithClass:(Class)aClass;
 
 - (Class)mockedClass;
+
+- (void)setupClass:(Class)aClass;
+- (void)setupForwarderForSelector:(SEL)selector;
 
 @end

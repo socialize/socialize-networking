@@ -11,9 +11,10 @@
 
 #pragma mark  Initialisers, description, accessors, etc.
 
-- (id)initWithProtocol:(Protocol *)aProtocol
+- (id)initWithProtocol:(Protocol *)aProtocol isClass:(BOOL)isClass
 {
 	[super init];
+    isClass_ = isClass;
 	mockedProtocol = aProtocol;
 	return self;
 }
@@ -28,10 +29,10 @@
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-	struct objc_method_description methodDescription = protocol_getMethodDescription(mockedProtocol, aSelector, YES, YES);
+	struct objc_method_description methodDescription = protocol_getMethodDescription(mockedProtocol, aSelector, YES, !isClass_);
     if(methodDescription.name == NULL) 
 	{
-        methodDescription = protocol_getMethodDescription(mockedProtocol, aSelector, NO, YES);
+        methodDescription = protocol_getMethodDescription(mockedProtocol, aSelector, NO, !isClass_);
     }
     if(methodDescription.name == NULL) 
 	{

@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
 //  $Id$
-//  Copyright (c) 2004-2013 by Mulle Kybernetik. See License file for details.
+//  Copyright (c) 2004-2010 by Mulle Kybernetik. See License file for details.
 //---------------------------------------------------------------------------------------
 
 #import <Foundation/Foundation.h>
@@ -8,8 +8,6 @@
 @interface OCMockRecorder : NSProxy 
 {
 	id				signatureResolver;
-    BOOL            recordedAsClassMethod;
-    BOOL            ignoreNonObjectArgs;
 	NSInvocation	*recordedInvocation;
 	NSMutableArray	*invocationHandlers;
 }
@@ -29,9 +27,6 @@
 - (id)andDo:(void (^)(NSInvocation *))block; 
 #endif
 - (id)andForwardToRealObject;
-
-- (id)classMethod;
-- (id)ignoringNonObjectArgs;
 
 - (NSArray *)invocationHandlers;
 

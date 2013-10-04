@@ -70,13 +70,11 @@ static NSInteger MethodSort(id a, id b, void *context) {
   return strcmp(nameA, nameB);
 }
 
-/*
-static int MethodSort(const void *a, const void *b) {
+static int OldMethodSort(const void *a, const void *b) {
   const char *nameA = sel_getName(method_getName(*(Method*)a));
   const char *nameB = sel_getName(method_getName(*(Method*)b));
   return strcmp(nameA, nameB);
 }
- */
 
 BOOL isTestFixtureOfClass(Class aClass, Class testCaseClass) {
   if (testCaseClass == NULL) return NO;
@@ -179,7 +177,6 @@ static GHTesting *gSharedInstance;
 
 // GTM_BEGIN
 
-/*
 - (NSArray *)loadTestsFromTarget:(id)target {
   NSMutableArray *tests = [NSMutableArray array];
   
@@ -194,7 +191,7 @@ static GHTesting *gSharedInstance;
                        length:sizeof(Method) * methodCount];
   // Sort our methods so they are called in Alphabetical order just
   // because we can.
-  qsort(methods, methodCount, sizeof(Method), MethodSort);
+  qsort(methods, methodCount, sizeof(Method), OldMethodSort);
   for (size_t j = 0; j < methodCount; ++j) {
     Method currMethod = methods[j];
     SEL sel = method_getName(currMethod);
@@ -224,7 +221,8 @@ static GHTesting *gSharedInstance;
   
   return tests;
 }
-*/
+
+/*
 - (NSArray *)loadTestsFromTarget:(id)target {
   NSMutableArray *invocations = nil;
   // Need to walk all the way up the parent classes collecting methods (in case
@@ -290,6 +288,7 @@ static GHTesting *gSharedInstance;
   }
   return tests;
 }
+ */
 
 + (BOOL)runTestWithTarget:(id)target selector:(SEL)selector exception:(NSException **)exception interval:(NSTimeInterval *)interval
  reraiseExceptions:(BOOL)reraiseExceptions {

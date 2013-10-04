@@ -10,14 +10,13 @@
 // constraining arguments
 
 + (id)any;
-+ (SEL)anySelector;
 + (void *)anyPointer;
 + (id)isNil;
 + (id)isNotNil;
 + (id)isNotEqual:(id)value;
 + (id)checkWithSelector:(SEL)selector onObject:(id)anObject;
 #if NS_BLOCKS_AVAILABLE
-+ (id)checkWithBlock:(BOOL (^)(id obj))block;
++ (id)checkWithBlock:(BOOL (^)(id))block;
 #endif
 
 // manipulating arguments

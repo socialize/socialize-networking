@@ -7,7 +7,6 @@
 #import <OCMock/OCMockRecorder.h>
 #import <OCMock/OCMArg.h>
 #import <OCMock/OCMConstraint.h>
-#import "OCClassMockObject.h"
 #import "OCMPassByRefSetter.h"
 #import "OCMReturnValueProvider.h"
 #import "OCMBoxedReturnValueProvider.h"
@@ -110,47 +109,15 @@
 }
 
 
-#pragma mark  Modifying the recorder
-
-- (id)classMethod
-{
-    recordedAsClassMethod = YES;
-    [signatureResolver setupClassForClassMethodMocking];
-    return self;
-}
-
-- (id)ignoringNonObjectArgs
-{
-    ignoreNonObjectArgs = YES;
-    return self;
-}
-
-
 #pragma mark  Recording the actual invocation
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-    if(recordedAsClassMethod)
-        return [[signatureResolver mockedClass] methodSignatureForSelector:aSelector];
-    
-    NSMethodSignature *signature = [signatureResolver methodSignatureForSelector:aSelector];
-    if(signature == nil)
-    {
-        // if we're a working with a class mock and there is a class method, auto-switch
-        if(([[signatureResolver class] isSubclassOfClass:[OCClassMockObject class]]) &&
-           ([[signatureResolver mockedClass] respondsToSelector:aSelector]))
-        {
-            [self classMethod];
-            signature = [self methodSignatureForSelector:aSelector];
-        }
-    }
-    return signature;
+	return [signatureResolver methodSignatureForSelector:aSelector];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
-    if(recordedAsClassMethod)
-        [signatureResolver setupForwarderForClassMethodSelector:[anInvocation selector]];
 	if(recordedInvocation != nil)
 		[NSException raise:NSInternalInconsistencyException format:@"Recorder received two methods to record."];
 	[anInvocation setTarget:nil];
@@ -169,25 +136,17 @@
 
 - (BOOL)matchesInvocation:(NSInvocation *)anInvocation
 {
-    id target = [anInvocation target];
-    BOOL isClassMethodInvocation = (target != nil) && (target == [target class]);
-    if(isClassMethodInvocation != recordedAsClassMethod)
-        return NO;
-    
+	id  recordedArg, passedArg;
+	int i, n;
+	
 	if([anInvocation selector] != [recordedInvocation selector])
 		return NO;
-
-    NSMethodSignature *signature = [recordedInvocation methodSignature];
-    int n = (int)[signature numberOfArguments];
-	for(int i = 2; i < n; i++)
+	
+	n = (int)[[recordedInvocation methodSignature] numberOfArguments];
+	for(i = 2; i < n; i++)
 	{
-        if(ignoreNonObjectArgs && strcmp([signature getArgumentTypeAtIndex:i], @encode(id)))
-        {
-            return YES;
-        }
-
-		id recordedArg = [recordedInvocation getArgumentAtIndexAsObject:i];
-		id passedArg = [anInvocation getArgumentAtIndexAsObject:i];
+		recordedArg = [recordedInvocation getArgumentAtIndexAsObject:i];
+		passedArg = [anInvocation getArgumentAtIndexAsObject:i];
 
 		if([recordedArg isProxy])
 		{
@@ -230,6 +189,8 @@
 	}
 	return YES;
 }
+
+
 
 
 @end
